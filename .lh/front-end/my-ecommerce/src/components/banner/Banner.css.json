@@ -1,0 +1,58 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/components/banner/Banner.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1654349862308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654350188620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,5 +36,15 @@\n .title{\r\n     font-weight: bold;\r\n     font-size: 30px;\r\n     margin-left:10px;\r\n+}\r\n+.btn-buy-now{\r\n+    display: flex;\r\n+    align-items: center;\r\n+    column-gap: 10px;\r\n+}\r\n+.buy-now{\r\n+    padding: 5px;\r\n+    border:1px solid #fff;\r\n+\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654350212328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,6 +45,7 @@\n }\r\n .buy-now{\r\n     padding: 5px;\r\n     border:1px solid #fff;\r\n+    border-radius: 6px;\r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654350282374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,6 +46,7 @@\n .buy-now{\r\n     padding: 5px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n+    margin-left: 10px;\r\n \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654350446176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,6 +47,9 @@\n     padding: 5px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n     margin-left: 10px;\r\n-\r\n+}\r\n+.buy-now:hover{\r\n+   background-color:deeppink;\r\n+   color: #000;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654350455658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n     align-items: center;\r\n     column-gap: 10px;\r\n }\r\n .buy-now{\r\n-    padding: 5px;\r\n+    padding: 4px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n     margin-left: 10px;\r\n }\r\n"
+                },
+                {
+                    "date": 1654350476347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,10 @@\n     align-items: center;\r\n     column-gap: 10px;\r\n }\r\n .buy-now{\r\n-    padding: 4px;\r\n+    padding-left: 5px;\r\n+    padding-right: 5px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n     margin-left: 10px;\r\n }\r\n"
+                },
+                {
+                    "date": 1654350486637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n     align-items: center;\r\n     column-gap: 10px;\r\n }\r\n .buy-now{\r\n+    padding: 10px;\r\n     padding-left: 5px;\r\n     padding-right: 5px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n"
+                },
+                {
+                    "date": 1654350494849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n     column-gap: 10px;\r\n }\r\n .buy-now{\r\n     padding: 10px;\r\n-    padding-left: 5px;\r\n-    padding-right: 5px;\r\n+    padding-left: 10px;\r\n+    padding-right: 10px;\r\n     border:1px solid #fff;\r\n     border-radius: 6px;\r\n     margin-left: 10px;\r\n }\r\n"
+                },
+                {
+                    "date": 1654350586298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n }\r\n .btn-buy-now{\r\n     display: flex;\r\n     align-items: center;\r\n-    column-gap: 10px;\r\n+    gap: 12px;\r\n }\r\n .buy-now{\r\n     padding: 10px;\r\n     padding-left: 10px;\r\n"
+                },
+                {
+                    "date": 1654350605953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .header{\r\n     display: flex;\r\n     align-items: center;\r\n     justify-content: center;\r\n-    column-gap: 10px;\r\n+    gap: 12px;\r\n     margin-bottom: 10px;\r\n     font-size: 20px;\r\n }\r\n \r\n"
+                }
+            ],
+            "date": 1654349862308,
+            "name": "Commit-0",
+            "content": ".header{\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    column-gap: 10px;\r\n    margin-bottom: 10px;\r\n    font-size: 20px;\r\n}\r\n\r\n.banner{\r\n    background-color: #fff;\r\n    height: 400px;\r\n    max-width: 800px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    border-radius: 12px;\r\n    position: relative;\r\n}\r\n.main-banner{\r\n    width:100%;\r\n    height:100%;\r\n}\r\n.imgae{\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    border-radius: 12px;\r\n}\r\n.title-banner{\r\n    position: absolute;\r\n    left: 5px;\r\n    bottom: 150px;\r\n    width: 100%;\r\n    color: #fff;\r\n}\r\n.title{\r\n    font-weight: bold;\r\n    font-size: 30px;\r\n    margin-left:10px;\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/Reducer/AppReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1654532391743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654532569899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,20 @@\n     case \"UPDATE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.map((product) =>\r\n-          products._id === action.payload._id\r\n-            ? { ...products, ...action.payload }\r\n+          product._id === action.payload._id\r\n+            ? { ...product, ...action.payload }\r\n             : product\r\n         ),\r\n       };\r\n+    case \"DELETE_ONE_PRODUCTS\":\r\n+      return {\r\n+        ...state,\r\n+        products: state.products.filter(\r\n+          (product) => product._id !== action.payload._id\r\n+        ),\r\n+      };\r\n+    default:\r\n+      return state;\r\n   }\r\n }\r\n"
+                }
+            ],
+            "date": 1654532391743,
+            "name": "Commit-0",
+            "content": "export default function reducer(state, action) {\r\n  switch (action.type) {\r\n    case \"CURRENT_USER\":\r\n      return { ...state, user: action.payload };\r\n    case \"GET_ALL_PRODUCTS\":\r\n      return { ...state, products: action.payload };\r\n    case \"CREATE_ONE_PRODUCTS\":\r\n      return { ...state, products: [...state.products, action.payload] };\r\n    case \"UPDATE_ONE_PRODUCTS\":\r\n      return {\r\n        ...state,\r\n        products: state.products.map((product) =>\r\n          products._id === action.payload._id\r\n            ? { ...products, ...action.payload }\r\n            : product\r\n        ),\r\n      };\r\n  }\r\n}\r\n"
+        }
+    ]
+}

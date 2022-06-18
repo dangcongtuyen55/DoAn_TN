@@ -1,0 +1,74 @@
+{
+    "sourceFile": "FE/my-app/src/Reducer/AppReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1654792217979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654792224785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,16 +11,8 @@\n       return { ...state, products: action.payload };\r\n     case \"CREATE_ONE_BANNER\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n \r\n-      return {\r\n-        ...state,\r\n-        products: state.products.map((product) =>\r\n-          product._id === action.payload._id\r\n-            ? { ...product, ...action.payload }\r\n-            : product\r\n-        ),\r\n-      };\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n"
+                },
+                {
+                    "date": 1654792558980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,12 @@\n       return { ...state, products: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n-    case \"GET_ALL_BANNER\":\r\n+    case \"GET_ALL_BANNERS\":\r\n       return { ...state, products: action.payload };\r\n     case \"CREATE_ONE_BANNER\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n-\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n"
+                },
+                {
+                    "date": 1654794395699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n     case \"GET_ALL_BANNERS\":\r\n       return { ...state, products: action.payload };\r\n-    case \"CREATE_ONE_BANNER\":\r\n-      return { ...state, products: [...state.products, action.payload] };\r\n+\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n"
+                },
+                {
+                    "date": 1654794661846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n     case \"GET_ALL_BANNERS\":\r\n       return { ...state, products: action.payload };\r\n-\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n"
+                },
+                {
+                    "date": 1654794928942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n     case \"GET_ALL_BANNERS\":\r\n-      return { ...state, products: action.payload };\r\n+      return { ...state, banners: action.payload };\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n"
+                },
+                {
+                    "date": 1654795884935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,17 +6,18 @@\n       return { ...state, products: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n-    case \"GET_ALL_BANNERS\":\r\n-      return { ...state, banners: action.payload };\r\n+      return { ...state, products: [...state.products, action.payload] };\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n           (product) => product._id !== action.payload._id\r\n         ),\r\n       };\r\n+    case \"GET_ALL_BANNERS\":\r\n+      return { ...state, banners: action.payload };\r\n     default:\r\n       return state;\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1654795903857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,18 +6,23 @@\n       return { ...state, products: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n-      return { ...state, products: [...state.products, action.payload] };\r\n+      return {\r\n+        ...state,\r\n+        products: state.products.map((product) =>\r\n+          product._id === action.payload._id\r\n+            ? { ...product, ...action.payload }\r\n+            : product\r\n+        ),\r\n+      };\r\n     case \"DELETE_ONE_PRODUCTS\":\r\n       return {\r\n         ...state,\r\n         products: state.products.filter(\r\n           (product) => product._id !== action.payload._id\r\n         ),\r\n       };\r\n-    case \"GET_ALL_BANNERS\":\r\n-      return { ...state, banners: action.payload };\r\n     default:\r\n       return state;\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1654795933187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,10 @@\n         products: state.products.filter(\r\n           (product) => product._id !== action.payload._id\r\n         ),\r\n       };\r\n+    case \"GET_ALL_BANNERS\":\r\n+      return { ...state, banners: action.payload };\r\n     default:\r\n       return state;\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1654854308735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n     case \"CURRENT_USER\":\r\n       return { ...state, user: action.payload };\r\n     case \"GET_ALL_PRODUCTS\":\r\n       return { ...state, products: action.payload };\r\n+    case \"GET_ALL_BANNERS\":\r\n+      return { ...state, banners: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n     case \"UPDATE_ONE_PRODUCTS\":\r\n       return {\r\n@@ -21,10 +23,9 @@\n         products: state.products.filter(\r\n           (product) => product._id !== action.payload._id\r\n         ),\r\n       };\r\n-    case \"GET_ALL_BANNERS\":\r\n-      return { ...state, banners: action.payload };\r\n+\r\n     default:\r\n       return state;\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1655014534239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n     case \"CURRENT_USER\":\r\n       return { ...state, user: action.payload };\r\n     case \"GET_ALL_PRODUCTS\":\r\n       return { ...state, products: action.payload };\r\n+    case \"GET_PRODUCT_DETAIL\":\r\n+      return { ...state, products: action.payload };\r\n     case \"GET_ALL_BANNERS\":\r\n       return { ...state, banners: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n"
+                },
+                {
+                    "date": 1655015888532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n       return { ...state, user: action.payload };\r\n     case \"GET_ALL_PRODUCTS\":\r\n       return { ...state, products: action.payload };\r\n     case \"GET_PRODUCT_DETAIL\":\r\n-      return { ...state, products: action.payload };\r\n+      return { ...state, product: action.payload };\r\n     case \"GET_ALL_BANNERS\":\r\n       return { ...state, banners: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n"
+                },
+                {
+                    "date": 1655015985587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,16 @@\n       return { ...state, user: action.payload };\r\n     case \"GET_ALL_PRODUCTS\":\r\n       return { ...state, products: action.payload };\r\n     case \"GET_PRODUCT_DETAIL\":\r\n-      return { ...state, product: action.payload };\r\n+      return {\r\n+        ...state,\r\n+        products: state.products.map((product) =>\r\n+          product._id === action.payload._id\r\n+            ? { ...product, ...action.payload }\r\n+            : product\r\n+        ),\r\n+      };\r\n     case \"GET_ALL_BANNERS\":\r\n       return { ...state, banners: action.payload };\r\n     case \"CREATE_ONE_PRODUCTS\":\r\n       return { ...state, products: [...state.products, action.payload] };\r\n"
+                },
+                {
+                    "date": 1655016018660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       return { ...state, products: action.payload };\r\n     case \"GET_PRODUCT_DETAIL\":\r\n       return {\r\n         ...state,\r\n-        products: state.products.map((product) =>\r\n+        product: state.product.map((product) =>\r\n           product._id === action.payload._id\r\n             ? { ...product, ...action.payload }\r\n             : product\r\n         ),\r\n"
+                },
+                {
+                    "date": 1655017440409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n       return { ...state, products: action.payload };\r\n     case \"GET_PRODUCT_DETAIL\":\r\n       return {\r\n         ...state,\r\n-        product: state.product.map((product) =>\r\n+        products: state.products.map((product) =>\r\n           product._id === action.payload._id\r\n             ? { ...product, ...action.payload }\r\n             : product\r\n         ),\r\n"
+                }
+            ],
+            "date": 1654792217979,
+            "name": "Commit-0",
+            "content": "export default function reducer(state, action) {\r\n  switch (action.type) {\r\n    case \"CURRENT_USER\":\r\n      return { ...state, user: action.payload };\r\n    case \"GET_ALL_PRODUCTS\":\r\n      return { ...state, products: action.payload };\r\n    case \"CREATE_ONE_PRODUCTS\":\r\n      return { ...state, products: [...state.products, action.payload] };\r\n    case \"UPDATE_ONE_PRODUCTS\":\r\n    case \"GET_ALL_BANNER\":\r\n      return { ...state, products: action.payload };\r\n    case \"CREATE_ONE_BANNER\":\r\n      return { ...state, products: [...state.products, action.payload] };\r\n\r\n      return {\r\n        ...state,\r\n        products: state.products.map((product) =>\r\n          product._id === action.payload._id\r\n            ? { ...product, ...action.payload }\r\n            : product\r\n        ),\r\n      };\r\n    case \"DELETE_ONE_PRODUCTS\":\r\n      return {\r\n        ...state,\r\n        products: state.products.filter(\r\n          (product) => product._id !== action.payload._id\r\n        ),\r\n      };\r\n    default:\r\n      return state;\r\n  }\r\n}\r\n"
+        }
+    ]
+}

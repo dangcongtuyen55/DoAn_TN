@@ -1,0 +1,122 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/components/Header/Header.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 26,
+            "patches": [
+                {
+                    "date": 1654574098453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654577695749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n       <span className=\"text-primary\">Home</span>\r\n       <span>Catagory</span>\r\n+      <span>Catagory</span>\r\n+      <span>Catagory</span>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654583270667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,20 @@\n import React from \"react\";\r\n+import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n-      <span className=\"text-primary\">Home</span>\r\n-      <span>Catagory</span>\r\n-      <span>Catagory</span>\r\n-      <span>Catagory</span>\r\n+      <Switch>\r\n+        <Route>\r\n+          <span className=\"text-primary\">Home</span>\r\n+        </Route>\r\n+        <Route>\r\n+          <span>Catagory</span>\r\n+        </Route>\r\n+        <span>SignIn</span>\r\n+        <span>SignUp</span>\r\n+      </Switch>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654583388730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,20 +2,22 @@\n import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n-      <Switch>\r\n-        <Route>\r\n-          <span className=\"text-primary\">Home</span>\r\n-        </Route>\r\n-        <Route>\r\n-          <span>Catagory</span>\r\n-        </Route>\r\n-        <span>SignIn</span>\r\n-        <span>SignUp</span>\r\n-      </Switch>\r\n-    </header>\r\n+    <Router>\r\n+      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n+        <Switch>\r\n+          <Route>\r\n+            <span className=\"text-primary\">Home</span>\r\n+          </Route>\r\n+          <Route>\r\n+            <span>Catagory</span>\r\n+          </Route>\r\n+          <span>SignIn</span>\r\n+          <span>SignUp</span>\r\n+        </Switch>\r\n+      </header>\r\n+    </Router>\r\n   );\r\n };\r\n \r\n export default Header;\r\n"
+                },
+                {
+                    "date": 1654583466832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n   return (\r\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n         <Switch>\r\n-          <Route>\r\n+          <Route exact path=\"/home\">\r\n             <span className=\"text-primary\">Home</span>\r\n           </Route>\r\n-          <Route>\r\n+          <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n           <span>SignIn</span>\r\n           <span>SignUp</span>\r\n"
+                },
+                {
+                    "date": 1654584042939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n+import { BrowserRouter, Router, Route, Switch } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n"
+                },
+                {
+                    "date": 1654584051368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n-import { BrowserRouter, Router, Route, Switch } from \"react-router-dom\";\r\n+import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n"
+                },
+                {
+                    "date": 1654584062941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from \"react\";\r\n-import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n+import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n+import { Switch } from \"reacr-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n"
+                },
+                {
+                    "date": 1654584072674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n-import { Switch } from \"reacr-router-dom\";\r\n+import { Switch } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n"
+                },
+                {
+                    "date": 1654584127572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,21 @@\n import React from \"react\";\r\n-import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n-import { Switch } from \"react-router-dom\";\r\n+import { BrowserRouter as Router, Route, Routes } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n-        <Switch>\r\n+        <Routes>\r\n           <Route exact path=\"/home\">\r\n             <span className=\"text-primary\">Home</span>\r\n           </Route>\r\n           <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n           <span>SignIn</span>\r\n           <span>SignUp</span>\r\n-        </Switch>\r\n+        </Routes>\r\n       </header>\r\n     </Router>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654584188402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,14 @@\n           </Route>\r\n           <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n-          <span>SignIn</span>\r\n-          <span>SignUp</span>\r\n+          <Route exact path=\"/signin\">\r\n+            <span>SignIn</span>\r\n+          </Route>\r\n+          <Route exact path=\"/signup\">\r\n+            <span>SignUp</span>\r\n+          </Route>\r\n         </Routes>\r\n       </header>\r\n     </Router>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654584255806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import React from \"react\";\r\n import { BrowserRouter as Router, Route, Routes } from \"react-router-dom\";\r\n+import SignInPage from \"../../pages/SignInPage\";\r\n+import SignUpPage from \"../../pages/SignUpPage\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n@@ -12,12 +14,12 @@\n           <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n           <Route exact path=\"/signin\">\r\n-            <span>SignIn</span>\r\n+            <SignInPage />\r\n           </Route>\r\n           <Route exact path=\"/signup\">\r\n-            <span>SignUp</span>\r\n+            <SignUpPage />\r\n           </Route>\r\n         </Routes>\r\n       </header>\r\n     </Router>\r\n"
+                },
+                {
+                    "date": 1654584293766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,19 @@\n import React from \"react\";\r\n import { BrowserRouter as Router, Route, Routes } from \"react-router-dom\";\r\n import SignInPage from \"../../pages/SignInPage\";\r\n import SignUpPage from \"../../pages/SignUpPage\";\r\n+import Home from \"../Home/Home\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n         <Routes>\r\n           <Route exact path=\"/home\">\r\n-            <span className=\"text-primary\">Home</span>\r\n+            <span className=\"text-primary\">\r\n+              <Home />\r\n+            </span>\r\n           </Route>\r\n           <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n"
+                },
+                {
+                    "date": 1654584463199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,22 +8,19 @@\n   return (\r\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n         <Routes>\r\n-          <Route exact path=\"/home\">\r\n-            <span className=\"text-primary\">\r\n-              <Home />\r\n-            </span>\r\n-          </Route>\r\n-          <Route exact path=\"/catagories\">\r\n+          <Route path=\"/\" element={<Home />} />\r\n+\r\n+          {/* <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n           <Route exact path=\"/signin\">\r\n             <SignInPage />\r\n           </Route>\r\n           <Route exact path=\"/signup\">\r\n             <SignUpPage />\r\n-          </Route>\r\n+          </Route> */}\r\n         </Routes>\r\n       </header>\r\n     </Router>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654584499402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n         <Routes>\r\n           <Route path=\"/\" element={<Home />} />\r\n+          <Route path=\"/\" element={<SignInPage />} />\r\n+          <Route path=\"/\" element={<SignUpPage />} />\r\n \r\n           {/* <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n"
+                },
+                {
+                    "date": 1654584509681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n     <Router>\r\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n         <Routes>\r\n           <Route path=\"/\" element={<Home />} />\r\n-          <Route path=\"/\" element={<SignInPage />} />\r\n-          <Route path=\"/\" element={<SignUpPage />} />\r\n+          <Route path=\"/sign-in\" element={<SignInPage />} />\r\n+          <Route path=\"/sign-up\" element={<SignUpPage />} />\r\n \r\n           {/* <Route exact path=\"/catagories\">\r\n             <span>Catagory</span>\r\n           </Route>\r\n"
+                },
+                {
+                    "date": 1654584569070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,31 +1,22 @@\n import React from \"react\";\r\n-import { BrowserRouter as Router, Route, Routes } from \"react-router-dom\";\r\n-import SignInPage from \"../../pages/SignInPage\";\r\n-import SignUpPage from \"../../pages/SignUpPage\";\r\n-import Home from \"../Home/Home\";\r\n+import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n+import { Route } from \"reacr-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n-    <Router>\r\n-      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n-        <Routes>\r\n-          <Route path=\"/\" element={<Home />} />\r\n-          <Route path=\"/sign-in\" element={<SignInPage />} />\r\n-          <Route path=\"/sign-up\" element={<SignUpPage />} />\r\n-\r\n-          {/* <Route exact path=\"/catagories\">\r\n-            <span>Catagory</span>\r\n-          </Route>\r\n-          <Route exact path=\"/signin\">\r\n-            <SignInPage />\r\n-          </Route>\r\n-          <Route exact path=\"/signup\">\r\n-            <SignUpPage />\r\n-          </Route> */}\r\n-        </Routes>\r\n-      </header>\r\n-    </Router>\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n+      <Switch>\r\n+        <Route>\r\n+          <span className=\"text-primary\">Home</span>\r\n+        </Route>\r\n+        <Route>\r\n+          <span>Catagory</span>\r\n+        </Route>\r\n+        <span>SignIn</span>\r\n+        <span>SignUp</span>\r\n+      </Switch>\r\n+    </header>\r\n   );\r\n };\r\n \r\n export default Header;\r\n"
+                },
+                {
+                    "date": 1654584581214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import React from \"react\";\r\n-import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\r\n-import { Route } from \"reacr-router-dom\";\r\n+import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n"
+                },
+                {
+                    "date": 1654584594725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,18 +3,14 @@\n \r\n const Header = () => {\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n-      <Switch>\r\n-        <Route>\r\n-          <span className=\"text-primary\">Home</span>\r\n-        </Route>\r\n-        <Route>\r\n-          <span>Catagory</span>\r\n-        </Route>\r\n-        <span>SignIn</span>\r\n-        <span>SignUp</span>\r\n-      </Switch>\r\n+      <span className=\"text-primary\">Home</span>\r\n+\r\n+      <span>Catagory</span>\r\n+\r\n+      <span>SignIn</span>\r\n+      <span>SignUp</span>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654585308350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,11 @@\n import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n \r\n const Header = () => {\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n       <span className=\"text-primary\">Home</span>\r\n-\r\n       <span>Catagory</span>\r\n-\r\n       <span>SignIn</span>\r\n       <span>SignUp</span>\r\n     </header>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654675555043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,18 @@\n-import React from \"react\";\r\n-import { BrowserRouter as Router, Route } from \"react-router-dom\";\r\n+import React, { useContext } from \"react\";\r\n+import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n+import AppContext from \"../AppContext/AppContext\";\r\n \r\n const Header = () => {\r\n+  const { state, dispatch } = useContext(AppContext);\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n-      <span className=\"text-primary\">Home</span>\r\n-      <span>Catagory</span>\r\n-      <span>SignIn</span>\r\n-      <span>SignUp</span>\r\n+      <Link to={\"/\"}>\r\n+        <span className=\"text-primary\">Home</span>\r\n+      </Link>\r\n+      <Link to={\"/catagories\"}>Catagory</Link>\r\n+      <Link to={\"/sign-in\"}>SignIn</Link>\r\n+      <Link to={\"/sign-up\"}>SignUp</Link>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654675791348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,15 @@\n import AppContext from \"../AppContext/AppContext\";\r\n \r\n const Header = () => {\r\n   const { state, dispatch } = useContext(AppContext);\r\n+  const { user } = state;\r\n+  const signOut = () => {\r\n+    localStorage.removeItem(\"token\");\r\n+    //reset user = null\r\n+    dispatch({ type: \"CURRENT_USER\", payload: nul });\r\n+  };\r\n+\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n"
+                },
+                {
+                    "date": 1654676018821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,19 +7,23 @@\n   const { user } = state;\r\n   const signOut = () => {\r\n     localStorage.removeItem(\"token\");\r\n     //reset user = null\r\n-    dispatch({ type: \"CURRENT_USER\", payload: nul });\r\n+    dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   };\r\n \r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n-      <Link to={\"/sign-in\"}>SignIn</Link>\r\n-      <Link to={\"/sign-up\"}>SignUp</Link>\r\n+      {user ?(\r\n+       <>\r\n+        <span>Xin chào, {user.name}</span>\r\n+        <Link to={\"/sign-in\"} onClick={()=>signOut()}>SignIn</Link>\r\n+       </>\r\n+      )}\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654676046101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,20 @@\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n-      {user ?(\r\n-       <>\r\n-        <span>Xin chào, {user.name}</span>\r\n-        <Link to={\"/sign-in\"} onClick={()=>signOut()}>SignIn</Link>\r\n-       </>\r\n+      {user ? (\r\n+        <>\r\n+          <span>Xin chào, {user.name}</span>\r\n+          <Link to={\"/sign-in\"} onClick={() => signOut()}>\r\n+            SignIn\r\n+          </Link>\r\n+        </>\r\n+      ) : (\r\n+        <>\r\n+          <Link to={\"/sign-in\"}>SignIn</Link>\r\n+          <Link to={\"/sign-up\"}>SignUp</Link>\r\n+        </>\r\n       )}\r\n     </header>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654676331232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       {user ? (\r\n         <>\r\n           <span>Xin chào, {user.name}</span>\r\n           <Link to={\"/sign-in\"} onClick={() => signOut()}>\r\n-            SignIn\r\n+            Signout\r\n           </Link>\r\n         </>\r\n       ) : (\r\n         <>\r\n"
+                },
+                {
+                    "date": 1654676615086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,21 +16,25 @@\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n-      {user ? (\r\n-        <>\r\n-          <span>Xin chào, {user.name}</span>\r\n-          <Link to={\"/sign-in\"} onClick={() => signOut()}>\r\n-            Signout\r\n-          </Link>\r\n-        </>\r\n-      ) : (\r\n-        <>\r\n-          <Link to={\"/sign-in\"}>SignIn</Link>\r\n-          <Link to={\"/sign-up\"}>SignUp</Link>\r\n-        </>\r\n-      )}\r\n+      <div className=\"bg-white text-black\">\r\n+        {user ? (\r\n+          <>\r\n+            <li>\r\n+              <span>Xin chào, {user.name}</span>\r\n+            </li>\r\n+            <li onClick={() => signOut()}>\r\n+              <span>signout</span>\r\n+            </li>\r\n+          </>\r\n+        ) : (\r\n+          <>\r\n+            <Link to={\"/sign-in\"}>SignIn</Link>\r\n+            <Link to={\"/sign-up\"}>SignUp</Link>\r\n+          </>\r\n+        )}\r\n+      </div>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654676624612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,12 @@\n             </li>\r\n           </>\r\n         ) : (\r\n           <>\r\n-            <Link to={\"/sign-in\"}>SignIn</Link>\r\n-            <Link to={\"/sign-up\"}>SignUp</Link>\r\n+            <li>\r\n+              <Link to={\"/sign-in\"}>SignIn</Link>\r\n+              <Link to={\"/sign-up\"}>SignUp</Link>\r\n+            </li>\r\n           </>\r\n         )}\r\n       </div>\r\n     </header>\r\n"
+                }
+            ],
+            "date": 1654574098453,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nconst Header = () => {\r\n  return (\r\n    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\r\n      <span className=\"text-primary\">Home</span>\r\n      <span>Catagory</span>\r\n    </header>\r\n  );\r\n};\r\n\r\nexport default Header;\r\n"
+        }
+    ]
+}

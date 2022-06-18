@@ -1,0 +1,50 @@
+{
+    "sourceFile": "back-end/src/app/middlewares/error.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1653837566110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653837742062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const ErrorHandler = require(\"util/ErrorHandler\");\r\n+const ErrorHandler = require(\"utils/ErrorHandler\");\r\n \r\n module.exports = (err, res, req, next) => {\r\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n"
+                },
+                {
+                    "date": 1653837754012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const ErrorHandler = require(\"utils/ErrorHandler\");\r\n+const ErrorHandler = require(\"utils/errorHandler\");\r\n \r\n module.exports = (err, res, req, next) => {\r\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n"
+                },
+                {
+                    "date": 1653837782416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const ErrorHandler = require(\"utils/errorHandler\");\r\n+const ErrorHandler = require(\"../../utils/errorHandler\");\r\n \r\n module.exports = (err, res, req, next) => {\r\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n"
+                },
+                {
+                    "date": 1653838344653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const ErrorHandler = require(\"../../utils/errorHandler\");\r\n \r\n-module.exports = (err, res, req, next) => {\r\n+module.exports = (err, req, res, next) => {\r\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n \r\n   res.statusCode(err.statusCode).json({\r\n"
+                },
+                {
+                    "date": 1653838983387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n module.exports = (err, req, res, next) => {\r\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n \r\n-  res.statusCode(err.statusCode).json({\r\n+  res.status(err.statusCode).json({\r\n     success: true,\r\n     error: err,\r\n   });\r\n };\r\n"
+                },
+                {
+                    "date": 1653839060338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,7 @@\n   err.message = err.message || \"Internal Server Error!\";\r\n \r\n   res.status(err.statusCode).json({\r\n     success: true,\r\n-    error: err,\r\n+    message: err.message,\r\n   });\r\n };\r\n"
+                },
+                {
+                    "date": 1654226036125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n   err.statusCode = err.statusCode || 500;\r\n   err.message = err.message || \"Internal Server Error!\";\r\n \r\n   res.status(err.statusCode).json({\r\n-    success: true,\r\n+    success: false,\r\n     message: err.message,\r\n   });\r\n };\r\n"
+                },
+                {
+                    "date": 1654618544085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n-const ErrorHandler = require(\"../../utils/errorHandler\");\r\n+// const ErrorHandler = require(\"../../utils/errorHandler\");\r\n \r\n-module.exports = (err, req, res, next) => {\r\n-  err.statusCode = err.statusCode || 500;\r\n-  err.message = err.message || \"Internal Server Error!\";\r\n+// module.exports = (err, req, res, next) => {\r\n+//   err.statusCode = err.statusCode || 500;\r\n+//   err.message = err.message || \"Internal Server Error!\";\r\n \r\n-  res.status(err.statusCode).json({\r\n-    success: false,\r\n-    message: err.message,\r\n-  });\r\n-};\r\n+//   res.status(err.statusCode).json({\r\n+//     success: false,\r\n+//     message: err.message,\r\n+//   });\r\n+// };\r\n"
+                }
+            ],
+            "date": 1653837566110,
+            "name": "Commit-0",
+            "content": "const ErrorHandler = require(\"util/ErrorHandler\");\r\n\r\nmodule.exports = (err, res, req, next) => {\r\n  err.statusCode = err.statusCode || 500;\r\n  err.message = err.message || \"Internal Server Error!\";\r\n\r\n  res.statusCode(err.statusCode).json({\r\n    success: true,\r\n    error: err,\r\n  });\r\n};\r\n"
+        }
+    ]
+}

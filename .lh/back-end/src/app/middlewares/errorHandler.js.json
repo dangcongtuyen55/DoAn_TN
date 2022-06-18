@@ -1,0 +1,30 @@
+{
+    "sourceFile": "back-end/src/app/middlewares/errorHandler.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1651939309617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651943412084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,14 @@\n       err.message = `${p} already exist`;\r\n     }\r\n   }\r\n \r\n-  //    //ObjectID: Not found\r\n+  //ObjectID: Not found\r\n \r\n-  //    if(err.kind === 'ObjectID'){\r\n-  //        err.statusCode = 404;\r\n-  //        err.message =`The ${req.originalUrl} is not found because of wrong ID`\r\n-  //    }\r\n+  if (err.kind === \"ObjectID\") {\r\n+    err.statusCode = 404;\r\n+    err.message = `The ${req.originalUrl} is not found because of wrong ID`;\r\n+  }\r\n \r\n   //    //Validation\r\n \r\n   //    if(err.errors){\r\n"
+                },
+                {
+                    "date": 1651943429364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,17 @@\n     err.statusCode = 404;\r\n     err.message = `The ${req.originalUrl} is not found because of wrong ID`;\r\n   }\r\n \r\n-  //    //Validation\r\n+  //Validation\r\n \r\n-  //    if(err.errors){\r\n-  //        err.statusCode = 400;\r\n-  //        err.message = []\r\n-  //        for(let p in err.errors){\r\n-  //            err.message.push(err.errors[p].properties.message);\r\n-  //        }\r\n-  //    }\r\n+  if (err.errors) {\r\n+    err.statusCode = 400;\r\n+    err.message = [];\r\n+    for (let p in err.errors) {\r\n+      err.message.push(err.errors[p].properties.message);\r\n+    }\r\n+  }\r\n \r\n   err.statusCode = err.statusCode || 500;\r\n   res.status(err.statusCode).json({\r\n     status: \"fail\",\r\n"
+                },
+                {
+                    "date": 1651943497532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   }\r\n \r\n   //ObjectID: Not found\r\n \r\n-  if (err.kind === \"ObjectID\") {\r\n+  if (err.kind === \"ObjectId\") {\r\n     err.statusCode = 404;\r\n     err.message = `The ${req.originalUrl} is not found because of wrong ID`;\r\n   }\r\n \r\n"
+                }
+            ],
+            "date": 1651939309617,
+            "name": "Commit-0",
+            "content": "exports.errorHandler = (err, req, res, next) => {\r\n  //Duplication\r\n\r\n  if (err.code === 11000) {\r\n    err.statusCode = 400;\r\n    for (let p in err.keyValue) {\r\n      err.message = `${p} already exist`;\r\n    }\r\n  }\r\n\r\n  //    //ObjectID: Not found\r\n\r\n  //    if(err.kind === 'ObjectID'){\r\n  //        err.statusCode = 404;\r\n  //        err.message =`The ${req.originalUrl} is not found because of wrong ID`\r\n  //    }\r\n\r\n  //    //Validation\r\n\r\n  //    if(err.errors){\r\n  //        err.statusCode = 400;\r\n  //        err.message = []\r\n  //        for(let p in err.errors){\r\n  //            err.message.push(err.errors[p].properties.message);\r\n  //        }\r\n  //    }\r\n\r\n  err.statusCode = err.statusCode || 500;\r\n  res.status(err.statusCode).json({\r\n    status: \"fail\",\r\n    message: err.message,\r\n  });\r\n};\r\n"
+        }
+    ]
+}

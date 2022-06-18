@@ -1,0 +1,78 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/store.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1655039675223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655040014188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,9 @@\n import { createStore, combinReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n+import { composeWithDevTools } from \"redux-devtools-extension\";\r\n+\r\n+const reducer = combinReducers({});\r\n+\r\n+const initialState = {};\r\n+\r\n+const middleware = [thunk];\r\n"
+                },
+                {
+                    "date": 1655040120200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,4 +6,10 @@\n \r\n const initialState = {};\r\n \r\n const middleware = [thunk];\r\n+\r\n+const store = createStore(\r\n+  reducer,\r\n+  initialState,\r\n+  composeWithDevTools(applyMiddleware(...middleware))\r\n+);\r\n"
+                },
+                {
+                    "date": 1655040159811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,4 +12,6 @@\n   reducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n );\r\n+\r\n+export default store;\r\n"
+                },
+                {
+                    "date": 1655042794982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import { createStore, combinReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n+import { productListReducer } from \"./Reducers/ProductReducer\";\r\n \r\n-const reducer = combinReducers({});\r\n+const reducer = combinReducers({\r\n+  productlist: productListReducer,\r\n+});\r\n \r\n const initialState = {};\r\n \r\n const middleware = [thunk];\r\n"
+                },
+                {
+                    "date": 1655044149371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import { productListReducer } from \"./Reducers/ProductReducer\";\r\n \r\n-const reducer = combinReducers({\r\n+const reducer = combineReducers({\r\n   productlist: productListReducer,\r\n });\r\n \r\n const initialState = {};\r\n"
+                },
+                {
+                    "date": 1655044150539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { createStore, combinReducers, applyMiddleware } from \"redux\";\r\n+import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import { productListReducer } from \"./Reducers/ProductReducer\";\r\n \r\n"
+                },
+                {
+                    "date": 1655049932752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import { productListReducer } from \"./Reducers/ProductReducer\";\r\n \r\n const reducer = combineReducers({\r\n-  productlist: productListReducer,\r\n+  productList: productListReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655101372717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,15 @@\n import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n-import { productListReducer } from \"./Reducers/ProductReducer\";\r\n+import {\r\n+  productDetailReducer,\r\n+  productListReducer,\r\n+} from \"./Reducers/ProductReducer\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n+  productDetail: productDetailReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655138169405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n } from \"./Reducers/ProductReducer\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n-  productDetail: productDetailReducer,\r\n+  productDetails: productDetailReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655185711623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,15 @@\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import {\r\n   productDetailReducer,\r\n   productListReducer,\r\n+  bannerListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n+  bannerList: bannerListReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655185830897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,15 +3,15 @@\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import {\r\n   productDetailReducer,\r\n   productListReducer,\r\n-  bannerListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n+import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n-  bannerList: bannerListReducer,\r\n+  listBanner: bannerListReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655186413107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n-  listBanner: bannerListReducer,\r\n+  bannerlist: bannerListReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655186424170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n-  bannerlist: bannerListReducer,\r\n+  bannerList: bannerListReducer,\r\n });\r\n \r\n const initialState = {};\r\n \r\n"
+                },
+                {
+                    "date": 1655186684185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import {\r\n+import { bannerListReducer } from './Reducers/BannerReducer';\r\n   productDetailReducer,\r\n   productListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n-import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n \r\n+\r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n   bannerList: bannerListReducer,\r\n"
+                },
+                {
+                    "date": 1655186709061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,13 @@\n import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import {\r\n-import { bannerListReducer } from './Reducers/BannerReducer';\r\n   productDetailReducer,\r\n   productListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n+import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n \r\n-\r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n   bannerList: bannerListReducer,\r\n"
+                }
+            ],
+            "date": 1655039675223,
+            "name": "Commit-0",
+            "content": "import { createStore, combinReducers, applyMiddleware } from \"redux\";\r\nimport thunk from \"redux-thunk\";\r\n"
+        }
+    ]
+}

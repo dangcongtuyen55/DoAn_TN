@@ -1,0 +1,62 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/components/Banner/Banner.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1654349615451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654349901123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from \"react\";\r\n+import \"./Banner.css\";\r\n \r\n export default function Banner() {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1654349995122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,11 @@\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n           </div>\r\n+          <div className=\"btn-buy-now\">\r\n+            <span className=\"buy-now\">Mua ngay</span>\r\n+          </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654350258063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,12 @@\n           <div className=\"title-banner\">\r\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n+            <div className=\"btn-buy-now\">\r\n+              <span className=\"buy-now\">Mua ngay</span>\r\n+            </div>\r\n           </div>\r\n-          <div className=\"btn-buy-now\">\r\n-            <span className=\"buy-now\">Mua ngay</span>\r\n-          </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654350514697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,14 @@\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n               <span className=\"buy-now\">Mua ngay</span>\r\n             </div>\r\n+            <div className=\"btn-buy-now\">\r\n+              <span className=\"buy-now\">Mua ngay</span>\r\n+            </div>\r\n+            <div className=\"btn-buy-now\">\r\n+              <span className=\"buy-now\">Mua ngay</span>\r\n+            </div>\r\n           </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1654350522604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,14 +21,8 @@\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n               <span className=\"buy-now\">Mua ngay</span>\r\n             </div>\r\n-            <div className=\"btn-buy-now\">\r\n-              <span className=\"buy-now\">Mua ngay</span>\r\n-            </div>\r\n-            <div className=\"btn-buy-now\">\r\n-              <span className=\"buy-now\">Mua ngay</span>\r\n-            </div>\r\n           </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1654350593581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,14 @@\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n               <span className=\"buy-now\">Mua ngay</span>\r\n             </div>\r\n+            <div className=\"btn-buy-now\">\r\n+              <span className=\"buy-now\">Mua ngay</span>\r\n+            </div>\r\n+            <div className=\"btn-buy-now\">\r\n+              <span className=\"buy-now\">Mua ngay</span>\r\n+            </div>\r\n           </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1654357260710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,21 +14,15 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n             alt=\"\"\r\n             className=\"imgae\"\r\n           />\r\n-          <div className=\"title-banner\">\r\n+          <div className=\"\">\r\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n               <span className=\"buy-now\">Mua ngay</span>\r\n             </div>\r\n-            <div className=\"btn-buy-now\">\r\n-              <span className=\"buy-now\">Mua ngay</span>\r\n-            </div>\r\n-            <div className=\"btn-buy-now\">\r\n-              <span className=\"buy-now\">Mua ngay</span>\r\n-            </div>\r\n           </div>\r\n         </div>\r\n       </section>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1654357379873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n             alt=\"\"\r\n             className=\"imgae\"\r\n           />\r\n-          <div className=\"\">\r\n+          <div className=\"title-banner\">\r\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n"
+                },
+                {
+                    "date": 1654358183162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n             alt=\"\"\r\n             className=\"imgae\"\r\n           />\r\n-          <div className=\"title-banner\">\r\n+          <div className=\"title-banner \">\r\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n"
+                },
+                {
+                    "date": 1654361019269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n             alt=\"\"\r\n             className=\"imgae\"\r\n           />\r\n-          <div className=\"title-banner \">\r\n+          <div className=\"title-banner gap\">\r\n             <h2 className=\"title\">\r\n               A book is a gift you can open again and again\r\n             </h2>\r\n             <div className=\"btn-buy-now\">\r\n"
+                },
+                {
+                    "date": 1654574203300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +1,26 @@\n import React from \"react\";\r\n-import \"./Banner.css\";\r\n \r\n-export default function Banner() {\r\n+const Banner = () => {\r\n   return (\r\n-    <div>\r\n-      <header className=\"header\">\r\n-        <span>Home</span>\r\n-        <span>Catagory</span>\r\n-      </header>\r\n-      <section className=\"banner\">\r\n-        <div className=\"main-banner\">\r\n-          <img\r\n-            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n-            alt=\"\"\r\n-            className=\"imgae\"\r\n-          />\r\n-          <div className=\"title-banner gap\">\r\n-            <h2 className=\"title\">\r\n-              A book is a gift you can open again and again\r\n-            </h2>\r\n-            <div className=\"btn-buy-now\">\r\n-              <span className=\"buy-now\">Mua ngay</span>\r\n-            </div>\r\n-          </div>\r\n+    <section className=\"banner h-[500px] page-container mb-10\">\r\n+      <div className=\"w-full h-full rounded-lg relative\">\r\n+        <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\r\n+        <img\r\n+          src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n+          alt=\"\"\r\n+          className=\"w-full h-full object-cover rounded-lg\"\r\n+        />\r\n+        <div className=\"absolute left-5 bottom-20 w-full text-white\">\r\n+          <h2 className=\"font-bold text-3xl mb-3\">\r\n+            A book is a gift you can open again and again\r\n+          </h2>\r\n+          <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\r\n+            Mua Ngay{\" \"}\r\n+          </button>\r\n         </div>\r\n-      </section>\r\n-    </div>\r\n+      </div>\r\n+    </section>\r\n   );\r\n-}\r\n+};\r\n+\r\n+export default Banner;\r\n"
+                }
+            ],
+            "date": 1654349615451,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nexport default function Banner() {\r\n  return (\r\n    <div>\r\n      <header className=\"header\">\r\n        <span>Home</span>\r\n        <span>Catagory</span>\r\n      </header>\r\n      <section className=\"banner\">\r\n        <div className=\"main-banner\">\r\n          <img\r\n            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\r\n            alt=\"\"\r\n            className=\"imgae\"\r\n          />\r\n          <div className=\"title-banner\">\r\n            <h2 className=\"title\">\r\n              A book is a gift you can open again and again\r\n            </h2>\r\n          </div>\r\n        </div>\r\n      </section>\r\n    </div>\r\n  );\r\n}\r\n"
+        }
+    ]
+}

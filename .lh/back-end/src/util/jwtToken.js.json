@@ -1,0 +1,54 @@
+{
+    "sourceFile": "back-end/src/util/jwtToken.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1653723993799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653724010678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n   //option for cookie\r\n \r\n   const options = {\r\n     expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n+    httpOnly: true,\r\n   };\r\n };\r\n"
+                },
+                {
+                    "date": 1653724027721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,6 @@\n   const options = {\r\n     expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n     httpOnly: true,\r\n   };\r\n+  res.status(statusCode);\r\n };\r\n"
+                },
+                {
+                    "date": 1653724076232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n   const options = {\r\n     expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n     httpOnly: true,\r\n   };\r\n-  res.status(statusCode);\r\n+  res.status(statusCode).cookie(\"token\", token);\r\n };\r\n"
+                },
+                {
+                    "date": 1653724088562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n   const options = {\r\n     expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n     httpOnly: true,\r\n   };\r\n-  res.status(statusCode).cookie(\"token\", token);\r\n+  res.status(statusCode).cookie(\"token\", token, options);\r\n };\r\n"
+                },
+                {
+                    "date": 1653724130288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,10 @@\n   const options = {\r\n     expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n     httpOnly: true,\r\n   };\r\n-  res.status(statusCode).cookie(\"token\", token, options);\r\n+  res.status(statusCode).cookie(\"token\", token, options).json({\r\n+    success: true,\r\n+    user,\r\n+    token,\r\n+  });\r\n };\r\n"
+                },
+                {
+                    "date": 1653724160593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,4 +12,6 @@\n     user,\r\n     token,\r\n   });\r\n };\r\n+\r\n+module.exports = sendToken;\r\n"
+                },
+                {
+                    "date": 1653724190104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+// Create token and saving token\r\n+\r\n const sendToken = (user, statusCode, res) => {\r\n   const token = user.getJWTToken();\r\n \r\n   //option for cookie\r\n"
+                },
+                {
+                    "date": 1653724248967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-// Create token and saving token\r\n+// Create token and saving in cookie\r\n \r\n const sendToken = (user, statusCode, res) => {\r\n   const token = user.getJWTToken();\r\n \r\n"
+                },
+                {
+                    "date": 1653724643951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n \r\n   //option for cookie\r\n \r\n   const options = {\r\n-    expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n+    expires: new Date(\r\n+      Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000\r\n+    ),\r\n     httpOnly: true,\r\n   };\r\n   res.status(statusCode).cookie(\"token\", token, options).json({\r\n     success: true,\r\n"
+                }
+            ],
+            "date": 1653723993799,
+            "name": "Commit-0",
+            "content": "const sendToken = (user, statusCode, res) => {\r\n  const token = user.getJWTToken();\r\n\r\n  //option for cookie\r\n\r\n  const options = {\r\n    expires: new Date(Date.now() + process.COOKIE_EXPIRE * 24 * 60 * 60 * 1000),\r\n  };\r\n};\r\n"
+        }
+    ]
+}

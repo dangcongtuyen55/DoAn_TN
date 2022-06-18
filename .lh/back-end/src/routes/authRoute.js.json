@@ -1,0 +1,42 @@
+{
+    "sourceFile": "back-end/src/routes/authRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1651851969400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654066119635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n+Router.route(\"/logout\").post(logout);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654066131828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,10 @@\n const express = require(\"express\");\r\n-const { login, register } = require(\"../app/controllers/authController\");\r\n+const {\r\n+  login,\r\n+  register,\r\n+  logout,\r\n+} = require(\"../app/controllers/authController\");\r\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n"
+                },
+                {
+                    "date": 1654066146388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n-Router.route(\"/logout\").post(logout);\r\n+Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654617500202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n-Router.route(\"/logout\").get(logout);\r\n+// Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654618544083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n const express = require(\"express\");\r\n const {\r\n   login,\r\n   register,\r\n-  logout,\r\n+  // logout,\r\n } = require(\"../app/controllers/authController\");\r\n \r\n const Router = express.Router();\r\n \r\n"
+                },
+                {
+                    "date": 1654681059915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n const express = require(\"express\");\r\n const {\r\n   login,\r\n   register,\r\n+  getCurrentUser,\r\n   // logout,\r\n } = require(\"../app/controllers/authController\");\r\n+const { checkCurrentUser } = require(\"../app/middlewares/checkCurrentUser\");\r\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n+Router.route(\"/\").get(checkCurrentUser, getCurrentUser);\r\n // Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
+                }
+            ],
+            "date": 1651851969400,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst { login, register } = require(\"../app/controllers/authController\");\r\n\r\nconst Router = express.Router();\r\n\r\nRouter.route(\"/register\").post(register);\r\nRouter.route(\"/login\").post(login);\r\n\r\nmodule.exports = Router;\r\n"
+        }
+    ]
+}

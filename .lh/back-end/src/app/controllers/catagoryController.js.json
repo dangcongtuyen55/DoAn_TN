@@ -1,0 +1,62 @@
+{
+    "sourceFile": "back-end/src/app/controllers/catagoryController.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1651850354906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651850420409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n   } catch (error) {\r\n     res.json(error);\r\n   }\r\n };\r\n-exports.createProduct = async (req, res, next) => {\r\n+exports.createCatagory = async (req, res, next) => {\r\n   try {\r\n     const { userId } = req.user;\r\n     const catagories = await catagoriesModel.create({\r\n       ...req.body,\r\n@@ -32,9 +32,9 @@\n     res.json(error);\r\n   }\r\n };\r\n \r\n-exports.updateProduct = async (req, res, next) => {\r\n+exports.updateCatagory = async (req, res, next) => {\r\n   try {\r\n     const { catagoryId } = req.params;\r\n     const catagories = await catagoriesModel.findByIdAndUpdate(\r\n       catagoryId,\r\n@@ -51,15 +51,15 @@\n   } catch (error) {\r\n     res.json(error);\r\n   }\r\n };\r\n-exports.deleteProduct = async (req, res, next) => {\r\n+exports.deleteCatagory = async (req, res, next) => {\r\n   try {\r\n     const { catagoryId } = req.params;\r\n     await catagoriesModel.findByIdAndDelete(catagoryId);\r\n     res.status(200).json({\r\n       status: \"success\",\r\n-      message: \"Product deleted successfully\",\r\n+      message: \"Catagory deleted successfully\",\r\n     });\r\n   } catch (error) {\r\n     res.json(error);\r\n   }\r\n"
+                },
+                {
+                    "date": 1651851977185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const catagoriesModel = require(\"../models/catagoriesModel\");\r\n+const catagoriesModel = require(\"../models/Catagory\");\r\n \r\n exports.getAllCatagories = async (req, res, next) => {\r\n   try {\r\n     const { userId } = req.user;\r\n"
+                },
+                {
+                    "date": 1651855252788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n const catagoriesModel = require(\"../models/Catagory\");\r\n+const slugify = require(\"slugify\");\r\n \r\n exports.getAllCatagories = async (req, res, next) => {\r\n   try {\r\n     const { userId } = req.user;\r\n"
+                },
+                {
+                    "date": 1651855482875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n     const { userId } = req.user;\r\n     const catagories = await catagoriesModel.create({\r\n       ...req.body,\r\n       author: userId,\r\n+      slug: slugify(req.body.name),\r\n     });\r\n     res.status(200).json({\r\n       status: \"success\",\r\n       results: catagories.length,\r\n"
+                },
+                {
+                    "date": 1651856837616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,10 @@\n     const { userId } = req.user;\r\n     const catagories = await catagoriesModel.find().populate(\"author\");\r\n     res.status(200).json({\r\n       status: \"success\",\r\n+      results: catagories.length,\r\n+\r\n       data: {\r\n         catagories,\r\n       },\r\n     });\r\n"
+                },
+                {
+                    "date": 1651856938778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n     const catagories = await catagoriesModel.find().populate(\"author\");\r\n     res.status(200).json({\r\n       status: \"success\",\r\n       results: catagories.length,\r\n-\r\n       data: {\r\n         catagories,\r\n       },\r\n     });\r\n"
+                },
+                {
+                    "date": 1651856994418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n const slugify = require(\"slugify\");\r\n \r\n exports.getAllCatagories = async (req, res, next) => {\r\n   try {\r\n-    const { userId } = req.user;\r\n     const catagories = await catagoriesModel.find().populate(\"author\");\r\n     res.status(200).json({\r\n       status: \"success\",\r\n       results: catagories.length,\r\n"
+                },
+                {
+                    "date": 1651857029278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n-const catagoriesModel = require(\"../models/Catagory\");\r\n+const Catagory = require(\"../models/Catagory\");\r\n const slugify = require(\"slugify\");\r\n \r\n exports.getAllCatagories = async (req, res, next) => {\r\n   try {\r\n-    const catagories = await catagoriesModel.find().populate(\"author\");\r\n+    const catagories = await Catagory.find().populate(\"author\");\r\n     res.status(200).json({\r\n       status: \"success\",\r\n       results: catagories.length,\r\n       data: {\r\n@@ -17,9 +17,9 @@\n };\r\n exports.createCatagory = async (req, res, next) => {\r\n   try {\r\n     const { userId } = req.user;\r\n-    const catagories = await catagoriesModel.create({\r\n+    const catagories = await Catagory.create({\r\n       ...req.body,\r\n       author: userId,\r\n       slug: slugify(req.body.name),\r\n     });\r\n@@ -37,9 +37,9 @@\n \r\n exports.updateCatagory = async (req, res, next) => {\r\n   try {\r\n     const { catagoryId } = req.params;\r\n-    const catagories = await catagoriesModel.findByIdAndUpdate(\r\n+    const catagories = await Catagory.findByIdAndUpdate(\r\n       catagoryId,\r\n       { ...req.body },\r\n       { new: true },\r\n       { runValidator: true }\r\n@@ -56,9 +56,9 @@\n };\r\n exports.deleteCatagory = async (req, res, next) => {\r\n   try {\r\n     const { catagoryId } = req.params;\r\n-    await catagoriesModel.findByIdAndDelete(catagoryId);\r\n+    await Catagory.findByIdAndDelete(catagoryId);\r\n     res.status(200).json({\r\n       status: \"success\",\r\n       message: \"Catagory deleted successfully\",\r\n     });\r\n"
+                },
+                {
+                    "date": 1651858068370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,8 @@\n       slug: slugify(req.body.name),\r\n     });\r\n     res.status(200).json({\r\n       status: \"success\",\r\n-      results: catagories.length,\r\n       data: {\r\n         catagories,\r\n       },\r\n     });\r\n"
+                },
+                {
+                    "date": 1651943305068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n         catagories,\r\n       },\r\n     });\r\n   } catch (error) {\r\n-    res.json(error);\r\n+    next(error);\r\n   }\r\n };\r\n exports.deleteCatagory = async (req, res, next) => {\r\n   try {\r\n@@ -61,7 +61,7 @@\n       status: \"success\",\r\n       message: \"Catagory deleted successfully\",\r\n     });\r\n   } catch (error) {\r\n-    res.json(error);\r\n+    next(error);\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1651943727433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         catagories,\r\n       },\r\n     });\r\n   } catch (error) {\r\n-    res.json(error);\r\n+    next(error);\r\n   }\r\n };\r\n \r\n exports.updateCatagory = async (req, res, next) => {\r\n"
+                }
+            ],
+            "date": 1651850354906,
+            "name": "Commit-0",
+            "content": "const catagoriesModel = require(\"../models/catagoriesModel\");\r\n\r\nexports.getAllCatagories = async (req, res, next) => {\r\n  try {\r\n    const { userId } = req.user;\r\n    const catagories = await catagoriesModel.find().populate(\"author\");\r\n    res.status(200).json({\r\n      status: \"success\",\r\n      data: {\r\n        catagories,\r\n      },\r\n    });\r\n  } catch (error) {\r\n    res.json(error);\r\n  }\r\n};\r\nexports.createProduct = async (req, res, next) => {\r\n  try {\r\n    const { userId } = req.user;\r\n    const catagories = await catagoriesModel.create({\r\n      ...req.body,\r\n      author: userId,\r\n    });\r\n    res.status(200).json({\r\n      status: \"success\",\r\n      results: catagories.length,\r\n      data: {\r\n        catagories,\r\n      },\r\n    });\r\n  } catch (error) {\r\n    res.json(error);\r\n  }\r\n};\r\n\r\nexports.updateProduct = async (req, res, next) => {\r\n  try {\r\n    const { catagoryId } = req.params;\r\n    const catagories = await catagoriesModel.findByIdAndUpdate(\r\n      catagoryId,\r\n      { ...req.body },\r\n      { new: true },\r\n      { runValidator: true }\r\n    );\r\n    res.status(200).json({\r\n      status: \"success\",\r\n      data: {\r\n        catagories,\r\n      },\r\n    });\r\n  } catch (error) {\r\n    res.json(error);\r\n  }\r\n};\r\nexports.deleteProduct = async (req, res, next) => {\r\n  try {\r\n    const { catagoryId } = req.params;\r\n    await catagoriesModel.findByIdAndDelete(catagoryId);\r\n    res.status(200).json({\r\n      status: \"success\",\r\n      message: \"Product deleted successfully\",\r\n    });\r\n  } catch (error) {\r\n    res.json(error);\r\n  }\r\n};\r\n"
+        }
+    ]
+}

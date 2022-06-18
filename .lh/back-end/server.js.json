@@ -1,0 +1,158 @@
+{
+    "sourceFile": "back-end/server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 35,
+            "patches": [
+                {
+                    "date": 1651850113715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651852275479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \r\n app.use(express.json());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1/product\", productRoute);\r\n+\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n const port = process.env.APP_PORT;\r\n \r\n"
+                },
+                {
+                    "date": 1651852282230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \r\n app.use(express.json());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n-\r\n+app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n const port = process.env.APP_PORT;\r\n \r\n"
+                },
+                {
+                    "date": 1651939084888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-\r\n+const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n"
+                },
+                {
+                    "date": 1651939155965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,10 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n+app.use(errorHandler);\r\n+\r\n const port = process.env.APP_PORT;\r\n \r\n app.listen(port, () => {\r\n   console.log(`server running on port ${port}`);\r\n"
+                },
+                {
+                    "date": 1651939292124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,13 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n+app.all(\"*\", (req, res, next) => {\r\n+  const err = new Error(\"The route can not be found !!!\");\r\n+  err.statusCode = 404;\r\n+  next(err);\r\n+});\r\n app.use(errorHandler);\r\n \r\n const port = process.env.APP_PORT;\r\n \r\n"
+                },
+                {
+                    "date": 1653725951020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n const express = require(\"express\");\r\n \r\n const cors = require(\"cors\");\r\n \r\n+const cookieParser = require(\"cookieParser\");\r\n+\r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n"
+                },
+                {
+                    "date": 1653725959963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const express = require(\"express\");\r\n \r\n const cors = require(\"cors\");\r\n \r\n-const cookieParser = require(\"cookieParser\");\r\n+const cookieParser = require(\"cookie-parser\");\r\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n"
+                },
+                {
+                    "date": 1653725989438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,10 @@\n app.use(cors());\r\n \r\n app.use(express.json());\r\n \r\n+app.use(cookieParser());\r\n+\r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n"
+                },
+                {
+                    "date": 1653837618696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n+const { errorHandler } = require(\"./src/app/middlewares/error\");\r\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n"
+                },
+                {
+                    "date": 1653837641736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,13 +22,13 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n-app.all(\"*\", (req, res, next) => {\r\n-  const err = new Error(\"The route can not be found !!!\");\r\n-  err.statusCode = 404;\r\n-  next(err);\r\n-});\r\n+// app.all(\"*\", (req, res, next) => {\r\n+//   const err = new Error(\"The route can not be found !!!\");\r\n+//   err.statusCode = 404;\r\n+//   next(err);\r\n+// });\r\n app.use(errorHandler);\r\n \r\n const port = process.env.APP_PORT;\r\n \r\n"
+                },
+                {
+                    "date": 1653837826286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const { errorHandler } = require(\"./src/app/middlewares/error\");\r\n+const errorHandler = require(\"./src/app/middlewares/error\");\r\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n"
+                },
+                {
+                    "date": 1654138595593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1/product\", productRoute);\r\n+app.use(\"/api/v1/\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n // app.all(\"*\", (req, res, next) => {\r\n //   const err = new Error(\"The route can not be found !!!\");\r\n"
+                },
+                {
+                    "date": 1654143437724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1/\", productRoute);\r\n+app.use(\"/api/v1\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n // app.all(\"*\", (req, res, next) => {\r\n //   const err = new Error(\"The route can not be found !!!\");\r\n"
+                },
+                {
+                    "date": 1654160430782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,4 +34,9 @@\n \r\n app.listen(port, () => {\r\n   console.log(`server running on port ${port}`);\r\n });\r\n+\r\n+process.on(\"unhandledRejection\", (err) => {\r\n+  console.log(`Error: ${err.message}`);\r\n+  console.log(`shutting down the server due to Unhandled Promise Rejection`);\r\n+});\r\n"
+                },
+                {
+                    "date": 1654536045885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,11 @@\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n-app.use(express.json());\r\n+// app.use(express.json());\r\n \r\n-app.use(cookieParser());\r\n+// app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n"
+                },
+                {
+                    "date": 1654536069830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,18 +4,18 @@\n const express = require(\"express\");\r\n \r\n const cors = require(\"cors\");\r\n \r\n-const cookieParser = require(\"cookie-parser\");\r\n+// const cookieParser = require(\"cookie-parser\");\r\n+const app = express();\r\n \r\n+app.use(cors());\r\n+\r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const errorHandler = require(\"./src/app/middlewares/error\");\r\n-const app = express();\r\n \r\n-app.use(cors());\r\n-\r\n // app.use(express.json());\r\n \r\n // app.use(cookieParser());\r\n \r\n"
+                },
+                {
+                    "date": 1654536112745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,18 @@\n \r\n const cors = require(\"cors\");\r\n \r\n // const cookieParser = require(\"cookie-parser\");\r\n-const app = express();\r\n \r\n-app.use(cors());\r\n-\r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const errorHandler = require(\"./src/app/middlewares/error\");\r\n \r\n+const app = express();\r\n+\r\n+app.use(cors());\r\n+\r\n // app.use(express.json());\r\n \r\n // app.use(cookieParser());\r\n \r\n"
+                },
+                {
+                    "date": 1654536177224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n const app = express();\r\n \r\n app.use(cors());\r\n \r\n-// app.use(express.json());\r\n+app.use(express.json());\r\n \r\n // app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n"
+                },
+                {
+                    "date": 1654536564838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,11 @@\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const errorHandler = require(\"./src/app/middlewares/error\");\r\n \r\n+app.use(cors());\r\n const app = express();\r\n \r\n-app.use(cors());\r\n-\r\n app.use(express.json());\r\n \r\n // app.use(cookieParser());\r\n \r\n"
+                },
+                {
+                    "date": 1654536584152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const errorHandler = require(\"./src/app/middlewares/error\");\r\n \r\n+const app = express();\r\n app.use(cors());\r\n-const app = express();\r\n \r\n app.use(express.json());\r\n \r\n // app.use(cookieParser());\r\n"
+                },
+                {
+                    "date": 1654537291185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n require(\"dotenv\").config();\r\n const { connectDB } = require(\"./src/config/db\");\r\n connectDB();\r\n const express = require(\"express\");\r\n-\r\n+const morgan = require(\"morgan\");\r\n const cors = require(\"cors\");\r\n \r\n // const cookieParser = require(\"cookie-parser\");\r\n \r\n@@ -12,8 +12,9 @@\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const errorHandler = require(\"./src/app/middlewares/error\");\r\n \r\n const app = express();\r\n+app.use(morgan(\"combined\"));\r\n app.use(cors());\r\n \r\n app.use(express.json());\r\n \r\n"
+                },
+                {
+                    "date": 1654617576670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+require(\"dotenv\").config();\r\n+const { connectDB } = require(\"./src/config/db\");\r\n+connectDB();\r\n+const express = require(\"express\");\r\n+const morgan = require(\"morgan\");\r\n+const cors = require(\"cors\");\r\n+\r\n+// const cookieParser = require(\"cookie-parser\");\r\n+\r\n+const authRoute = require(\"./src/routes/authRoute\");\r\n+const productRoute = require(\"./src/routes/productRoute\");\r\n+const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n+const errorHandler = require(\"./src/app/middlewares/error\");\r\n+\r\n+const app = express();\r\n+app.use(morgan(\"combined\"));\r\n+app.use(cors());\r\n+\r\n+app.use(express.json());\r\n+\r\n+// app.use(cookieParser());\r\n+\r\n+app.use(\"/api/v1/auth\", authRoute);\r\n+app.use(\"/api/v1\", productRoute);\r\n+app.use(\"/api/v1/catagory\", catagoryRoute);\r\n+\r\n+// app.all(\"*\", (req, res, next) => {\r\n+//   const err = new Error(\"The route can not be found !!!\");\r\n+//   err.statusCode = 404;\r\n+//   next(err);\r\n+// });\r\n+app.use(errorHandler);\r\n+\r\n+const port = process.env.APP_PORT;\r\n+\r\n+app.listen(port, () => {\r\n+  console.log(`server running on port ${port}`);\r\n+});\r\n"
+                },
+                {
+                    "date": 1654618579826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,59 +23,15 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n-// app.all(\"*\", (req, res, next) => {\r\n-//   const err = new Error(\"The route can not be found !!!\");\r\n-//   err.statusCode = 404;\r\n-//   next(err);\r\n-// });\r\n-app.use(errorHandler);\r\n-\r\n-const port = process.env.APP_PORT;\r\n-\r\n-app.listen(port, () => {\r\n-  console.log(`server running on port ${port}`);\r\n+app.all(\"*\", (req, res, next) => {\r\n+  const err = new Error(\"The route can not be found !!!\");\r\n+  err.statusCode = 404;\r\n+  next(err);\r\n });\r\n-require(\"dotenv\").config();\r\n-const { connectDB } = require(\"./src/config/db\");\r\n-connectDB();\r\n-const express = require(\"express\");\r\n-const morgan = require(\"morgan\");\r\n-const cors = require(\"cors\");\r\n \r\n-// const cookieParser = require(\"cookie-parser\");\r\n-\r\n-const authRoute = require(\"./src/routes/authRoute\");\r\n-const productRoute = require(\"./src/routes/productRoute\");\r\n-const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const errorHandler = require(\"./src/app/middlewares/error\");\r\n-\r\n-const app = express();\r\n-app.use(morgan(\"combined\"));\r\n-app.use(cors());\r\n-\r\n-app.use(express.json());\r\n-\r\n-// app.use(cookieParser());\r\n-\r\n-app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1\", productRoute);\r\n-app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-\r\n-// app.all(\"*\", (req, res, next) => {\r\n-//   const err = new Error(\"The route can not be found !!!\");\r\n-//   err.statusCode = 404;\r\n-//   next(err);\r\n-// });\r\n-app.use(errorHandler);\r\n-\r\n const port = process.env.APP_PORT;\r\n \r\n app.listen(port, () => {\r\n   console.log(`server running on port ${port}`);\r\n });\r\n-\r\n-process.on(\"unhandledRejection\", (err) => {\r\n-  console.log(`Error: ${err.message}`);\r\n-  console.log(`shutting down the server due to Unhandled Promise Rejection`);\r\n-});\r\n"
+                },
+                {
+                    "date": 1654618750703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n   next(err);\r\n });\r\n+app.use(errorHandler);\r\n \r\n const port = process.env.APP_PORT;\r\n \r\n app.listen(port, () => {\r\n"
+                },
+                {
+                    "date": 1654618796845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const errorHandler = require(\"./src/app/middlewares/error\");\r\n+const errorHandler = require(\"./src/app/middlewares/errorHandler\");\r\n \r\n const app = express();\r\n app.use(morgan(\"combined\"));\r\n app.use(cors());\r\n"
+                },
+                {
+                    "date": 1654618944673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const errorHandler = require(\"./src/app/middlewares/errorHandler\");\r\n+const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n \r\n const app = express();\r\n app.use(morgan(\"combined\"));\r\n app.use(cors());\r\n"
+                },
+                {
+                    "date": 1654758813256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+require(\"dotenv\").config();\r\n+const { connectDB } = require(\"./src/config/db\");\r\n+connectDB();\r\n+const express = require(\"express\");\r\n+const morgan = require(\"morgan\");\r\n+const cors = require(\"cors\");\r\n+\r\n+// const cookieParser = require(\"cookie-parser\");\r\n+\r\n+const authRoute = require(\"./src/routes/authRoute\");\r\n+const productRoute = require(\"./src/routes/productRoute\");\r\n+const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n+const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n+\r\n+const app = express();\r\n+app.use(morgan(\"combined\"));\r\n+app.use(cors());\r\n+\r\n+app.use(express.json());\r\n+\r\n+// app.use(cookieParser());\r\n+\r\n+app.use(\"/api/v1/auth\", authRoute);\r\n+app.use(\"/api/v1/product\", productRoute);\r\n+app.use(\"/api/v1/catagory\", catagoryRoute);\r\n+\r\n+app.all(\"*\", (req, res, next) => {\r\n+  const err = new Error(\"The route can not be found !!!\");\r\n+  err.statusCode = 404;\r\n+  next(err);\r\n+});\r\n+app.use(errorHandler);\r\n+\r\n+const port = process.env.APP_PORT;\r\n+\r\n+app.listen(port, () => {\r\n+  console.log(`server running on port ${port}`);\r\n+});\r\n"
+                },
+                {
+                    "date": 1654791715399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n+app.use(\"/api/v1/banen\", catagoryRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n@@ -35,42 +36,4 @@\n \r\n app.listen(port, () => {\r\n   console.log(`server running on port ${port}`);\r\n });\r\n-require(\"dotenv\").config();\r\n-const { connectDB } = require(\"./src/config/db\");\r\n-connectDB();\r\n-const express = require(\"express\");\r\n-const morgan = require(\"morgan\");\r\n-const cors = require(\"cors\");\r\n-\r\n-// const cookieParser = require(\"cookie-parser\");\r\n-\r\n-const authRoute = require(\"./src/routes/authRoute\");\r\n-const productRoute = require(\"./src/routes/productRoute\");\r\n-const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n-\r\n-const app = express();\r\n-app.use(morgan(\"combined\"));\r\n-app.use(cors());\r\n-\r\n-app.use(express.json());\r\n-\r\n-// app.use(cookieParser());\r\n-\r\n-app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1\", productRoute);\r\n-app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-\r\n-app.all(\"*\", (req, res, next) => {\r\n-  const err = new Error(\"The route can not be found !!!\");\r\n-  err.statusCode = 404;\r\n-  next(err);\r\n-});\r\n-app.use(errorHandler);\r\n-\r\n-const port = process.env.APP_PORT;\r\n-\r\n-app.listen(port, () => {\r\n-  console.log(`server running on port ${port}`);\r\n-});\r\n"
+                },
+                {
+                    "date": 1654791733691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n \r\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n+const bannerRoute = require(\"./src/routes/bannerRoute\");\r\n const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n \r\n const app = express();\r\n app.use(morgan(\"combined\"));\r\n"
+                },
+                {
+                    "date": 1654791750698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-app.use(\"/api/v1/banen\", catagoryRoute);\r\n+app.use(\"/api/v1/banner\", bannerRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n"
+                },
+                {
+                    "date": 1654850061253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n // app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/product\", productRoute);\r\n+app.use(\"/api/v1/banner\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-app.use(\"/api/v1/banner\", bannerRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n"
+                },
+                {
+                    "date": 1655050138671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n // app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1/product\", productRoute);\r\n+app.use(\"/api/v1/products\", productRoute);\r\n app.use(\"/api/v1/banner\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n"
+                },
+                {
+                    "date": 1655143791860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,40 @@\n+require(\"dotenv\").config();\r\n+const { connectDB } = require(\"./src/config/db\");\r\n+connectDB();\r\n+const express = require(\"express\");\r\n+const morgan = require(\"morgan\");\r\n+const cors = require(\"cors\");\r\n+\r\n+// const cookieParser = require(\"cookie-parser\");\r\n+\r\n+const authRoute = require(\"./src/routes/authRoute\");\r\n+const productRoute = require(\"./src/routes/productRoute\");\r\n+const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n+const bannerRoute = require(\"./src/routes/bannerRoute\");\r\n+const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n+\r\n+const app = express();\r\n+app.use(morgan(\"combined\"));\r\n+app.use(cors());\r\n+\r\n+app.use(express.json());\r\n+\r\n+// app.use(cookieParser());\r\n+\r\n+app.use(\"/api/v1/auth\", authRoute);\r\n+app.use(\"/api/v1/\", productRoute);\r\n+app.use(\"/api/v1/banner\", bannerRoute);\r\n+app.use(\"/api/v1/catagory\", catagoryRoute);\r\n+\r\n+app.all(\"*\", (req, res, next) => {\r\n+  const err = new Error(\"The route can not be found !!!\");\r\n+  err.statusCode = 404;\r\n+  next(err);\r\n+});\r\n+app.use(errorHandler);\r\n+\r\n+const port = process.env.APP_PORT;\r\n+\r\n+app.listen(port, () => {\r\n+  console.log(`server running on port ${port}`);\r\n+});\r\n"
+                },
+                {
+                    "date": 1655144060761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,44 +37,4 @@\n \r\n app.listen(port, () => {\r\n   console.log(`server running on port ${port}`);\r\n });\r\n-require(\"dotenv\").config();\r\n-const { connectDB } = require(\"./src/config/db\");\r\n-connectDB();\r\n-const express = require(\"express\");\r\n-const morgan = require(\"morgan\");\r\n-const cors = require(\"cors\");\r\n-\r\n-// const cookieParser = require(\"cookie-parser\");\r\n-\r\n-const authRoute = require(\"./src/routes/authRoute\");\r\n-const productRoute = require(\"./src/routes/productRoute\");\r\n-const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n-const bannerRoute = require(\"./src/routes/bannerRoute\");\r\n-const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n-\r\n-const app = express();\r\n-app.use(morgan(\"combined\"));\r\n-app.use(cors());\r\n-\r\n-app.use(express.json());\r\n-\r\n-// app.use(cookieParser());\r\n-\r\n-app.use(\"/api/v1/auth\", authRoute);\r\n-app.use(\"/api/v1/products\", productRoute);\r\n-app.use(\"/api/v1/banner\", bannerRoute);\r\n-app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-\r\n-app.all(\"*\", (req, res, next) => {\r\n-  const err = new Error(\"The route can not be found !!!\");\r\n-  err.statusCode = 404;\r\n-  next(err);\r\n-});\r\n-app.use(errorHandler);\r\n-\r\n-const port = process.env.APP_PORT;\r\n-\r\n-app.listen(port, () => {\r\n-  console.log(`server running on port ${port}`);\r\n-});\r\n"
+                },
+                {
+                    "date": 1655186117989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n // app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/\", productRoute);\r\n-app.use(\"/api/v1/banner\", bannerRoute);\r\n+app.use(\"/api/v1/\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n"
+                }
+            ],
+            "date": 1651850113715,
+            "name": "Commit-0",
+            "content": "require(\"dotenv\").config();\r\nconst { connectDB } = require(\"./src/config/db\");\r\nconnectDB();\r\nconst express = require(\"express\");\r\n\r\nconst cors = require(\"cors\");\r\n\r\nconst authRoute = require(\"./src/routes/authRoute\");\r\nconst productRoute = require(\"./src/routes/productRoute\");\r\nconst catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n\r\nconst app = express();\r\n\r\napp.use(cors());\r\n\r\napp.use(express.json());\r\n\r\napp.use(\"/api/v1/auth\", authRoute);\r\napp.use(\"/api/v1/product\", productRoute);\r\napp.use(\"/api/v1/catagory\", catagoryRoute);\r\n\r\nconst port = process.env.APP_PORT;\r\n\r\napp.listen(port, () => {\r\n  console.log(`server running on port ${port}`);\r\n});\r\n"
+        }
+    ]
+}

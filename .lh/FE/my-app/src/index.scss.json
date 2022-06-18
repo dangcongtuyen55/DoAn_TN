@@ -1,0 +1,78 @@
+{
+    "sourceFile": "FE/my-app/src/index.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1654976397641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654976419788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,7 @@\n         width: 300px;\n \n     }\n     .swiper-wrapper{\n-        border: 1px solid #fff\n+        border: 1px solid red;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654976431795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,7 @@\n         width: 300px;\n \n     }\n     .swiper-wrapper{\n-        border: 1px solid red;\n+        border: 1px solid #fff;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654976546408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n     .product-list .swiper-slide{\n         width: 300px;\n \n     }\n-    .swiper-wrapper{\n+    .silder .swiper-wrapper{\n         border: 1px solid #fff;\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1655010459133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n     .product-list .swiper-slide{\n         width: 300px;\n \n     }\n-    .silder .swiper-wrapper{\n-        border: 1px solid #fff;\n-    }\n+    // .silder .swiper-wrapper{\n+    //     border: 1px solid #fff;\n+    // }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1655010511694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,6 @@\n     .product-list .swiper-slide{\n         width: 300px;\n \n     }\n-    // .silder .swiper-wrapper{\n-    //     border: 1px solid #fff;\n-    // }\n+    \n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1655305443329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-slate-900 font-body;\n+        @apply bg-slate-200 font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306273389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-slate-200 font-body;\n+        @apply bg-slate-100 font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306284034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-slate-100 font-body;\n+        @apply bg-slate-400 font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306299050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-slate-400 font-body;\n+        @apply bg-slate-500 font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306317099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-slate-500 font-body;\n+        @apply bgcolor:#ecf0f4 font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306325329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bgcolor:#ecf0f4 font-body;\n+        @apply  font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306644781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply  font-body;\n+        @apply bg-{gray} font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655306681710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-{gray} font-body;\n+        @apply bg-gray font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655308348162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-gray font-body;\n+        @apply bg-darrk font-body;\n     }\n }\n \n @layer components{\n"
+                },
+                {
+                    "date": 1655308572289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n @tailwind utilities;\n \n @layer base{\n     body{\n-        @apply bg-darrk font-body;\n+        @apply bg-dark_light font-body;\n     }\n }\n \n @layer components{\n"
+                }
+            ],
+            "date": 1654976397641,
+            "name": "Commit-0",
+            "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n@layer base{\n    body{\n        @apply bg-slate-900 font-body;\n    }\n}\n\n@layer components{\n    .page-container{\n        max-width: 1280px;\n        @apply mx-auto;\n    }\n    .product-list .swiper-slide{\n        width: 300px;\n\n    }\n    .swiper-wrapper{\n        border: 1px solid #fff\n    }\n}"
+        }
+    ]
+}

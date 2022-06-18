@@ -1,0 +1,90 @@
+{
+    "sourceFile": "FE/my-app/src/components/Product/ProductList.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1654756728345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654756892577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,23 @@\n import AppContext from \"../AppContext/AppContext\";\r\n const ProductList = () => {\r\n   const { dispatch } = useContext(AppContext);\r\n   const getAllProducts = useCallback(async () => {\r\n-    const options = {\r\n-      method: \"POST\",\r\n-      url: \"api/v1/products\",\r\n-    };\r\n-    const response = await axios(options);\r\n-    const products = response.data.data.products;\r\n-  });\r\n+    try {\r\n+      const options = {\r\n+        method: \"POST\",\r\n+        url: \"api/v1/products\",\r\n+      };\r\n+      const response = await axios(options);\r\n+      const products = response.data.data.products;\r\n+      dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n+    } catch (error) {\r\n+      console.log(error);\r\n+    }\r\n+  }, []);\r\n+  useEffect(() => {\r\n+    getAllProducts();\r\n+  }, [getAllProducts]);\r\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n"
+                },
+                {
+                    "date": 1654757051734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n       dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n     } catch (error) {\r\n-      console.log(error);\r\n+      // console.log(error);\r\n     }\r\n   }, []);\r\n   useEffect(() => {\r\n     getAllProducts();\r\n"
+                },
+                {
+                    "date": 1654757867410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,25 +4,8 @@\n import axios from \"axios\";\r\n import \"swiper/css\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n const ProductList = () => {\r\n-  const { dispatch } = useContext(AppContext);\r\n-  const getAllProducts = useCallback(async () => {\r\n-    try {\r\n-      const options = {\r\n-        method: \"POST\",\r\n-        url: \"api/v1/products\",\r\n-      };\r\n-      const response = await axios(options);\r\n-      const products = response.data.data.products;\r\n-      dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n-    } catch (error) {\r\n-      // console.log(error);\r\n-    }\r\n-  }, []);\r\n-  useEffect(() => {\r\n-    getAllProducts();\r\n-  }, [getAllProducts]);\r\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n"
+                },
+                {
+                    "date": 1654757883310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,25 @@\n import axios from \"axios\";\r\n import \"swiper/css\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n const ProductList = () => {\r\n+  const { dispatch } = useContext(AppContext);\r\n+  const getAllProducts = useCallback(async () => {\r\n+    try {\r\n+      const options = {\r\n+        method: \"POST\",\r\n+        url: \"api/v1/products\",\r\n+      };\r\n+      const response = await axios(options);\r\n+      const products = response.data.data.products;\r\n+      dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n+    } catch (error) {\r\n+      // console.log(error);\r\n+    }\r\n+  }, []);\r\n+  useEffect(() => {\r\n+    getAllProducts();\r\n+  }, [getAllProducts]);\r\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n"
+                },
+                {
+                    "date": 1654758897420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const getAllProducts = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"POST\",\r\n-        url: \"api/v1/products\",\r\n+        url: \"api/v1/product\",\r\n       };\r\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n       dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n"
+                },
+                {
+                    "date": 1654759150777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const getAllProducts = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"POST\",\r\n-        url: \"api/v1/product\",\r\n+        url: \"/api/v1/product\",\r\n       };\r\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n       dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n"
+                },
+                {
+                    "date": 1654759639521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n       };\r\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n       dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n+      console.log(response.data.data.products);\r\n     } catch (error) {\r\n       // console.log(error);\r\n     }\r\n   }, []);\r\n"
+                },
+                {
+                    "date": 1654759693769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import axios from \"axios\";\r\n import \"swiper/css\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n const ProductList = () => {\r\n-  const { dispatch } = useContext(AppContext);\r\n+  const { state, dispatch } = useContext(AppContext);\r\n   const getAllProducts = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"POST\",\r\n"
+                },
+                {
+                    "date": 1654759729568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   const { state, dispatch } = useContext(AppContext);\r\n   const getAllProducts = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n-        method: \"POST\",\r\n+        method: \"GET\",\r\n         url: \"/api/v1/product\",\r\n       };\r\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n"
+                },
+                {
+                    "date": 1654760068588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n       console.log(response.data.data.products);\r\n     } catch (error) {\r\n       // console.log(error);\r\n     }\r\n-  }, []);\r\n+  }, [dispatch]);\r\n   useEffect(() => {\r\n     getAllProducts();\r\n   }, [getAllProducts]);\r\n   return (\r\n"
+                },
+                {
+                    "date": 1654760462388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import \"swiper/css\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n const ProductList = () => {\r\n   const { state, dispatch } = useContext(AppContext);\r\n+  const { products, user } = state;\r\n   const getAllProducts = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"GET\",\r\n@@ -22,8 +23,13 @@\n   }, [dispatch]);\r\n   useEffect(() => {\r\n     getAllProducts();\r\n   }, [getAllProducts]);\r\n+\r\n+  const newProducts = products.map((product) => {\r\n+    if (user) {\r\n+    }\r\n+  });\r\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n"
+                },
+                {
+                    "date": 1654760662866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,13 @@\n   }, [getAllProducts]);\r\n \r\n   const newProducts = products.map((product) => {\r\n     if (user) {\r\n+      return product.author.name === user.userName\r\n+        ? { ...products, isEditTable: true }\r\n+        : products;\r\n+    } else {\r\n+      return { ...products, isEditTable: false };\r\n     }\r\n   });\r\n   return (\r\n     <div className=\"product-list\">\r\n"
+                },
+                {
+                    "date": 1654760680016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,35 +39,8 @@\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n           <ProductCard></ProductCard>\r\n         </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n-        <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n-        </SwiperSlide>\r\n       </Swiper>\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654760784713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,11 @@\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n-          <ProductCard></ProductCard>\r\n+          {newProducts.map((product, index) => {\r\n+            <ProductCard product={products} key={product._id} />;\r\n+          })}\r\n         </SwiperSlide>\r\n       </Swiper>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654760807359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,11 +37,11 @@\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n-          {newProducts.map((product, index) => {\r\n-            <ProductCard product={products} key={product._id} />;\r\n-          })}\r\n+          {newProducts.map((product, index) => (\r\n+            <ProductCard product={products} key={product._id} />\r\n+          ))}\r\n         </SwiperSlide>\r\n       </Swiper>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1654760834082,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n   return (\r\n     <div className=\"product-list\">\r\n       <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n         <SwiperSlide>\r\n-          {newProducts.map((product, index) => (\r\n+          {newProducts.map((product) => (\r\n             <ProductCard product={products} key={product._id} />\r\n           ))}\r\n         </SwiperSlide>\r\n       </Swiper>\r\n"
+                },
+                {
+                    "date": 1654767660762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n       };\r\n       const response = await axios(options);\r\n       const products = response.data.data.products;\r\n       dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n+      console.log(response.data.data.products);\r\n     } catch (error) {\r\n       // console.log(error);\r\n     }\r\n   }, [dispatch]);\r\n"
+                },
+                {
+                    "date": 1654779865938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,54 @@\n+import React, { useCallback, useContext, useEffect, useState } from \"react\";\r\n+import { Swiper, SwiperSlide } from \"swiper/react\";\r\n+import ProductCard from \"./ProductCard\";\r\n+import axios from \"axios\";\r\n+import \"swiper/css\";\r\n+import AppContext from \"../AppContext/AppContext\";\r\n+const ProductList = () => {\r\n+  const { state, dispatch } = useContext(AppContext);\r\n+  const { products, user } = state;\r\n+  console.log(products);\r\n+  const getAllProducts = useCallback(async () => {\r\n+    try {\r\n+      const options = {\r\n+        method: \"GET\",\r\n+        url: \"/api/v1/product\",\r\n+      };\r\n+      const response = await axios(options);\r\n+      const products = response.data.data.products;\r\n+      dispatch({ type: \"GET_ALL_PRODUCTS\", payload: products });\r\n+    } catch (error) {\r\n+      // console.log(error);\r\n+    }\r\n+  }, [dispatch]);\r\n+  useEffect(() => {\r\n+    getAllProducts();\r\n+  }, [getAllProducts]);\r\n+\r\n+  const newProducts = products.map((product) => {\r\n+    // if (user) {\r\n+    //   return product.author.name === user.userName\r\n+    //     ? { ...product, isEditTable: true }\r\n+    //     : product;\r\n+    // } else {\r\n+    //   return { ...product, isEditTable: false };\r\n+    // }\r\n+  });\r\n+  return (\r\n+    <div className=\"product-list\">\r\n+      {/* <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n+        <SwiperSlide>\r\n+          {newProducts.map((product) => (\r\n+            <ProductCard product={product} key={product._id}></ProductCard>\r\n+          ))}\r\n+        </SwiperSlide>\r\n+      </Swiper> */}\r\n+\r\n+      {products.map((product) => (\r\n+        <ProductCard product={product} key={product._id} />\r\n+      ))}\r\n+    </div>\r\n+  );\r\n+};\r\n+\r\n+export default ProductList;\r\n"
+                }
+            ],
+            "date": 1654756728345,
+            "name": "Commit-0",
+            "content": "import React, { useCallback, useContext, useEffect, useState } from \"react\";\r\nimport { Swiper, SwiperSlide } from \"swiper/react\";\r\nimport ProductCard from \"./ProductCard\";\r\nimport axios from \"axios\";\r\nimport \"swiper/css\";\r\nimport AppContext from \"../AppContext/AppContext\";\r\nconst ProductList = () => {\r\n  const { dispatch } = useContext(AppContext);\r\n  const getAllProducts = useCallback(async () => {\r\n    const options = {\r\n      method: \"POST\",\r\n      url: \"api/v1/products\",\r\n    };\r\n    const response = await axios(options);\r\n    const products = response.data.data.products;\r\n  });\r\n  return (\r\n    <div className=\"product-list\">\r\n      <Swiper grabCursor={\"true\"} spaceBetween={20} slidesPerView={\"auto\"}>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n        <SwiperSlide>\r\n          <ProductCard></ProductCard>\r\n        </SwiperSlide>\r\n      </Swiper>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default ProductList;\r\n"
+        }
+    ]
+}

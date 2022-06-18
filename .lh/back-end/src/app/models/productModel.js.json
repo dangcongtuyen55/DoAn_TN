@@ -1,0 +1,58 @@
+{
+    "sourceFile": "back-end/src/app/models/productModel.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1651850776604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651850838373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n     reviews: [\r\n-      { userd: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n     ],\r\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n"
+                },
+                {
+                    "date": 1651850854022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n     reviews: [\r\n-      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: `User`, review: String },\r\n     ],\r\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n"
+                },
+                {
+                    "date": 1651850862087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n     },\r\n-    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n+    createBy: { type: mongoose.Schema.Types.ObjectId, ref: `User` },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                },
+                {
+                    "date": 1651850873828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,15 +28,15 @@\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n     reviews: [\r\n-      { userId: mongoose.Schema.Types.ObjectId, ref: `User`, review: String },\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n     ],\r\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n     },\r\n-    createBy: { type: mongoose.Schema.Types.ObjectId, ref: `User` },\r\n+    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                },
+                {
+                    "date": 1651851161889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,11 +27,9 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n-    reviews: [\r\n-      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n-    ],\r\n+    reviews: [{ userId: mongoose.Schema.Types.ObjectId, ref: \"User\" }],\r\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n     },\r\n"
+                },
+                {
+                    "date": 1651851202682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,11 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n-    reviews: [{ userId: mongoose.Schema.Types.ObjectId, ref: \"User\" }],\r\n+    reviews: [\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n+    ],\r\n     catagory: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"Category\",\r\n     },\r\n"
+                },
+                {
+                    "date": 1651851479067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,16 +27,8 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n-    reviews: [\r\n-      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n-    ],\r\n-    catagory: {\r\n-      type: mongoose.Schema.Types.ObjectId,\r\n-      ref: \"Category\",\r\n-    },\r\n-    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                },
+                {
+                    "date": 1651851493394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,16 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n+    reviews: [\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n+    ],\r\n+    catagory: {\r\n+      type: mongoose.Schema.Types.ObjectId,\r\n+      ref: \"Category\",\r\n+    },\r\n+    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                },
+                {
+                    "date": 1651851505599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,16 +27,8 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n-    reviews: [\r\n-      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n-    ],\r\n-    catagory: {\r\n-      type: mongoose.Schema.Types.ObjectId,\r\n-      ref: \"Category\",\r\n-    },\r\n-    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                },
+                {
+                    "date": 1651851797961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,16 @@\n       type: Number,\r\n     },\r\n     productImage: [{ img: { type: String } }],\r\n \r\n+    reviews: [\r\n+      { userId: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n+    ],\r\n+    catagory: {\r\n+      type: mongoose.Schema.Types.ObjectId,\r\n+      ref: \"Category\",\r\n+    },\r\n+    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n     updateAt: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n"
+                }
+            ],
+            "date": 1651850776604,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\n\r\nconst productSchema = new mongoose.Schema(\r\n  {\r\n    name: {\r\n      type: String,\r\n      trim: true,\r\n      required: [true, \" Tên sản phẩm không được bỏ trống !!! \"],\r\n    },\r\n\r\n    slug: {\r\n      type: String,\r\n      unique: true,\r\n    },\r\n\r\n    price: {\r\n      type: Number,\r\n      required: [true, \" Giá sản phẩm không được bỏ trống !!!\"],\r\n    },\r\n\r\n    description: {\r\n      type: String,\r\n      required: [true, \" Mô tả sản phẩm không được bỏ trống !!! \"],\r\n    },\r\n\r\n    offer: {\r\n      type: Number,\r\n    },\r\n    productImage: [{ img: { type: String } }],\r\n\r\n    reviews: [\r\n      { userd: mongoose.Schema.Types.ObjectId, ref: \"User\", review: String },\r\n    ],\r\n    catagory: {\r\n      type: mongoose.Schema.Types.ObjectId,\r\n      ref: \"Category\",\r\n    },\r\n    createBy: { type: mongoose.Schema.Types.ObjectId, ref: \"User\" },\r\n    updateAt: Date,\r\n  },\r\n  { timestamps: true }\r\n);\r\n\r\nmodule.exports = mongoose.model(\"Product\", productSchema);\r\n"
+        }
+    ]
+}

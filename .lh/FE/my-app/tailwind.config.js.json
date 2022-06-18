@@ -1,0 +1,86 @@
+{
+    "sourceFile": "FE/my-app/tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1655306637047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655307518623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        gray: \"#ecf0f4\",\n+        gray: \"#f0f2f5\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308016216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        gray: \"#f0f2f5\",\n+        gray: \"#10182e\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308201303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n       },\n       colors: {\n         primary: \"#f622a4\",\n         gray: \"#10182e\",\n+        light: \"#ecf0f4\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308308779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        gray: \"#10182e\",\n+        dark: \"#10182e\",\n         light: \"#ecf0f4\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655308566724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        dark: \"#10182e\",\n+        dark_light: \"#10182e\",\n+        dark_1: \"#ffff\",\n         light: \"#ecf0f4\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655308586719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       },\n       colors: {\n         primary: \"#f622a4\",\n         dark_light: \"#10182e\",\n-        dark_1: \"#ffff\",\n+        dark: \"#ffff\",\n         light: \"#ecf0f4\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655308647223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        dark_light: \"#10182e\",\n-        dark: \"#ffff\",\n+        dark_light: \"#13244c\",\n+        dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655308670284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n       colors: {\n         primary: \"#f622a4\",\n-        dark_light: \"#13244c\",\n+        dark_light: \"#132142\",\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n       },\n     },\n"
+                },
+                {
+                    "date": 1655308845385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n         primary: \"#f622a4\",\n         dark_light: \"#132142\",\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n+        red_light: \"#ff1121\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308882591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         primary: \"#f622a4\",\n         dark_light: \"#132142\",\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n-        red_light: \"#ff1121\",\n+        red_light: \"#ea000f\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308899909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         primary: \"#f622a4\",\n         dark_light: \"#132142\",\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n-        red_light: \"#ea000f\",\n+        red_light: \"#ff1626\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655308975534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         primary: \"#f622a4\",\n         dark_light: \"#132142\",\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n-        red_light: \"#ff1626\",\n+        red_light: \"#fe3464\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655309566050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,12 @@\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n         red_light: \"#fe3464\",\n       },\n+      text: {\n+        text_h2: \"22px\",\n+        text_h3: \"19px\",\n+      },\n     },\n   },\n   plugins: [],\n };\n"
+                },
+                {
+                    "date": 1655309646628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n         dark: \"#0f172a\",\n         light: \"#ecf0f4\",\n         red_light: \"#fe3464\",\n       },\n-      text: {\n-        text_h2: \"22px\",\n+      fontSize: {\n+        \"text-h2\": \"22px\",\n         text_h3: \"19px\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655309702404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n         light: \"#ecf0f4\",\n         red_light: \"#fe3464\",\n       },\n       fontSize: {\n-        \"text-h2\": \"22px\",\n+        h2: \"22px\",\n         text_h3: \"19px\",\n       },\n     },\n   },\n"
+                },
+                {
+                    "date": 1655310167403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,11 @@\n         light: \"#ecf0f4\",\n         red_light: \"#fe3464\",\n       },\n       fontSize: {\n+        h1: \"25px\",\n         h2: \"22px\",\n-        text_h3: \"19px\",\n+        h3: \"19px\",\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1655310203133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n       fontSize: {\n         h1: \"25px\",\n         h2: \"22px\",\n         h3: \"19px\",\n+        h4: \"17px\",\n+        h5: \"15px\",\n       },\n     },\n   },\n   plugins: [],\n"
+                }
+            ],
+            "date": 1655306637047,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  content: [\"./src/**/*.{html,js}\"],\n  theme: {\n    extend: {\n      fontFamily: {\n        body: [\"DM Sans\", \"sans-serif\"],\n      },\n      colors: {\n        primary: \"#f622a4\",\n        gray: \"#ecf0f4\",\n      },\n    },\n  },\n  plugins: [],\n};\n"
+        }
+    ]
+}

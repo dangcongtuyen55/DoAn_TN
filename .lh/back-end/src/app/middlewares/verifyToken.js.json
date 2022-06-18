@@ -1,0 +1,38 @@
+{
+    "sourceFile": "back-end/src/app/middlewares/verifyToken.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1651852854174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651856346832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   const token = Authorization.replace(\"Bearer \", \"\");\r\n \r\n   //verify token\r\n \r\n-  const { userId } = jwt.verify(token, process.env.APP_SECRECT);\r\n+  const { userId } = jwt.verify(token, process.env.APP_SECRET);\r\n \r\n   //Assign req\r\n \r\n   req.user = { userId };\r\n"
+                },
+                {
+                    "date": 1651856460365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n   const Authorization = req.header(\"authorization\");\r\n \r\n   if (!Authorization) {\r\n     //Error:\r\n-    const err = new Error(\"unAuthorized !!\");\r\n-    err.statusCode = 400;\r\n-    return next(err);\r\n+    // const err = new Error(\"unAuthorized !!\");\r\n+    // err.statusCode = 400;\r\n+    // return next(err);\r\n   }\r\n \r\n   //Get token\r\n \r\n"
+                },
+                {
+                    "date": 1651939606505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n \r\n   const Authorization = req.header(\"authorization\");\r\n \r\n   if (!Authorization) {\r\n-    //Error:\r\n-    // const err = new Error(\"unAuthorized !!\");\r\n-    // err.statusCode = 400;\r\n-    // return next(err);\r\n+    Error:\r\n+    const err = new Error(\"unAuthorized !!\");\r\n+    err.statusCode = 400;\r\n+    return next(err);\r\n   }\r\n \r\n   //Get token\r\n \r\n"
+                },
+                {
+                    "date": 1651939629194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   const Authorization = req.header(\"authorization\");\r\n \r\n   if (!Authorization) {\r\n     Error:\r\n-    const err = new Error(\"unAuthorized !!\");\r\n+    const err = new Error(\"UnAuthorized !!\");\r\n     err.statusCode = 400;\r\n     return next(err);\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1651939660906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n   const Authorization = req.header(\"authorization\");\r\n \r\n   if (!Authorization) {\r\n-    Error:\r\n+    //Error:\r\n     const err = new Error(\"UnAuthorized !!\");\r\n     err.statusCode = 400;\r\n     return next(err);\r\n   }\r\n"
+                }
+            ],
+            "date": 1651852854174,
+            "name": "Commit-0",
+            "content": "const jwt = require(\"jsonwebtoken\");\r\n\r\nexports.verifyToken = (req, res, next) => {\r\n  //Access Authorization from req header\r\n\r\n  const Authorization = req.header(\"authorization\");\r\n\r\n  if (!Authorization) {\r\n    //Error:\r\n    const err = new Error(\"unAuthorized !!\");\r\n    err.statusCode = 400;\r\n    return next(err);\r\n  }\r\n\r\n  //Get token\r\n\r\n  const token = Authorization.replace(\"Bearer \", \"\");\r\n\r\n  //verify token\r\n\r\n  const { userId } = jwt.verify(token, process.env.APP_SECRECT);\r\n\r\n  //Assign req\r\n\r\n  req.user = { userId };\r\n\r\n  next();\r\n};\r\n"
+        }
+    ]
+}

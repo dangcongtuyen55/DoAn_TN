@@ -1,0 +1,570 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 138,
+            "patches": [
+                {
+                    "date": 1654241155680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654241162629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n function App() {\n   return (\n     <div className=\"App\">\n       <header className=\"App-header\">\n-        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n         <p>\n           Edit <code>src/App.js</code> and save to reload.\n         </p>\n         <a\n"
+                },
+                {
+                    "date": 1654242294707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,8 @@\n import \"./App.css\";\n+import Header from \"./components/layout/Header\";\n \n function App() {\n-  return (\n-    <div className=\"App\">\n-      <header className=\"App-header\">\n-        <p>\n-          Edit <code>src/App.js</code> and save to reload.\n-        </p>\n-        <a\n-          className=\"App-link\"\n-          href=\"https://reactjs.org\"\n-          target=\"_blank\"\n-          rel=\"noopener noreferrer\"\n-        >\n-          Learn React\n-        </a>\n-      </header>\n-    </div>\n-  );\n+  return <Header />;\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654279494793,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import \"./App.css\";\n-import Header from \"./components/layout/Header\";\n+import Header from \"./components/layout/Header/Header\";\n \n function App() {\n   return <Header />;\n }\n"
+                },
+                {
+                    "date": 1654280293537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import \"./App.css\";\n import Header from \"./components/layout/Header/Header\";\n+import { BrowerRouter } from \"react-router-dom\";\n \n function App() {\n   return <Header />;\n }\n"
+                },
+                {
+                    "date": 1654281086945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,17 @@\n+import { Fragment } from \"react\";\n import \"./App.css\";\n import Header from \"./components/layout/Header/Header\";\n-import { BrowerRouter } from \"react-router-dom\";\n+import { NavLink } from \"react-router-dom\";\n \n function App() {\n-  return <Header />;\n+  return (\n+    <Fragment>\n+      <header className=\"header\">\n+        <NavLink className=\"home\">Home</NavLink>\n+        <NavLink className=\"catagory\">Catagory</NavLink>\n+      </header>\n+    </Fragment>\n+  );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654281145156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,12 @@\n import { Fragment } from \"react\";\n import \"./App.css\";\n-import Header from \"./components/layout/Header/Header\";\n import { NavLink } from \"react-router-dom\";\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header\">\n-        <NavLink className=\"home\">Home</NavLink>\n-        <NavLink className=\"catagory\">Catagory</NavLink>\n-      </header>\n+      <header className=\"header\">sss</header>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654281154047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header\">sss</header>\n+      <header className=\"header\">\n+        <NavLink className=\"home\">Home</NavLink>\n+        <NavLink className=\"catagory\">Catagory</NavLink>\n+      </header>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654281700139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+import \"./App.css\";\n import { Fragment } from \"react\";\n-import \"./App.css\";\n import { NavLink } from \"react-router-dom\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1654281706665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import \"./App.css\";\n import { Fragment } from \"react\";\n import { NavLink } from \"react-router-dom\";\n+import \"./App.css\";\n \n function App() {\n   return (\n     <Fragment>\n"
+                },
+                {
+                    "date": 1654282038099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,9 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header\">\n-        <NavLink className=\"home\">Home</NavLink>\n-        <NavLink className=\"catagory\">Catagory</NavLink>\n-      </header>\n+      <header className=\"header\">a</header>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282112646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header\">a</header>\n+      <header className=\"header\">\n+        <NavLink className=\"home\">Home</NavLink>\n+        <NavLink className=\"catagory\">Catagory</NavLink>\n+      </header>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282207076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <NavLink className=\"home\">Home</NavLink>\n+        <NavLink className=\"home\" style={{ backgroundColor: blue }}>\n+          Home\n+        </NavLink>\n         <NavLink className=\"catagory\">Catagory</NavLink>\n       </header>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654282217902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <NavLink className=\"home\" style={{ backgroundColor: blue }}>\n+        <NavLink className=\"home\" style={{ backgroundColor: \"blue\" }}>\n           Home\n         </NavLink>\n         <NavLink className=\"catagory\">Catagory</NavLink>\n       </header>\n"
+                },
+                {
+                    "date": 1654282234572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <NavLink className=\"home\" style={{ backgroundColor: \"blue\" }}>\n+        <NavLink className=\"home\" style={{ backgroundColor: \"#000\" }}>\n           Home\n         </NavLink>\n         <NavLink className=\"catagory\">Catagory</NavLink>\n       </header>\n"
+                },
+                {
+                    "date": 1654282325380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,9 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <NavLink className=\"home\" style={{ backgroundColor: \"#000\" }}>\n-          Home\n-        </NavLink>\n-        <NavLink className=\"catagory\">Catagory</NavLink>\n+        <span>home</span>\n       </header>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654282336414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,12 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <span>home</span>\n+        <NavLink className=\"home\" style={{ backgroundColor: \"#000\" }}>\n+          Home\n+        </NavLink>\n+        <NavLink className=\"catagory\">Catagory</NavLink>\n       </header>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654282397526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,10 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <NavLink className=\"home\" style={{ backgroundColor: \"#000\" }}>\n-          Home\n-        </NavLink>\n-        <NavLink className=\"catagory\">Catagory</NavLink>\n+        <span>home</span>\n+        <span>catagory</span>\n       </header>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654282567392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header\">\n-        <span>home</span>\n-        <span>catagory</span>\n+        <span>Home</span>\n+        <span>Catagory</span>\n       </header>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654282694899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n+      <section className=\"banner h-[300px] bg-red\"></section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282730269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner h-[300px] bg-red\"></section>\n+      <section className=\"banner\"></section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282757776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner\"></section>\n+      <section className=\"banner\">sss</section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282787646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner\">sss</section>\n+      <section className=\"banner\">ss</section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654282862168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner\">ss</section>\n+      <section className=\"banner\"></section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654347936101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,16 @@\n       <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner\"></section>\n+      <section className=\"banner\">\n+        <div className=\"main-banner\">\n+          <img\n+            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n+            alt=\"\"\n+          />\n+        </div>\n+      </section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654348027572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n         <div className=\"main-banner\">\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n+            className=\"w-full h-full object-cover rounded-lg\"\n           />\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654348043131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         <div className=\"main-banner\">\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n-            className=\"w-full h-full object-cover rounded-lg\"\n+            className=\"imgae\"\n           />\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654348464383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,13 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"imgae\"\n           />\n+          <div className=\"title-banner\">\n+            <h2 className=\"title\">\n+              A book is a gift you can open again and again\n+            </h2>\n+          </div>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654349628350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header\">\n+      {/* <header className=\"header\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n       <section className=\"banner\">\n@@ -21,9 +21,9 @@\n               A book is a gift you can open again and again\n             </h2>\n           </div>\n         </div>\n-      </section>\n+      </section> */}\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654349836404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Fragment } from \"react\";\n import { NavLink } from \"react-router-dom\";\n import \"./App.css\";\n+import Banner from \"./components/banner/Banner\";\n \n function App() {\n   return (\n     <Fragment>\n@@ -22,8 +23,9 @@\n             </h2>\n           </div>\n         </div>\n       </section> */}\n+      <Banner></Banner>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654361653863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import { Fragment } from \"react\";\n import { NavLink } from \"react-router-dom\";\n-import \"./App.css\";\n import Banner from \"./components/banner/Banner\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1654362668899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,31 +1,24 @@\n-import { Fragment } from \"react\";\n-import { NavLink } from \"react-router-dom\";\n-import Banner from \"./components/banner/Banner\";\n+import \"./App.css\";\n \n function App() {\n   return (\n-    <Fragment>\n-      {/* <header className=\"header\">\n-        <span>Home</span>\n-        <span>Catagory</span>\n+    <div className=\"App\">\n+      <header className=\"App-header\">\n+        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n+        <p>\n+          Edit <code>src/App.js</code> and save to reload.\n+        </p>\n+        <a\n+          className=\"App-link\"\n+          href=\"https://reactjs.org\"\n+          target=\"_blank\"\n+          rel=\"noopener noreferrer\"\n+        >\n+          Learn React\n+        </a>\n       </header>\n-      <section className=\"banner\">\n-        <div className=\"main-banner\">\n-          <img\n-            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n-            alt=\"\"\n-            className=\"imgae\"\n-          />\n-          <div className=\"title-banner\">\n-            <h2 className=\"title\">\n-              A book is a gift you can open again and again\n-            </h2>\n-          </div>\n-        </div>\n-      </section> */}\n-      <Banner></Banner>\n-    </Fragment>\n+    </div>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654362998413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,7 @@\n import \"./App.css\";\n \n function App() {\n-  return (\n-    <div className=\"App\">\n-      <header className=\"App-header\">\n-        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n-        <p>\n-          Edit <code>src/App.js</code> and save to reload.\n-        </p>\n-        <a\n-          className=\"App-link\"\n-          href=\"https://reactjs.org\"\n-          target=\"_blank\"\n-          rel=\"noopener noreferrer\"\n-        >\n-          Learn React\n-        </a>\n-      </header>\n-    </div>\n-  );\n+  return <div className=\"App\"></div>;\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654365930964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,14 @@\n+import { Fragment } from \"react\";\n import \"./App.css\";\n \n function App() {\n-  return <div className=\"App\"></div>;\n+  return (\n+    <Fragment>\n+      <header className=\"header flex items-center justify-center gap-x-5\">\n+        <span></span>\n+      </header>\n+    </Fragment>\n+  );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654365956871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header flex items-center justify-center gap-x-5\">\n-        <span></span>\n+        <span>Home</span>\n+        <span>Catagory</span>\n       </header>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654366069922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header flex items-center justify-center gap-x-5\">\n+      <header className=\"header flex items-center justify-center gap-x-5 text-white\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654366092651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header flex items-center justify-center gap-x-5 text-white\">\n+      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10\">\n         <span>Home</span>\n         <span>Catagory</span>\n       </header>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654366377611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n function App() {\n   return (\n     <Fragment>\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10\">\n-        <span>Home</span>\n+        <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654366482062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <Fragment>\n-      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10\">\n+      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654366694944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,11 @@\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n+      <section className=\"banner h-[400px] page-container\">\n+        <div className=\"w-full h-full rounded-lg bg-white\"></div>\n+      </section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654366730424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n       <section className=\"banner h-[400px] page-container\">\n-        <div className=\"w-full h-full rounded-lg bg-white\"></div>\n+        <div className=\"w-full h-full rounded-lg relative\"></div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654366877241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,14 @@\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n       <section className=\"banner h-[400px] page-container\">\n-        <div className=\"w-full h-full rounded-lg relative\"></div>\n+        <div className=\"w-full h-full rounded-lg relative\">\n+          <img\n+            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n+            alt=\"\"\n+          />\n+        </div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654366929354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n         <div className=\"w-full h-full rounded-lg relative\">\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n+            className=\"w-full h-full object-cover rounded-lg\"\n           />\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654367128107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,13 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n+          <div className=\"absolute left-5 bottom-5 w-full text-white\">\n+            <h2 className=\"font-bold text-3xl mb3\">\n+              A book is a gift you can open again and again\n+            </h2>\n+          </div>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654367352836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,11 @@\n           <div className=\"absolute left-5 bottom-5 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n+            <button className=\"py-3 px-6 rounded-lg bg-primary text-white text-bold\">\n+              Mua Ngay{\" \"}\n+            </button>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654367362941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n           <div className=\"absolute left-5 bottom-5 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n-            <button className=\"py-3 px-6 rounded-lg bg-primary text-white text-bold\">\n+            <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n               Mua Ngay{\" \"}\n             </button>\n           </div>\n         </div>\n"
+                },
+                {
+                    "date": 1654367424684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n         <span>Catagory</span>\n       </header>\n       <section className=\"banner h-[400px] page-container\">\n         <div className=\"w-full h-full rounded-lg relative\">\n+          <div className=\"overlay absolute inset-0\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n"
+                },
+                {
+                    "date": 1654367662222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         <span>Catagory</span>\n       </header>\n       <section className=\"banner h-[400px] page-container\">\n         <div className=\"w-full h-full rounded-lg relative\">\n-          <div className=\"overlay absolute inset-0\"></div>\n+          <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n"
+                },
+                {
+                    "date": 1654367680572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n-          <div className=\"absolute left-5 bottom-5 w-full text-white\">\n+          <div className=\"absolute left-5 bottom-10 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n             <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n"
+                },
+                {
+                    "date": 1654367686691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n-          <div className=\"absolute left-5 bottom-10 w-full text-white\">\n+          <div className=\"absolute left-5 bottom-30 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n             <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n"
+                },
+                {
+                    "date": 1654367694940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n-          <div className=\"absolute left-5 bottom-30 w-full text-white\">\n+          <div className=\"absolute left-5 bottom-5 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n             <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n"
+                },
+                {
+                    "date": 1654367702322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n-          <div className=\"absolute left-5 bottom-5 w-full text-white\">\n+          <div className=\"absolute left-5 bottom-30 w-full text-white\">\n             <h2 className=\"font-bold text-3xl mb3\">\n               A book is a gift you can open again and again\n             </h2>\n             <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n"
+                },
+                {
+                    "date": 1654367716303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n             alt=\"\"\n             className=\"w-full h-full object-cover rounded-lg\"\n           />\n-          <div className=\"absolute left-5 bottom-30 w-full text-white\">\n-            <h2 className=\"font-bold text-3xl mb3\">\n+          <div className=\"absolute left-5 bottom-20 w-full text-white\">\n+            <h2 className=\"font-bold text-3xl mb-3\">\n               A book is a gift you can open again and again\n             </h2>\n             <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n               Mua Ngay{\" \"}\n"
+                },
+                {
+                    "date": 1654367858623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,12 @@\n             </button>\n           </div>\n         </div>\n       </section>\n+\n+      <section className=\"product-layout\">\n+        <h2>Sản phẩm</h2>\n+      </section>\n     </Fragment>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654367925315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner h-[400px] page-container\">\n+      <section className=\"banner h-[400px] page-container mb-10\">\n         <div className=\"w-full h-full rounded-lg relative\">\n           <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n@@ -27,9 +27,11 @@\n         </div>\n       </section>\n \n       <section className=\"product-layout\">\n-        <h2>Sản phẩm</h2>\n+        <h2 className=\"capitalize text-white mb-5 text-2xl font-bold\">\n+          Sản phẩm\n+        </h2>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654367941869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           </div>\n         </div>\n       </section>\n \n-      <section className=\"product-layout\">\n+      <section className=\"product-layout page-container\">\n         <h2 className=\"capitalize text-white mb-5 text-2xl font-bold\">\n           Sản phẩm\n         </h2>\n       </section>\n"
+                },
+                {
+                    "date": 1654368047667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           </div>\n         </div>\n       </section>\n \n-      <section className=\"product-layout page-container\">\n+      <section className=\"product-layout page-container-fluid\">\n         <h2 className=\"capitalize text-white mb-5 text-2xl font-bold\">\n           Sản phẩm\n         </h2>\n       </section>\n"
+                },
+                {
+                    "date": 1654368118005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n           </div>\n         </div>\n       </section>\n \n-      <section className=\"product-layout page-container-fluid\">\n+      <section className=\"product-layout page-container\">\n         <h2 className=\"capitalize text-white mb-5 text-2xl font-bold\">\n           Sản phẩm\n         </h2>\n       </section>\n"
+                },
+                {
+                    "date": 1654368130853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner h-[400px] page-container mb-10\">\n+      <section className=\"banner h-[500px] page-container mb-10\">\n         <div className=\"w-full h-full rounded-lg relative\">\n           <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n"
+                },
+                {
+                    "date": 1654368219962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         </div>\n       </section>\n \n       <section className=\"product-layout page-container\">\n-        <h2 className=\"capitalize text-white mb-5 text-2xl font-bold\">\n+        <h2 className=\"capitalize text-white mb-5 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654368293719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n       <section className=\"product-layout page-container\">\n         <h2 className=\"capitalize text-white mb-5 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n+        <div className=\"product-list grid grid-cols-4 gap-10\"></div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654368311484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner h-[500px] page-container mb-10\">\n+      <section className=\"banner h-[500px] page-container pb-10\">\n         <div className=\"w-full h-full rounded-lg relative\">\n           <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n"
+                },
+                {
+                    "date": 1654368329690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n         <span>Catagory</span>\n       </header>\n-      <section className=\"banner h-[500px] page-container pb-10\">\n+      <section className=\"banner h-[500px] page-container mb-10\">\n         <div className=\"w-full h-full rounded-lg relative\">\n           <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n           <img\n             src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n@@ -26,9 +26,9 @@\n           </div>\n         </div>\n       </section>\n \n-      <section className=\"product-layout page-container\">\n+      <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-5 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list grid grid-cols-4 gap-10\"></div>\n"
+                },
+                {
+                    "date": 1654368427280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,12 +27,14 @@\n         </div>\n       </section>\n \n       <section className=\"product-layout page-container pb-10\">\n-        <h2 className=\"capitalize text-white mb-5 text-3xl font-bold\">\n+        <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <div className=\"product-list grid grid-cols-4 gap-10\"></div>\n+        <div className=\"product-list grid grid-cols-4 gap-10\">\n+          <div className=\"product-card rounded-lg p-3 bg-slate-800\"></div>\n+        </div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654368500716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,14 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list grid grid-cols-4 gap-10\">\n-          <div className=\"product-card rounded-lg p-3 bg-slate-800\"></div>\n+          <div className=\"product-card rounded-lg p-3 bg-slate-800\">\n+            <img\n+              src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n+              alt=\"\"\n+            />\n+          </div>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654368567126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,9 @@\n           <div className=\"product-card rounded-lg p-3 bg-slate-800\">\n             <img\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n+              className=\"w-full h-[250px] object-cover rounded-lg\"\n             />\n           </div>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654368581662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           <div className=\"product-card rounded-lg p-3 bg-slate-800\">\n             <img\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n-              className=\"w-full h-[250px] object-cover rounded-lg\"\n+              className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n           </div>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654368614727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,9 @@\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n+            <h3>Tâm lý học về tiền</h3>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654368672502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,11 @@\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n-            <h3>Tâm lý học về tiền</h3>\n+            <h3 className=\"text-white text-2xl font-bold mb-3\">\n+              Tâm lý học về tiền\n+            </h3>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654370754764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n-            <h3 className=\"text-white text-2xl font-bold mb-3\">\n+            <h3 className=\"text-white text-xl font-bold mb-3\">\n               Tâm lý học về tiền\n             </h3>\n           </div>\n         </div>\n"
+                },
+                {
+                    "date": 1654370850442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,17 +31,18 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list grid grid-cols-4 gap-10\">\n-          <div className=\"product-card rounded-lg p-3 bg-slate-800\">\n+          <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\n             <img\n               src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n-            <h3 className=\"text-white text-xl font-bold mb-3\">\n-              Tâm lý học về tiền\n-            </h3>\n+            <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n+            <div className=\"flex items-center justify-between\">\n+              <span></span>\n+            </div>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654370893107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,10 @@\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n             <div className=\"flex items-center justify-between\">\n-              <span></span>\n+              <span>100.000đ</span>\n+              <span>4.8</span>\n             </div>\n           </div>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654370906697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between\">\n+            <div className=\"flex items-center justify-between text-sm\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n           </div>\n"
+                },
+                {
+                    "date": 1654370936786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm\">\n+            <div className=\"flex items-center justify-between text-sm opacity-5\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n           </div>\n"
+                },
+                {
+                    "date": 1654371026889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-5\">\n+            <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n           </div>\n"
+                },
+                {
+                    "date": 1654371122464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n+            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary\"></buton>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654371152768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,12 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary\"></buton>\n+            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary\">\n+              {\" \"}\n+              Mua ngay\n+            </buton>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654371184037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary\">\n+            <buton className=\"add-cart w-full py-3 px-6 rounded-lg capitalize bg-primary\">\n               {\" \"}\n               Mua ngay\n             </buton>\n           </div>\n"
+                },
+                {
+                    "date": 1654371216129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <buton className=\"add-cart w-full py-3 px-6 rounded-lg capitalize bg-primary\">\n+            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n               {\" \"}\n               Mua ngay\n             </buton>\n           </div>\n"
+                },
+                {
+                    "date": 1654371301039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n+            <div className=\"flex items-center justify-between text-sm opacity-50 mb-20\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n             <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n"
+                },
+                {
+                    "date": 1654371309372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-50 mb-20\">\n+            <div className=\"flex items-center justify-between text-sm opacity-50 mb-15\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n             <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n"
+                },
+                {
+                    "date": 1654371332709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-50 mb-15\">\n+            <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n             <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n"
+                },
+                {
+                    "date": 1654371340900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <buton className=\"add-cart py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n+            <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n               {\" \"}\n               Mua ngay\n             </buton>\n           </div>\n"
+                },
+                {
+                    "date": 1654371524658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,13 @@\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n+              <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n+                {\" \"}\n+                Mua ngay\n+              </buton>\n             </div>\n-            <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n-              {\" \"}\n-              Mua ngay\n-            </buton>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654371530110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,12 +41,8 @@\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n-              <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n-                {\" \"}\n-                Mua ngay\n-              </buton>\n             </div>\n           </div>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654371538914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,12 @@\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n           </div>\n+          <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n+            {\" \"}\n+            Mua ngay\n+          </buton>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654371547035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,13 +42,13 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n+            <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n+              {\" \"}\n+              Mua ngay\n+            </buton>\n           </div>\n-          <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n-            {\" \"}\n-            Mua ngay\n-          </buton>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654371569028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               alt=\"\"\n               className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n             />\n             <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-50 mb-10\">\n+            <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n             <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n"
+                },
+                {
+                    "date": 1654371736572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,12 +42,11 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <buton className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n-              {\" \"}\n+            <button className=\"py-3 px-6 rounded-lg capitalize bg-primary max-w-full\">\n               Mua ngay\n-            </buton>\n+            </button>\n           </div>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654371742593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\n               <span>100.000đ</span>\n               <span>4.8</span>\n             </div>\n-            <button className=\"py-3 px-6 rounded-lg capitalize bg-primary max-w-full\">\n+            <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n               Mua ngay\n             </button>\n           </div>\n         </div>\n"
+                },
+                {
+                    "date": 1654409240223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { Fragment } from \"react\";\n import \"./App.css\";\n+import ProductCard from \"./components/Product/ProductCard\";\n \n function App() {\n   return (\n     <Fragment>\n@@ -31,23 +32,9 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list grid grid-cols-4 gap-10\">\n-          <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\n-            <img\n-              src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\n-              alt=\"\"\n-              className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\n-            />\n-            <h3 className=\" text-xl font-bold mb-3\">Tâm lý học về tiền</h3>\n-            <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\n-              <span>100.000đ</span>\n-              <span>4.8</span>\n-            </div>\n-            <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\n-              Mua ngay\n-            </button>\n-          </div>\n+          <ProductCard></ProductCard>\n         </div>\n       </section>\n     </Fragment>\n   );\n"
+                },
+                {
+                    "date": 1654409249795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,9 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <div className=\"product-list grid grid-cols-4 gap-10\">\n-          <ProductCard></ProductCard>\n-        </div>\n+        <div className=\"product-list grid grid-cols-4 gap-10\"></div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654409255032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,11 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <div className=\"product-list grid grid-cols-4 gap-10\"></div>\n+        <div className=\"product-list grid grid-cols-4 gap-10\">\n+          <ProductCard></ProductCard>\n+        </div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654409654954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Fragment } from \"react\";\n+import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n import ProductCard from \"./components/Product/ProductCard\";\n \n function App() {\n"
+                },
+                {
+                    "date": 1654409771034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,13 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <div className=\"product-list grid grid-cols-4 gap-10\">\n-          <ProductCard></ProductCard>\n-        </div>\n+        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={auto}>\n+          <SwiperSlide>\n+            <ProductCard></ProductCard>\n+          </SwiperSlide>\n+        </Swiper>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654409778117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={auto}>\n+        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n           <SwiperSlide>\n             <ProductCard></ProductCard>\n           </SwiperSlide>\n         </Swiper>\n"
+                },
+                {
+                    "date": 1654409823354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,13 +32,15 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n-          <SwiperSlide>\n-            <ProductCard></ProductCard>\n-          </SwiperSlide>\n-        </Swiper>\n+        <div className=\"product-list\">\n+          <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+          </Swiper>\n+        </div>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654409880637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,16 @@\n         <div className=\"product-list\">\n           <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n+              <ProductCard></ProductCard>\n             </SwiperSlide>\n           </Swiper>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654409910774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,16 +36,23 @@\n         <div className=\"product-list\">\n           <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n               <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n               <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n               <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n               <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n               <ProductCard></ProductCard>\n-              <ProductCard></ProductCard>\n-              <ProductCard></ProductCard>\n-              <ProductCard></ProductCard>\n             </SwiperSlide>\n           </Swiper>\n         </div>\n       </section>\n"
+                },
+                {
+                    "date": 1654410092637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list\">\n-          <Swiper grabCursor={true} spaceBetween={40} slidesPerView={\"auto\"}>\n+          <Swiper grabCursor={\"true\"} spaceBetween={40} slidesPerView={\"auto\"}>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n             <SwiperSlide>\n"
+                },
+                {
+                    "date": 1654410193444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,26 @@\n             </SwiperSlide>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n           </Swiper>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654410215647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,32 +46,8 @@\n             </SwiperSlide>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n           </Swiper>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654410305355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Fragment } from \"react\";\n import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n import ProductCard from \"./components/Product/ProductCard\";\n+import \"./index.scss\";\n \n function App() {\n   return (\n     <Fragment>\n"
+                },
+                {
+                    "date": 1654410329499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment } from \"react\";\n import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n+import \"./index.scss\";\n import ProductCard from \"./components/Product/ProductCard\";\n-import \"./index.scss\";\n \n function App() {\n   return (\n     <Fragment>\n"
+                },
+                {
+                    "date": 1654410411090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Fragment } from \"react\";\n import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n import \"./index.scss\";\n+import \"swiper/scss\";\n import ProductCard from \"./components/Product/ProductCard\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1654410439687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,26 @@\n             </SwiperSlide>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n+            <SwiperSlide>\n+              <ProductCard></ProductCard>\n+            </SwiperSlide>\n           </Swiper>\n         </div>\n       </section>\n     </Fragment>\n"
+                },
+                {
+                    "date": 1654410461808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list\">\n-          <Swiper grabCursor={\"true\"} spaceBetween={40} slidesPerView={\"auto\"}>\n+          <Swiper grabCursor={\"true\"} spaceBetween={30} slidesPerView={\"auto\"}>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n             <SwiperSlide>\n"
+                },
+                {
+                    "date": 1654410471546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n         <div className=\"product-list\">\n-          <Swiper grabCursor={\"true\"} spaceBetween={30} slidesPerView={\"auto\"}>\n+          <Swiper grabCursor={\"true\"} spaceBetween={35} slidesPerView={\"auto\"}>\n             <SwiperSlide>\n               <ProductCard></ProductCard>\n             </SwiperSlide>\n             <SwiperSlide>\n"
+                },
+                {
+                    "date": 1654410569323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n import { Fragment } from \"react\";\n import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n import \"./index.scss\";\n-import \"swiper/scss\";\n-import ProductCard from \"./components/Product/ProductCard\";\n+import ProductList from \"./components/Product/ProductList\";\n \n function App() {\n   return (\n     <Fragment>\n@@ -34,42 +33,9 @@\n       <section className=\"product-layout page-container pb-10\">\n         <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n           Sản phẩm\n         </h2>\n-        <div className=\"product-list\">\n-          <Swiper grabCursor={\"true\"} spaceBetween={35} slidesPerView={\"auto\"}>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-            <SwiperSlide>\n-              <ProductCard></ProductCard>\n-            </SwiperSlide>\n-          </Swiper>\n-        </div>\n+        <ProductList></ProductList>\n       </section>\n     </Fragment>\n   );\n }\n"
+                },
+                {
+                    "date": 1654410577668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import { Fragment } from \"react\";\n-import { SwiperSlide, Swiper } from \"swiper/react\";\n import \"./App.css\";\n import \"./index.scss\";\n import ProductList from \"./components/Product/ProductList\";\n \n"
+                },
+                {
+                    "date": 1654410670358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import { Fragment } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n+import \"swiper/scss\";\n import ProductList from \"./components/Product/ProductList\";\n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1654524170141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,43 @@\n+import { Fragment } from \"react\";\n+import \"./App.css\";\n+import \"./index.scss\";\n+import \"swiper/scss\";\n+import ProductList from \"./components/Product/ProductList\";\n+\n+function App() {\n+  return (\n+    <Fragment>\n+      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n+        <span className=\"text-primary\">Home</span>\n+        <span>Catagory</span>\n+      </header>\n+      <section className=\"banner h-[500px] page-container mb-10\">\n+        <div className=\"w-full h-full rounded-lg relative\">\n+          <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n+          <img\n+            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n+            alt=\"\"\n+            className=\"w-full h-full object-cover rounded-lg\"\n+          />\n+          <div className=\"absolute left-5 bottom-20 w-full text-white\">\n+            <h2 className=\"font-bold text-3xl mb-3\">\n+              A book is a gift you can open again and again\n+            </h2>\n+            <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n+              Mua Ngay{\" \"}\n+            </button>\n+          </div>\n+        </div>\n+      </section>\n+\n+      <section className=\"product-layout page-container pb-10\">\n+        <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n+          Sản phẩm\n+        </h2>\n+        <ProductList></ProductList>\n+      </section>\n+    </Fragment>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1654532621724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n import \"swiper/scss\";\n import ProductList from \"./components/Product/ProductList\";\n \n function App() {\n+  const initialState = { user: null, products: [] };\n   return (\n     <Fragment>\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n@@ -40,47 +41,4 @@\n   );\n }\n \n export default App;\n-import { Fragment } from \"react\";\n-import \"./App.css\";\n-import \"./index.scss\";\n-import \"swiper/scss\";\n-import ProductList from \"./components/Product/ProductList\";\n-\n-function App() {\n-  return (\n-    <Fragment>\n-      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n-        <span className=\"text-primary\">Home</span>\n-        <span>Catagory</span>\n-      </header>\n-      <section className=\"banner h-[500px] page-container mb-10\">\n-        <div className=\"w-full h-full rounded-lg relative\">\n-          <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n-          <img\n-            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n-            alt=\"\"\n-            className=\"w-full h-full object-cover rounded-lg\"\n-          />\n-          <div className=\"absolute left-5 bottom-20 w-full text-white\">\n-            <h2 className=\"font-bold text-3xl mb-3\">\n-              A book is a gift you can open again and again\n-            </h2>\n-            <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n-              Mua Ngay{\" \"}\n-            </button>\n-          </div>\n-        </div>\n-      </section>\n-\n-      <section className=\"product-layout page-container pb-10\">\n-        <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n-          Sản phẩm\n-        </h2>\n-        <ProductList></ProductList>\n-      </section>\n-    </Fragment>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1654532663449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n import ProductList from \"./components/Product/ProductList\";\n+import AppRender from \"./Reducer/AppReducer\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   return (\n"
+                },
+                {
+                    "date": 1654532764045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n-import { Fragment } from \"react\";\n+import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n import ProductList from \"./components/Product/ProductList\";\n-import AppRender from \"./Reducer/AppReducer\";\n+import AppReducer from \"./Reducer/AppReducer\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n+  const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n     <Fragment>\n       <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n         <span className=\"text-primary\">Home</span>\n"
+                },
+                {
+                    "date": 1654532943692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import \"./index.scss\";\n import \"swiper/scss\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n+import AppContext from \"./components/AppContext/AppContext\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n"
+                },
+                {
+                    "date": 1654533017718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,39 +9,41 @@\n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n-    <Fragment>\n-      <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n-        <span className=\"text-primary\">Home</span>\n-        <span>Catagory</span>\n-      </header>\n-      <section className=\"banner h-[500px] page-container mb-10\">\n-        <div className=\"w-full h-full rounded-lg relative\">\n-          <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n-          <img\n-            src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n-            alt=\"\"\n-            className=\"w-full h-full object-cover rounded-lg\"\n-          />\n-          <div className=\"absolute left-5 bottom-20 w-full text-white\">\n-            <h2 className=\"font-bold text-3xl mb-3\">\n-              A book is a gift you can open again and again\n-            </h2>\n-            <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n-              Mua Ngay{\" \"}\n-            </button>\n+    <AppContext.Provider>\n+      <Fragment>\n+        <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n+          <span className=\"text-primary\">Home</span>\n+          <span>Catagory</span>\n+        </header>\n+        <section className=\"banner h-[500px] page-container mb-10\">\n+          <div className=\"w-full h-full rounded-lg relative\">\n+            <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n+            <img\n+              src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n+              alt=\"\"\n+              className=\"w-full h-full object-cover rounded-lg\"\n+            />\n+            <div className=\"absolute left-5 bottom-20 w-full text-white\">\n+              <h2 className=\"font-bold text-3xl mb-3\">\n+                A book is a gift you can open again and again\n+              </h2>\n+              <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n+                Mua Ngay{\" \"}\n+              </button>\n+            </div>\n           </div>\n-        </div>\n-      </section>\n+        </section>\n \n-      <section className=\"product-layout page-container pb-10\">\n-        <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n-          Sản phẩm\n-        </h2>\n-        <ProductList></ProductList>\n-      </section>\n-    </Fragment>\n+        <section className=\"product-layout page-container pb-10\">\n+          <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n+            Sản phẩm\n+          </h2>\n+          <ProductList></ProductList>\n+        </section>\n+      </Fragment>\n+    </AppContext.Provider>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654533066344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n-    <AppContext.Provider>\n+    <AppContext.Provider value={{ state, dispatch }}>\n       <Fragment>\n         <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n           <span className=\"text-primary\">Home</span>\n           <span>Catagory</span>\n"
+                },
+                {
+                    "date": 1654570731960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n+import { BrowseRouter as router, route } from \"reacr-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654570747096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowseRouter as router, route } from \"reacr-router-dom\";\n+// import { BrowseRouter as router, route } from \"reacr-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654573491669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-// import { BrowseRouter as router, route } from \"reacr-router-dom\";\n+import { BrowseRouter as Router, Route, Switch } from \"reacr-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654573616732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowseRouter as Router, Route, Switch } from \"reacr-router-dom\";\n+import { BrowseRouter as Router, Route, Switch } from \"react-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654573943199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,41 +10,43 @@\n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n-    <AppContext.Provider value={{ state, dispatch }}>\n-      <Fragment>\n-        <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n-          <span className=\"text-primary\">Home</span>\n-          <span>Catagory</span>\n-        </header>\n-        <section className=\"banner h-[500px] page-container mb-10\">\n-          <div className=\"w-full h-full rounded-lg relative\">\n-            <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n-            <img\n-              src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n-              alt=\"\"\n-              className=\"w-full h-full object-cover rounded-lg\"\n-            />\n-            <div className=\"absolute left-5 bottom-20 w-full text-white\">\n-              <h2 className=\"font-bold text-3xl mb-3\">\n-                A book is a gift you can open again and again\n-              </h2>\n-              <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n-                Mua Ngay{\" \"}\n-              </button>\n+    <Router>\n+      <AppContext.Provider value={{ state, dispatch }}>\n+        <Fragment>\n+          <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n+            <span className=\"text-primary\">Home</span>\n+            <span>Catagory</span>\n+          </header>\n+          <section className=\"banner h-[500px] page-container mb-10\">\n+            <div className=\"w-full h-full rounded-lg relative\">\n+              <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n+              <img\n+                src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n+                alt=\"\"\n+                className=\"w-full h-full object-cover rounded-lg\"\n+              />\n+              <div className=\"absolute left-5 bottom-20 w-full text-white\">\n+                <h2 className=\"font-bold text-3xl mb-3\">\n+                  A book is a gift you can open again and again\n+                </h2>\n+                <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n+                  Mua Ngay{\" \"}\n+                </button>\n+              </div>\n             </div>\n-          </div>\n-        </section>\n+          </section>\n \n-        <section className=\"product-layout page-container pb-10\">\n-          <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n-            Sản phẩm\n-          </h2>\n-          <ProductList></ProductList>\n-        </section>\n-      </Fragment>\n-    </AppContext.Provider>\n+          <section className=\"product-layout page-container pb-10\">\n+            <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n+              Sản phẩm\n+            </h2>\n+            <ProductList></ProductList>\n+          </section>\n+        </Fragment>\n+      </AppContext.Provider>\n+    </Router>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654573985829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowseRouter as Router, Route, Switch } from \"react-router-dom\";\n+import { BrowseRouter as Router, Routes, Switch } from \"react-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654573992005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowseRouter as Router, Routes, Switch } from \"react-router-dom\";\n+import { BrowseRouter as Router, Route, Switch } from \"react-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654574009616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowseRouter as Router, Route, Switch } from \"react-router-dom\";\n+import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n \n"
+                },
+                {
+                    "date": 1654574148228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,20 +5,18 @@\n import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n+import Header from \"./components/Header/Header\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n-          <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 mb-10\">\n-            <span className=\"text-primary\">Home</span>\n-            <span>Catagory</span>\n-          </header>\n+          <Header />\n           <section className=\"banner h-[500px] page-container mb-10\">\n             <div className=\"w-full h-full rounded-lg relative\">\n               <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n               <img\n"
+                },
+                {
+                    "date": 1654574162865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   return (\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n-          <Header />\n+          {/* <Header /> */}\n           <section className=\"banner h-[500px] page-container mb-10\">\n             <div className=\"w-full h-full rounded-lg relative\">\n               <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n               <img\n"
+                },
+                {
+                    "date": 1654574215837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,35 +6,19 @@\n import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n import Header from \"./components/Header/Header\";\n+import Banner from \"./components/Banner/Banner\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n-          {/* <Header /> */}\n-          <section className=\"banner h-[500px] page-container mb-10\">\n-            <div className=\"w-full h-full rounded-lg relative\">\n-              <div className=\"overlay absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.5)] rounded-lg\"></div>\n-              <img\n-                src=\"https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1590&q=80\"\n-                alt=\"\"\n-                className=\"w-full h-full object-cover rounded-lg\"\n-              />\n-              <div className=\"absolute left-5 bottom-20 w-full text-white\">\n-                <h2 className=\"font-bold text-3xl mb-3\">\n-                  A book is a gift you can open again and again\n-                </h2>\n-                <button className=\"py-3 px-6 rounded-lg bg-primary text-white font-bold\">\n-                  Mua Ngay{\" \"}\n-                </button>\n-              </div>\n-            </div>\n-          </section>\n+          <Header />\n+          <Banner />\n \n           <section className=\"product-layout page-container pb-10\">\n             <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n               Sản phẩm\n"
+                },
+                {
+                    "date": 1654574895637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n import Header from \"./components/Header/Header\";\n import Banner from \"./components/Banner/Banner\";\n+import ProductLayout from \"./components/Product/ProductLayout\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n@@ -18,14 +19,9 @@\n         <Fragment>\n           <Header />\n           <Banner />\n \n-          <section className=\"product-layout page-container pb-10\">\n-            <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\n-              Sản phẩm\n-            </h2>\n-            <ProductList></ProductList>\n-          </section>\n+          <ProductLayout />\n         </Fragment>\n       </AppContext.Provider>\n     </Router>\n   );\n"
+                },
+                {
+                    "date": 1654577675171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n           <Header />\n           <Banner />\n-\n           <ProductLayout />\n         </Fragment>\n       </AppContext.Provider>\n     </Router>\n"
+                },
+                {
+                    "date": 1654583084144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,12 @@\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n           <Header />\n-          <Banner />\n-          <ProductLayout />\n+          <Switch>\n+            <Banner />\n+            <ProductLayout />\n+          </Switch>\n         </Fragment>\n       </AppContext.Provider>\n     </Router>\n   );\n"
+                },
+                {
+                    "date": 1654583500503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\n-import ProductList from \"./components/Product/ProductList\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n import Header from \"./components/Header/Header\";\n import Banner from \"./components/Banner/Banner\";\n@@ -17,12 +16,11 @@\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n           <Header />\n-          <Switch>\n-            <Banner />\n-            <ProductLayout />\n-          </Switch>\n+\n+          <Banner />\n+          <ProductLayout />\n         </Fragment>\n       </AppContext.Provider>\n     </Router>\n   );\n"
+                },
+                {
+                    "date": 1654584316779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n     <Router>\n       <AppContext.Provider value={{ state, dispatch }}>\n         <Fragment>\n           <Header />\n-\n           <Banner />\n           <ProductLayout />\n         </Fragment>\n       </AppContext.Provider>\n"
+                },
+                {
+                    "date": 1654584327753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,17 +12,15 @@\n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n-    <Router>\n-      <AppContext.Provider value={{ state, dispatch }}>\n-        <Fragment>\n-          <Header />\n-          <Banner />\n-          <ProductLayout />\n-        </Fragment>\n-      </AppContext.Provider>\n-    </Router>\n+    <AppContext.Provider value={{ state, dispatch }}>\n+      <Fragment>\n+        <Header />\n+        <Banner />\n+        <ProductLayout />\n+      </Fragment>\n+    </AppContext.Provider>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1654584665563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,30 @@\n import { Fragment, useReducer } from \"react\";\n import \"./App.css\";\n import \"./index.scss\";\n import \"swiper/scss\";\n-import { BrowserRouter as Router, Route, Switch } from \"react-router-dom\";\n+import { BrowserRouter as Router, Route, Routes } from \"react-router-dom\";\n import AppReducer from \"./Reducer/AppReducer\";\n import AppContext from \"./components/AppContext/AppContext\";\n import Header from \"./components/Header/Header\";\n import Banner from \"./components/Banner/Banner\";\n import ProductLayout from \"./components/Product/ProductLayout\";\n+import Home from \"./components/Home/Home\";\n+import SignInPage from \"./pages/SignInPage\";\n+import SignUpPage from \"./pages/SignUpPage\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n     <AppContext.Provider value={{ state, dispatch }}>\n       <Fragment>\n         <Header />\n+        <Routes>\n+          <Route path=\"/\" element={<Home />} />\n+          <Route path=\"/sign-in\" element={<SignInPage />} />\n+          <Route path=\"/sign-up\" element={<SignUpPage />} />\n+        </Routes>\n         <Banner />\n         <ProductLayout />\n       </Fragment>\n     </AppContext.Provider>\n"
+                },
+                {
+                    "date": 1654584731203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,18 +16,20 @@\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n   return (\n     <AppContext.Provider value={{ state, dispatch }}>\n-      <Fragment>\n-        <Header />\n-        <Routes>\n-          <Route path=\"/\" element={<Home />} />\n-          <Route path=\"/sign-in\" element={<SignInPage />} />\n-          <Route path=\"/sign-up\" element={<SignUpPage />} />\n-        </Routes>\n-        <Banner />\n-        <ProductLayout />\n-      </Fragment>\n+      <Router>\n+        <Fragment>\n+          <Header />\n+          <Routes>\n+            <Route path=\"/\" element={<Home />} />\n+            <Route path=\"/sign-in\" element={<SignInPage />} />\n+            <Route path=\"/sign-up\" element={<SignUpPage />} />\n+          </Routes>\n+          <Banner />\n+          <ProductLayout />\n+        </Fragment>\n+      </Router>\n     </AppContext.Provider>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1654584869526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,8 @@\n             <Route path=\"/\" element={<Home />} />\n             <Route path=\"/sign-in\" element={<SignInPage />} />\n             <Route path=\"/sign-up\" element={<SignUpPage />} />\n           </Routes>\n-          <Banner />\n-          <ProductLayout />\n         </Fragment>\n       </Router>\n     </AppContext.Provider>\n   );\n"
+                },
+                {
+                    "date": 1654585092765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n import ProductLayout from \"./components/Product/ProductLayout\";\n import Home from \"./components/Home/Home\";\n import SignInPage from \"./pages/SignInPage\";\n import SignUpPage from \"./pages/SignUpPage\";\n+import Error from \"./pages/Error\";\n \n function App() {\n   const initialState = { user: null, products: [] };\n   const [state, dispatch] = useReducer(AppReducer, initialState);\n@@ -23,8 +24,9 @@\n           <Routes>\n             <Route path=\"/\" element={<Home />} />\n             <Route path=\"/sign-in\" element={<SignInPage />} />\n             <Route path=\"/sign-up\" element={<SignUpPage />} />\n+            <Route path=\"*\" element={<Error />} />\n           </Routes>\n         </Fragment>\n       </Router>\n     </AppContext.Provider>\n"
+                }
+            ],
+            "date": 1654241155680,
+            "name": "Commit-0",
+            "content": "import \"./App.css\";\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      <header className=\"App-header\">\n        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n        <p>\n          Edit <code>src/App.js</code> and save to reload.\n        </p>\n        <a\n          className=\"App-link\"\n          href=\"https://reactjs.org\"\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n        >\n          Learn React\n        </a>\n      </header>\n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

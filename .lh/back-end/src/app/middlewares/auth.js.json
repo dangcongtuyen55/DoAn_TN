@@ -1,0 +1,26 @@
+{
+    "sourceFile": "back-end/src/app/middlewares/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1653725884440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653726127152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-const isAuthenticatedUser = async (req, res, next) => {\r\n+exports.isAuthenticatedUser = async (req, res, next) => {\r\n   const token = req.cookies.get(\"token\");\r\n   console.log(token);\r\n };\r\n"
+                },
+                {
+                    "date": 1654065283536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n \r\n const ErrorHandler = require('../../utils/errorHandler')\r\n \r\n+\r\n exports.isAuthenticatedUser = async (req, res, next) => {\r\n   const token = req.cookies.get(\"token\");\r\n   console.log(token);\r\n };\r\n"
+                }
+            ],
+            "date": 1653725884440,
+            "name": "Commit-0",
+            "content": "const isAuthenticatedUser = async (req, res, next) => {\r\n  const token = req.cookies.get(\"token\");\r\n  console.log(token);\r\n};\r\n"
+        }
+    ]
+}

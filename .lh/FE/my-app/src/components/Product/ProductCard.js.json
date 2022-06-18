@@ -1,0 +1,286 @@
+{
+    "sourceFile": "FE/my-app/src/components/Product/ProductCard.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 67,
+            "patches": [
+                {
+                    "date": 1654781012635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654783135517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\r\n+          src=\"{product.product_image}\"\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n"
+                },
+                {
+                    "date": 1654783353509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src=\"{product.product_image}\"\r\n+          src=\"{{product.product_image}}\"\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n"
+                },
+                {
+                    "date": 1654785628918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src=\"{{product.product_image}}\"\r\n+          src=\"{{product.product_url}}\"\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n"
+                },
+                {
+                    "date": 1654785924795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src=\"{{product.product_url}}\"\r\n+          src=\"{product.product_url}\"\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n"
+                },
+                {
+                    "date": 1654786304868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n           <span>{product.price}</span>\r\n-          <span>4.8</span>\r\n+          <span></span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n           Mua ngay\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1654786350008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n           <span>{product.price}</span>\r\n-          <span></span>\r\n+          <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n           Mua ngay\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1654786779538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src=\"{product.product_url}\"\r\n+          src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n"
+                },
+                {
+                    "date": 1654790686543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n           src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n-        <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n+        <h3 className=\" text-xl font-bold mb-3 text-ellipsis\">\r\n+          {product.name}\r\n+        </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1654790813233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n           src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n-        <h3 className=\" text-xl font-bold mb-3 text-ellipsis\">\r\n+        <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden\">\r\n           {product.name}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n           <span>{product.price}</span>\r\n"
+                },
+                {
+                    "date": 1654790894776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n           src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n-        <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden\">\r\n+        <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n           {product.name}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n           <span>{product.price}</span>\r\n"
+                },
+                {
+                    "date": 1654793760833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src={product.product_url}\r\n+          // src={product.product_url}\r\n+          src=\"https://salt.tikicdn.com/cache/w1080/ts/banner/82/dc/47/821126e1f686e0bfc2216a6f6483b32b.png.webp\"\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n"
+                },
+                {
+                    "date": 1654793862350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,9 @@\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          // src={product.product_url}\r\n-          src=\"https://salt.tikicdn.com/cache/w1080/ts/banner/82/dc/47/821126e1f686e0bfc2216a6f6483b32b.png.webp\"\r\n+          src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n"
+                },
+                {
+                    "date": 1654799472462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,20 @@\n import React from \"react\";\r\n \r\n-const ProductCard = ({ product }) => {\r\n+const ProductCard = ({ banner }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src={product.product_url}\r\n+          src={banner.banner_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n-          {product.name}\r\n+          {banner.title}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-          <span>{product.price}</span>\r\n+          {/* <span>{product.price}</span> */}\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n           Mua ngay\r\n"
+                },
+                {
+                    "date": 1654799493101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,20 @@\n import React from \"react\";\r\n \r\n-const ProductCard = ({ banner }) => {\r\n+const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <img\r\n-          src={banner.banner_url}\r\n+          src={product.product_url}\r\n           alt=\"\"\r\n           className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n         />\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n-          {banner.title}\r\n+          {product.name}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-          {/* <span>{product.price}</span> */}\r\n+          <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n           Mua ngay\r\n"
+                },
+                {
+                    "date": 1655013928663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,12 @@\n import React from \"react\";\r\n+import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <img\r\n-          src={product.product_url}\r\n-          alt=\"\"\r\n-          className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n-        />\r\n+        <Link to={`/product/${product._id}`}></Link>\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n           {product.name}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n"
+                },
+                {
+                    "date": 1655013962615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,16 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}></Link>\r\n+        <Link to={`/product/${product._id}`}>\r\n+          <img\r\n+            src={product.product_url}\r\n+            alt=\"\"\r\n+            className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n+          />\r\n+        </Link>\r\n+\r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n           {product.name}\r\n         </h3>\r\n         <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n"
+                },
+                {
+                    "date": 1655014367641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          Mua ngay\r\n+          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n         </button>\r\n       </div>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655020180983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n+          Mua ngay\r\n         </button>\r\n       </div>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655020206234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}>\r\n+        <Link to={`/api/v1//product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655020218677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/api/v1//product/${product._id}`}>\r\n+        <Link to={`/api/v1/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655020279294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/api/v1/product/${product._id}`}>\r\n+        <Link to={`/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655021383357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,28 @@\n-import React from \"react\";\r\n+import React, { useCallback, useContext, useEffect } from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n+import AppContext from \"../AppContext/AppContext\";\r\n+import axios from \"axios\";\r\n \r\n const ProductCard = ({ product }) => {\r\n+  const getProductDetail = useCallback(async () => {\r\n+    try {\r\n+      const options = {\r\n+        method: \"GET\",\r\n+        url: `/api/v1/product/${product.params.id}`,\r\n+      };\r\n+      const response = await axios(options);\r\n+      const product = response.data.data.product;\r\n+      console.log(product);\r\n+\r\n+      dispatch({ type: \"GET_PRODUCT_DETAIL\", payload: product });\r\n+    } catch (error) {\r\n+      // console.log(error);\r\n+    }\r\n+  });\r\n+  useEffect(() => {\r\n+    getProductDetail();\r\n+  }, [getProductDetail]);\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link to={`/product/${product._id}`}>\r\n"
+                },
+                {
+                    "date": 1655021426355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n import AppContext from \"../AppContext/AppContext\";\r\n import axios from \"axios\";\r\n \r\n const ProductCard = ({ product }) => {\r\n+  const { state, dispatch } = useContext(AppContext);\r\n+  const { item } = state;\r\n   const getProductDetail = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"GET\",\r\n"
+                },
+                {
+                    "date": 1655021453809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   const getProductDetail = useCallback(async () => {\r\n     try {\r\n       const options = {\r\n         method: \"GET\",\r\n-        url: `/api/v1/product/${product.params.id}`,\r\n+        url: `/api/v1/product/${product._id}`,\r\n       };\r\n       const response = await axios(options);\r\n       const product = response.data.data.product;\r\n       console.log(product);\r\n"
+                },
+                {
+                    "date": 1655021541358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +1,8 @@\n-import React, { useCallback, useContext, useEffect } from \"react\";\r\n+import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n-import AppContext from \"../AppContext/AppContext\";\r\n-import axios from \"axios\";\r\n \r\n const ProductCard = ({ product }) => {\r\n-  const { state, dispatch } = useContext(AppContext);\r\n-  const { item } = state;\r\n-  const getProductDetail = useCallback(async () => {\r\n-    try {\r\n-      const options = {\r\n-        method: \"GET\",\r\n-        url: `/api/v1/product/${product._id}`,\r\n-      };\r\n-      const response = await axios(options);\r\n-      const product = response.data.data.product;\r\n-      console.log(product);\r\n-\r\n-      dispatch({ type: \"GET_PRODUCT_DETAIL\", payload: product });\r\n-    } catch (error) {\r\n-      // console.log(error);\r\n-    }\r\n-  });\r\n-  useEffect(() => {\r\n-    getProductDetail();\r\n-  }, [getProductDetail]);\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link to={`/product/${product._id}`}>\r\n@@ -42,9 +20,9 @@\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          Mua ngay\r\n+          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n         </button>\r\n       </div>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655050294481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}>\r\n+        <Link to={`/products/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655138758680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/products/${product._id}`}>\r\n+        <Link to={`/api/v1/products/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655139060881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/api/v1/products/${product._id}`}>\r\n+        <Link to={`/products/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655139348676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/products/${product._id}`}>\r\n+        <Link to={`/api/v1/products/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655139874026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/api/v1/products/${product._id}`}>\r\n+        <Link to={product._id}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655141219822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={product._id}>\r\n+        <Link to={`/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655141877186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}>\r\n+        <Link to={`/products/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655144256539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/products/${product._id}`}>\r\n+        <Link to={`/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n@@ -20,9 +20,9 @@\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n+          <Link to={`/products/${product._id}`}>Mua ngay</Link>\r\n         </button>\r\n       </div>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655146080653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n           <span>{product.price}</span>\r\n           <span>4.8</span>\r\n         </div>\r\n         <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          <Link to={`/products/${product._id}`}>Mua ngay</Link>\r\n+          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n         </button>\r\n       </div>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655146302098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}>\r\n+        <Link to={`/api/v1/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655146365050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/api/v1/product/${product._id}`}>\r\n+        <Link to={`/product/${product._id}`}>\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655181308481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,14 @@\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n-        <Link to={`/product/${product._id}`}>\r\n+        <Link\r\n+          to={{\r\n+            pathname: `/product/${product._id}`,\r\n+            state: product,\r\n+          }}\r\n+        >\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n             className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n"
+                },
+                {
+                    "date": 1655195060415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n+    <div className=\"product-card w-[200px] rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link\r\n           to={{\r\n             pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655195444400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card w-[200px] rounded-lg p-3 bg-slate-800 text-white\">\r\n+    <div className=\"product-card w-[100px] rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link\r\n           to={{\r\n             pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655195458500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         >\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n-            className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n+            className=\"w-full h-[100px] object-cover rounded-lg mb-5\"\r\n           />\r\n         </Link>\r\n \r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n"
+                },
+                {
+                    "date": 1655195479031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card w-[100px] rounded-lg p-3 bg-slate-800 text-white\">\r\n+    <div className=\"product-card w-[150px] rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link\r\n           to={{\r\n             pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655195518397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card w-[150px] rounded-lg p-3 bg-slate-800 text-white\">\r\n+    <div className=\"product-card w-[150px]  rounded-lg p-3 bg-slate-800 text-white\">\r\n       <div>\r\n         <Link\r\n           to={{\r\n             pathname: `/product/${product._id}`,\r\n@@ -13,9 +13,9 @@\n         >\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n-            className=\"w-full h-[100px] object-cover rounded-lg mb-5\"\r\n+            className=\"w-full h-[150px] object-cover rounded-lg mb-5\"\r\n           />\r\n         </Link>\r\n \r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n"
+                },
+                {
+                    "date": 1655195559711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         >\r\n           <img\r\n             src={product.product_url}\r\n             alt=\"\"\r\n-            className=\"w-full h-[150px] object-cover rounded-lg mb-5\"\r\n+            className=\"w-full h-[200px] object-cover rounded-lg mb-5\"\r\n           />\r\n         </Link>\r\n \r\n         <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n"
+                },
+                {
+                    "date": 1655271144428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,35 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card w-[150px]  rounded-lg p-3 bg-slate-800 text-white\">\r\n-      <div>\r\n-        <Link\r\n-          to={{\r\n-            pathname: `/product/${product._id}`,\r\n-            state: product,\r\n-          }}\r\n-        >\r\n-          <img\r\n-            src={product.product_url}\r\n-            alt=\"\"\r\n-            className=\"w-full h-[200px] object-cover rounded-lg mb-5\"\r\n-          />\r\n-        </Link>\r\n-\r\n-        <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n-          {product.name}\r\n-        </h3>\r\n-        <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-          <span>{product.price}</span>\r\n-          <span>4.8</span>\r\n-        </div>\r\n-        <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n-          <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n-        </button>\r\n-      </div>\r\n-    </div>\r\n+    <div className=\"product-card w-[200px]  rounded-lg p-3 bg-slate-800 text-white\"></div>\r\n   );\r\n };\r\n \r\n export default ProductCard;\r\n"
+                },
+                {
+                    "date": 1655271155830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n-    <div className=\"product-card w-[200px]  rounded-lg p-3 bg-slate-800 text-white\"></div>\r\n+    \r\n   );\r\n };\r\n \r\n export default ProductCard;\r\n"
+                },
+                {
+                    "date": 1655271162587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,8 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n-  return (\r\n-    \r\n-  );\r\n+  return <></>;\r\n };\r\n \r\n export default ProductCard;\r\n"
+                },
+                {
+                    "date": 1655271202843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,38 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n-  return <></>;\r\n+  return (\r\n+    <>\r\n+      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-slate-800 text-white\">\r\n+        <div>\r\n+          <Link\r\n+            to={{\r\n+              pathname: `/product/${product._id}`,\r\n+              state: product,\r\n+            }}\r\n+          >\r\n+            <img\r\n+              src={product.product_url}\r\n+              alt=\"\"\r\n+              className=\"w-full h-[200px] object-cover rounded-lg mb-5\"\r\n+            />\r\n+          </Link>\r\n+\r\n+          <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n+            {product.name}\r\n+          </h3>\r\n+          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n+            <span>{product.price}</span>\r\n+            <span>4.8</span>\r\n+          </div>\r\n+          <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n+            <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n+          </button>\r\n+        </div>\r\n+      </div>\r\n+    </>\r\n+  );\r\n };\r\n \r\n export default ProductCard;\r\n"
+                },
+                {
+                    "date": 1655271219766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,12 @@\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n             <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n+          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n+            <span>{product.price}</span>\r\n+            <span>4.8</span>\r\n+          </div>\r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n           </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1655271227519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-            <span>{product.price}</span>\r\n+            <span>{product.quantyti}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n"
+                },
+                {
+                    "date": 1655271239584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,9 @@\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n             <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n-          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-            <span>{product.quantyti}</span>\r\n-            <span>4.8</span>\r\n-          </div>\r\n+\r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n           </button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1655307639452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <>\r\n-      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-slate-800 text-white\">\r\n+      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-gray text-white\">\r\n         <div>\r\n           <Link\r\n             to={{\r\n               pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655307644765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <>\r\n-      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-gray text-white\">\r\n+      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-white text-white\">\r\n         <div>\r\n           <Link\r\n             to={{\r\n               pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655307661960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <>\r\n-      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-white text-white\">\r\n+      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-white text-black\">\r\n         <div>\r\n           <Link\r\n             to={{\r\n               pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655307674340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n-          <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n+          <button className=\"py-3 px-6 rounded-lg capitalize bg-black w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n           </button>\r\n         </div>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1655307680613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n             <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n-          <button className=\"py-3 px-6 rounded-lg capitalize bg-black w-full\">\r\n+          <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n           </button>\r\n         </div>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1655311950053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-            <span>{product.price}</span>\r\n+            <span>{product.original_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655312044860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-            <span>{product.original_price}</span>\r\n+            <span>{product.price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655312052645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n-            <span>{product.price}</span>\r\n+            <span>{product.original_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655312067028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n-          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n+          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-black\">\r\n             <span>{product.original_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n"
+                },
+                {
+                    "date": 1655312079850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n-          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-black\">\r\n+          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n             <span>{product.original_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n"
+                },
+                {
+                    "date": 1655312120940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   return (\r\n     <>\r\n-      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-white text-black\">\r\n+      <div className=\"product-card w-[200px]  rounded-lg p-3 bg-gray-700 text-black\">\r\n         <div>\r\n           <Link\r\n             to={{\r\n               pathname: `/product/${product._id}`,\r\n"
+                },
+                {
+                    "date": 1655312949923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n-            <span>{product.original_price}</span>\r\n+            <span>{product.current_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655313022592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n-            <span>{product.current_price}</span>\r\n+            <span>{product.product.current_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655313028892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n           <h3 className=\" text-xl font-bold mb-3 text-ellipsis overflow-hidden whitespace-nowrap\">\r\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n-            <span>{product.product.current_price}</span>\r\n+            <span>{product.current_price}</span>\r\n             <span>4.8</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n"
+                },
+                {
+                    "date": 1655313062152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n             <span>{product.current_price}</span>\r\n-            <span>4.8</span>\r\n+            <span>{product.current_price}</span>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n"
+                },
+                {
+                    "date": 1655313102195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n \r\n const ProductCard = ({ product }) => {\r\n+  console.log(product.current_price);\r\n   return (\r\n     <>\r\n       <div className=\"product-card w-[200px]  rounded-lg p-3 bg-gray-700 text-black\">\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1655313276126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n             <span>{product.current_price}</span>\r\n-            <span>{product.current_price}</span>\r\n+            <del>{product.original_price}</del>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n"
+                }
+            ],
+            "date": 1654781012635,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nconst ProductCard = ({ product }) => {\r\n  return (\r\n    <div className=\"product-card rounded-lg p-3 bg-slate-800 text-white\">\r\n      <div>\r\n        <img\r\n          src=\"https://salt.tikicdn.com/cache/200x200/ts/product/77/8d/16/ec182c0fcc1431070504e6108b5a0f2b.jpg.webp\"\r\n          alt=\"\"\r\n          className=\"w-full h-[250px] object-cover rounded-lg mb-5\"\r\n        />\r\n        <h3 className=\" text-xl font-bold mb-3\">{product.name}</h3>\r\n        <div className=\"flex items-center justify-between text-sm opacity-50 mb-5\">\r\n          <span>{product.price}</span>\r\n          <span>4.8</span>\r\n        </div>\r\n        <button className=\"py-3 px-6 rounded-lg capitalize bg-primary w-full\">\r\n          Mua ngay\r\n        </button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default ProductCard;\r\n"
+        }
+    ]
+}

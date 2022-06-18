@@ -1,0 +1,22 @@
+{
+    "sourceFile": "FE/my-app/src/components/Product/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1654966214229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654966415387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,9 @@\n-export const productImages = [require(\".images/slider1.jpg\")];\r\n+export const productImages = [\r\n+  require(\"./images/slide1.jpg\"),\r\n+  require(\"./images/slide2.jpg\"),\r\n+  require(\"./images/slide3.jpg\"),\r\n+  require(\"./images/slide4.jpg\"),\r\n+  require(\"./images/slide5.jpg\"),\r\n+  require(\"./images/slide6.jpg\"),\r\n+  require(\"./images/slide7.jpg\"),\r\n+];\r\n"
+                }
+            ],
+            "date": 1654966214229,
+            "name": "Commit-0",
+            "content": "export const productImages = [require(\".images/slider1.jpg\")];\r\n"
+        }
+    ]
+}

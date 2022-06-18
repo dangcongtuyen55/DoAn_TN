@@ -1,0 +1,58 @@
+{
+    "sourceFile": "FE/my-app/src/components/Home/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1654793098431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654793127450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,12 @@\n     getAllBanners();\r\n   }, [getAllBanners]);\r\n   return (\r\n     <div>\r\n-      <Banner />\r\n+      {banners.map((banner) => {\r\n+        console.log(banner);\r\n+        return <Banner />;\r\n+      })}\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654793181320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,11 @@\n     getAllBanners();\r\n   }, [getAllBanners]);\r\n   return (\r\n     <div>\r\n-      {banners.map((banner) => {\r\n-        console.log(banner);\r\n-        return <Banner />;\r\n-      })}\r\n+      {banners.map((banner) => (\r\n+        <Banner />\r\n+      ))}\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654793263279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,35 +1,12 @@\n-import React, { useCallback, useContext, useEffect, useState } from \"react\";\r\n-import axios from \"axios\";\r\n-import AppContext from \"../AppContext/AppContext\";\r\n+import React from \"react\";\r\n import Banner from \"../Banner/Banner\";\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n-  const { state, dispatch } = useContext(AppContext);\r\n-  const { banners } = state;\r\n-  console.log(banners);\r\n-  const getAllBanners = useCallback(async () => {\r\n-    try {\r\n-      const options = {\r\n-        method: \"GET\",\r\n-        url: \"/api/v1/banner\",\r\n-      };\r\n-      const response = await axios(options);\r\n-      const banners = response.data.data.banners;\r\n-      dispatch({ type: \"GET_ALL_BANNERS\", payload: banners });\r\n-    } catch (error) {\r\n-      // console.log(error);\r\n-    }\r\n-  }, [dispatch]);\r\n-  useEffect(() => {\r\n-    getAllBanners();\r\n-  }, [getAllBanners]);\r\n   return (\r\n     <div>\r\n-      {banners.map((banner) => (\r\n-        <Banner />\r\n-      ))}\r\n+      <Banner />\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654794210267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n import React from \"react\";\r\n import Banner from \"../Banner/Banner\";\r\n+import BannerLayout from \"../Banner/BannerLayout\";\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n   return (\r\n     <div>\r\n-      <Banner />\r\n+      {/* <Banner /> */}\r\n+      <BannerLayout />\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654794473702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React from \"react\";\r\n-import Banner from \"../Banner/Banner\";\r\n import BannerLayout from \"../Banner/BannerLayout\";\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n"
+                },
+                {
+                    "date": 1654795438392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const Home = () => {\r\n   return (\r\n     <div>\r\n       {/* <Banner /> */}\r\n-      <BannerLayout />\r\n+      {/* <BannerLayout /> */}\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654795485847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const Home = () => {\r\n   return (\r\n     <div>\r\n       {/* <Banner /> */}\r\n-      {/* <BannerLayout /> */}\r\n+      <BannerLayout />\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654832879896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,10 @@\n import React from \"react\";\r\n-import BannerLayout from \"../Banner/BannerLayout\";\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n   return (\r\n     <div>\r\n-      {/* <Banner /> */}\r\n-      <BannerLayout />\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654833579263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import React from \"react\";\r\n+import BannerLayout from \"../Banner/BannerLayout\";\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n   return (\r\n     <div>\r\n+      <BannerLayout />\r\n       <ProductLayout />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1655186807027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from \"react\";\r\n import BannerLayout from \"../Banner/BannerLayout\";\r\n+\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n   return (\r\n"
+                }
+            ],
+            "date": 1654793098431,
+            "name": "Commit-0",
+            "content": "import React, { useCallback, useContext, useEffect, useState } from \"react\";\r\nimport axios from \"axios\";\r\nimport AppContext from \"../AppContext/AppContext\";\r\nimport Banner from \"../Banner/Banner\";\r\nimport ProductLayout from \"../Product/ProductLayout\";\r\n\r\nconst Home = () => {\r\n  const { state, dispatch } = useContext(AppContext);\r\n  const { banners } = state;\r\n  console.log(banners);\r\n  const getAllBanners = useCallback(async () => {\r\n    try {\r\n      const options = {\r\n        method: \"GET\",\r\n        url: \"/api/v1/banner\",\r\n      };\r\n      const response = await axios(options);\r\n      const banners = response.data.data.banners;\r\n      dispatch({ type: \"GET_ALL_BANNERS\", payload: banners });\r\n    } catch (error) {\r\n      // console.log(error);\r\n    }\r\n  }, [dispatch]);\r\n  useEffect(() => {\r\n    getAllBanners();\r\n  }, [getAllBanners]);\r\n  return (\r\n    <div>\r\n      <Banner />\r\n      <ProductLayout />\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Home;\r\n"
+        }
+    ]
+}

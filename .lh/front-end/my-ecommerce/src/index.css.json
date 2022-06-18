@@ -1,0 +1,34 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1654281791527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654282063480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +0,0 @@\n-body{\r\n-    background-color: blue;\r\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654347492762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,3 @@\n+body{\r\n+    background-color: beige;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654347499626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n body{\r\n-    background-color: beige;\r\n+    background-color: aqua;\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654364093965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-body{\r\n-    background-color: aqua;\r\n-}\n\\ No newline at end of file\n+@tailwind base;\n+@tailwind components;\n+@tailwind utilities;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1654281791527,
+            "name": "Commit-0",
+            "content": "body{\r\n    background-color: blue;\r\n}"
+        }
+    ]
+}

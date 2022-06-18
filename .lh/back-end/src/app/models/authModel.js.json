@@ -1,0 +1,26 @@
+{
+    "sourceFile": "back-end/src/app/models/authModel.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1651851294743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651851729299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,5 +43,7 @@\n     }\r\n   });\r\n });\r\n \r\n-module.exports = mongoose.model(\"User\", userSchema);\r\n+const authModel = mongoose.model(\"User\", userSchema);\r\n+\r\n+module.exports = authModel;\r\n"
+                },
+                {
+                    "date": 1651851892637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,7 +43,7 @@\n     }\r\n   });\r\n });\r\n \r\n-const authModel = mongoose.model(\"User\", userSchema);\r\n+const User = mongoose.model(\"User\", userSchema);\r\n \r\n-module.exports = authModel;\r\n+module.exports = User;\r\n"
+                }
+            ],
+            "date": 1651851294743,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\nconst bcrypt = require(\"bcryptjs\");\r\n\r\nconst userSchema = new mongoose.Schema(\r\n  {\r\n    name: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập tên !!!\"],\r\n    },\r\n    email: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập email !!!\"],\r\n    },\r\n    password: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n      minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n    },\r\n    roles: {\r\n      type: String,\r\n    },\r\n    status: {\r\n      type: Number,\r\n    },\r\n  },\r\n  { timestamps: true }\r\n);\r\n\r\nuserSchema.pre(\"save\", function (next) {\r\n  let user = this;\r\n  bcrypt.hash(user.password, 10, function (error, hash) {\r\n    if (error) {\r\n      return next(error);\r\n    } else {\r\n      user.password = hash;\r\n      next();\r\n    }\r\n  });\r\n});\r\n\r\nmodule.exports = mongoose.model(\"User\", userSchema);\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Constants/BannerConstant.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1655185486074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1655185486074,
+            "name": "Commit-0",
+            "content": "export const BANNER_LIST_REQUEST = \"BANNER_LIST_REQUEST\";\r\nexport const BANNER_LIST_SUCCESS = \"BANNER_LIST_SUCCESS\";\r\nexport const BANNER_LIST_FAIL = \"BANNER_LIST_FAIL\";\r\n"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "sourceFile": "FE/my-app/src/components/Banner/BannerLayout.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1654794173756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654795473567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,9 @@\n \r\n const BannerLayout = () => {\r\n   return (\r\n     <section className=\"product-layout page-container pb-10\">\r\n-      <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n-        Sản phẩm\r\n-      </h2>\r\n-      <BannerList />\r\n+      <BannerList></BannerList>\r\n     </section>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654798087888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const BannerLayout = () => {\r\n   return (\r\n     <section className=\"product-layout page-container pb-10\">\r\n-      <BannerList></BannerList>\r\n+      <BannerList />\r\n     </section>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1654829343026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    <section className=\"product-layout page-container pb-10\">\r\n+    <div className=\"product-layout page-container pb-10\">\r\n       <BannerList />\r\n-    </section>\r\n+    </div>\r\n   );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1654829351860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    <div className=\"product-layout page-container pb-10\">\r\n+    <section className=\"product-layout page-container pb-10\">\r\n       <BannerList />\r\n-    </div>\r\n+    </section>\r\n   );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1654829470757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    <section className=\"product-layout page-container pb-10\">\r\n+    <div className=\"product-layout page-container pb-10\">\r\n       <BannerList />\r\n-    </section>\r\n+    </div>\r\n   );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1654833157791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,7 @@\n import React from \"react\";\r\n-import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n-  return (\r\n-    <div className=\"product-layout page-container pb-10\">\r\n-      <BannerList />\r\n-    </div>\r\n-  );\r\n+  return <div></div>;\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1654833327111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n import React from \"react\";\r\n+import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n-  return <div></div>;\r\n+  return (\r\n+    <section className=\"product-layout page-container pb-10\">\r\n+      <BannerList />\r\n+    </section>\r\n+  );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1655010928100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,12 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    <section className=\"product-layout page-container pb-10\">\r\n-      <BannerList />\r\n-    </section>\r\n+    // <section className=\"product-layout page-container pb-10\">\r\n+    //   <BannerList />\r\n+    // </section>\r\n+    <BannerList />\r\n   );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1655010947983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,11 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    // <section className=\"product-layout page-container pb-10\">\r\n-    //   <BannerList />\r\n-    // </section>\r\n-    <BannerList />\r\n+    <section className=\"product-layout page-container pb-10\">\r\n+      <BannerList />\r\n+    </section>\r\n   );\r\n };\r\n \r\n export default BannerLayout;\r\n"
+                },
+                {
+                    "date": 1655010981247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import BannerList from \"./BannerList\";\r\n \r\n const BannerLayout = () => {\r\n   return (\r\n-    <section className=\"product-layout page-container pb-10\">\r\n+    <section className=\"h-full product-layout page-container pb-10\">\r\n       <BannerList />\r\n     </section>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1654794173756,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport BannerList from \"./BannerList\";\r\n\r\nconst BannerLayout = () => {\r\n  return (\r\n    <section className=\"product-layout page-container pb-10\">\r\n      <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n        Sản phẩm\r\n      </h2>\r\n      <BannerList />\r\n    </section>\r\n  );\r\n};\r\n\r\nexport default BannerLayout;\r\n"
+        }
+    ]
+}

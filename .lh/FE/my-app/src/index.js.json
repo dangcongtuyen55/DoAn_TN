@@ -1,0 +1,38 @@
+{
+    "sourceFile": "FE/my-app/src/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1655043568377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655044510559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,18 +4,18 @@\n import App from \"./App\";\n import reportWebVitals from \"./reportWebVitals\";\n import store from \"./Redux/store\";\n \n-const root = ReactDOM.createRoot(document.getElementById(\"root\"));\n-root.render(\n+ReactDOM.render(\n   // <React.StrictMode>\n   //   <App />\n   // </React.StrictMode>\n   <Provider store={store}>\n     <App />\n-  </Provider>\n+  </Provider>,\n+  document.getElementById(\"root\")\n );\n \n // If you want to start measuring performance in your app, pass a function\n // to log results (for example: reportWebVitals(console.log))\n // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\n-reportWebVitals();\n+// reportWebVitals();\n"
+                },
+                {
+                    "date": 1655044554567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n ReactDOM.render(\n   // <React.StrictMode>\n   //   <App />\n   // </React.StrictMode>\n+  // eslint-disable-next-line react/jsx-no-undef\n   <Provider store={store}>\n     <App />\n   </Provider>,\n   document.getElementById(\"root\")\n"
+                },
+                {
+                    "date": 1655044744989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n ReactDOM.render(\n   // <React.StrictMode>\n   //   <App />\n   // </React.StrictMode>\n-  // eslint-disable-next-line react/jsx-no-undef\n   <Provider store={store}>\n     <App />\n   </Provider>,\n   document.getElementById(\"root\")\n"
+                },
+                {
+                    "date": 1655045032063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n ReactDOM.render(\n   // <React.StrictMode>\n   //   <App />\n   // </React.StrictMode>\n-  <Provider store={store}>\n+  <React.Provider store={store}>\n     <App />\n-  </Provider>,\n+  </React.Provider>,\n   document.getElementById(\"root\")\n );\n \n // If you want to start measuring performance in your app, pass a function\n"
+                },
+                {
+                    "date": 1655045231972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,17 @@\n import \"./index.scss\";\n import App from \"./App\";\n import reportWebVitals from \"./reportWebVitals\";\n import store from \"./Redux/store\";\n+import { Provider } from \"react-redux\";\n \n ReactDOM.render(\n   // <React.StrictMode>\n   //   <App />\n   // </React.StrictMode>\n-  <React.Provider store={store}>\n+  <Provider store={store}>\n     <App />\n-  </React.Provider>,\n+  </Provider>,\n   document.getElementById(\"root\")\n );\n \n // If you want to start measuring performance in your app, pass a function\n"
+                }
+            ],
+            "date": 1655043568377,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport ReactDOM from \"react-dom\";\nimport \"./index.scss\";\nimport App from \"./App\";\nimport reportWebVitals from \"./reportWebVitals\";\nimport store from \"./Redux/store\";\n\nconst root = ReactDOM.createRoot(document.getElementById(\"root\"));\nroot.render(\n  // <React.StrictMode>\n  //   <App />\n  // </React.StrictMode>\n  <Provider store={store}>\n    <App />\n  </Provider>\n);\n\n// If you want to start measuring performance in your app, pass a function\n// to log results (for example: reportWebVitals(console.log))\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\nreportWebVitals();\n"
+        }
+    ]
+}

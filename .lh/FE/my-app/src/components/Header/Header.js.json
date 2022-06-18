@@ -1,0 +1,70 @@
+{
+    "sourceFile": "FE/my-app/src/components/Header/Header.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1654676745699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654676762366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n-      <Link to={\"/sign-in\"}>SignIn</Link>\r\n-      <Link to={\"/sign-up\"}>SignUp</Link>\r\n+\r\n       <>\r\n         {user ? (\r\n           <>\r\n             <li>\r\n"
+                },
+                {
+                    "date": 1654676781378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,12 +28,10 @@\n             </li>\r\n           </>\r\n         ) : (\r\n           <>\r\n-            <li>\r\n-              <Link to={\"/sign-in\"}>SignIn</Link>\r\n-              <Link to={\"/sign-up\"}>SignUp</Link>\r\n-            </li>\r\n+            <Link to={\"/sign-in\"}>SignIn</Link>\r\n+            <Link to={\"/sign-up\"}>SignUp</Link>\r\n           </>\r\n         )}\r\n       </>\r\n     </header>\r\n"
+                },
+                {
+                    "date": 1654676871399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n       <>\r\n         {user ? (\r\n           <>\r\n             <li>\r\n-              <span>Xin chào, {user.name}</span>\r\n+              <span>Xin chào, {user.userName}</span>\r\n             </li>\r\n             <li onClick={() => signOut()}>\r\n               <span>signout</span>\r\n             </li>\r\n"
+                },
+                {
+                    "date": 1654676959859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,14 +19,11 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <li>\r\n-              <span>Xin chào, {user.userName}</span>\r\n-            </li>\r\n-            <li onClick={() => signOut()}>\r\n-              <span>signout</span>\r\n-            </li>\r\n+            <span>Xin chào, {user.userName}</span>\r\n+\r\n+            <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n           <>\r\n             <Link to={\"/sign-in\"}>SignIn</Link>\r\n"
+                },
+                {
+                    "date": 1654961835778,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n         ) : (\r\n           <>\r\n             <Link to={\"/sign-in\"}>SignIn</Link>\r\n             <Link to={\"/sign-up\"}>SignUp</Link>\r\n+            <Link to={\"/test\"}>test</Link>\r\n           </>\r\n         )}\r\n       </>\r\n     </header>\r\n"
+                },
+                {
+                    "date": 1654961897026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,14 +22,15 @@\n           <>\r\n             <span>Xin chào, {user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n+\r\n+            <Link to={\"/test\"}>test</Link>\r\n           </>\r\n         ) : (\r\n           <>\r\n             <Link to={\"/sign-in\"}>SignIn</Link>\r\n             <Link to={\"/sign-up\"}>SignUp</Link>\r\n-            <Link to={\"/test\"}>test</Link>\r\n           </>\r\n         )}\r\n       </>\r\n     </header>\r\n"
+                },
+                {
+                    "date": 1655045285119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,23 +2,23 @@\n import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n \r\n const Header = () => {\r\n-  const { state, dispatch } = useContext(AppContext);\r\n-  const { user } = state;\r\n-  const signOut = () => {\r\n-    localStorage.removeItem(\"token\");\r\n-    //reset user = null\r\n-    dispatch({ type: \"CURRENT_USER\", payload: null });\r\n-  };\r\n+  // const { state, dispatch } = useContext(AppContext);\r\n+  // const { user } = state;\r\n+  // const signOut = () => {\r\n+  //   localStorage.removeItem(\"token\");\r\n+  //   //reset user = null\r\n+  //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n+  // };\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n \r\n-      <>\r\n+      {/* <>\r\n         {user ? (\r\n           <>\r\n             <span>Xin chào, {user.userName}</span>\r\n \r\n@@ -30,9 +30,9 @@\n           <>\r\n             <Link to={\"/sign-in\"}>SignIn</Link>\r\n             <Link to={\"/sign-up\"}>SignUp</Link>\r\n           </>\r\n-        )}\r\n+        )} */}\r\n       </>\r\n     </header>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1655187394878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n+      <Link to={\"/list-product\"}>Product</Link>\r\n \r\n       {/* <>\r\n         {user ? (\r\n           <>\r\n@@ -30,10 +31,10 @@\n           <>\r\n             <Link to={\"/sign-in\"}>SignIn</Link>\r\n             <Link to={\"/sign-up\"}>SignUp</Link>\r\n           </>\r\n-        )} */}\r\n-      </>\r\n+        )}\r\n+      </> */}\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1655306743073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 bg-white \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                },
+                {
+                    "date": 1655306775166,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 bg-white \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-black py-10 bg-white \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                },
+                {
+                    "date": 1655306800912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-black py-10 bg-white \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-black font-bold py-10 bg-white \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                },
+                {
+                    "date": 1655308604155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-black font-bold py-10 bg-white \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-black font-bold py-10 bg-dark \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                },
+                {
+                    "date": 1655308704853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-black font-bold py-10 bg-dark \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-light font-bold py-10 bg-dark \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                }
+            ],
+            "date": 1654676745699,
+            "name": "Commit-0",
+            "content": "import React, { useContext } from \"react\";\r\nimport { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\nimport AppContext from \"../AppContext/AppContext\";\r\n\r\nconst Header = () => {\r\n  const { state, dispatch } = useContext(AppContext);\r\n  const { user } = state;\r\n  const signOut = () => {\r\n    localStorage.removeItem(\"token\");\r\n    //reset user = null\r\n    dispatch({ type: \"CURRENT_USER\", payload: null });\r\n  };\r\n  return (\r\n    <header className=\"header flex items-center justify-center gap-x-5 text-white py-10 \">\r\n      <Link to={\"/\"}>\r\n        <span className=\"text-primary\">Home</span>\r\n      </Link>\r\n      <Link to={\"/catagories\"}>Catagory</Link>\r\n      <Link to={\"/sign-in\"}>SignIn</Link>\r\n      <Link to={\"/sign-up\"}>SignUp</Link>\r\n      <>\r\n        {user ? (\r\n          <>\r\n            <li>\r\n              <span>Xin chào, {user.name}</span>\r\n            </li>\r\n            <li onClick={() => signOut()}>\r\n              <span>signout</span>\r\n            </li>\r\n          </>\r\n        ) : (\r\n          <>\r\n            <li>\r\n              <Link to={\"/sign-in\"}>SignIn</Link>\r\n              <Link to={\"/sign-up\"}>SignUp</Link>\r\n            </li>\r\n          </>\r\n        )}\r\n      </>\r\n    </header>\r\n  );\r\n};\r\n\r\nexport default Header;\r\n"
+        }
+    ]
+}

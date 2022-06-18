@@ -1,0 +1,66 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/index.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1654360794975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654360887302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n \r\n \r\n @layer base{\r\n     body{\r\n-        @apply bg-slate-900;\r\n+        @apply bg-slate-900 font-body\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654361244484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n \r\n \r\n @layer base{\r\n     body{\r\n-        @apply bg-slate-900 font-body\r\n+        @apply bg-slate-900 font-body;\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654364137707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,3 @@\n-@tailwind base;\r\n-@tailwind components;\r\n-@tailwind utilities;\r\n-\r\n-\r\n-@layer base{\r\n-    body{\r\n-        @apply bg-slate-900 font-body;\r\n-    }\r\n-}\n\\ No newline at end of file\n+@tailwind base;\n+@tailwind components;\n+@tailwind utilities;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654365497536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,9 @@\n @tailwind base;\n @tailwind components;\n-@tailwind utilities;\n\\ No newline at end of file\n+@tailwind utilities;\n+\n+@layer base{\n+    body{\n+        @apply bg-slate-900 font-body;\n+    }\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654366579855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,13 @@\n @layer base{\n     body{\n         @apply bg-slate-900 font-body;\n     }\n+}\n+\n+@layer components{\n+    .page-container{\n+        max-width: 800px;\n+        margin-left: auto;\n+        margin-right: auto;\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654367988913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,10 @@\n         max-width: 800px;\n         margin-left: auto;\n         margin-right: auto;\n     }\n+    .page-container-fluid{\n+        max-width: 1440px;\n+        margin-left: auto;\n+        margin-right: auto;\n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654368019090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,9 @@\n \n @layer components{\n     .page-container{\n         max-width: 800px;\n-        margin-left: auto;\n-        margin-right: auto;\n+        @apply mx-auto\n     }\n     .page-container-fluid{\n         max-width: 1440px;\n         margin-left: auto;\n"
+                },
+                {
+                    "date": 1654368032994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,7 @@\n         @apply mx-auto\n     }\n     .page-container-fluid{\n         max-width: 1440px;\n-        margin-left: auto;\n-        margin-right: auto;\n+        @apply mx-auto\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654368127262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,8 @@\n }\n \n @layer components{\n     .page-container{\n-        max-width: 800px;\n-        @apply mx-auto\n+        max-width: 1280px;\n+        @apply mx-auto;\n     }\n-    .page-container-fluid{\n-        max-width: 1440px;\n-        @apply mx-auto\n-    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654409869857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,9 @@\n     .page-container{\n         max-width: 1280px;\n         @apply mx-auto;\n     }\n+    .product-list .swiper-slide{\n+        width: 300px;\n+        \n+    }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654409979762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     .page-container{\n         max-width: 1280px;\n         @apply mx-auto;\n     }\n-    .product-list .swiper-slide{\n+    .product-list .swiper{\n         width: 300px;\n-        \n+\n     }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654410052125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     .page-container{\n         max-width: 1280px;\n         @apply mx-auto;\n     }\n-    .product-list .swiper{\n+    .product-list .swiper-slide{\n         width: 300px;\n \n     }\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1654360794975,
+            "name": "Commit-0",
+            "content": "@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n\r\n@layer base{\r\n    body{\r\n        @apply bg-slate-900;\r\n    }\r\n}"
+        }
+    ]
+}

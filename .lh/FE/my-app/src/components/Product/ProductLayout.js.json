@@ -1,0 +1,30 @@
+{
+    "sourceFile": "FE/my-app/src/components/Product/ProductLayout.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1654794105617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654794111190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <section className=\"product-layout page-container pb-10\">\r\n       <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n         Sản phẩm\r\n       </h2>\r\n-      {/* <ProductList></ProductList> */}\r\n+      <ProductList></ProductList>\r\n     </section>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1655051259295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     <section className=\"product-layout page-container pb-10\">\r\n       <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n         Sản phẩm\r\n       </h2>\r\n-      <ProductList></ProductList>\r\n+      <ProductList />\r\n     </section>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1655307597114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const ProductLayout = () => {\r\n   return (\r\n     <section className=\"product-layout page-container pb-10\">\r\n-      <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n+      <h2 className=\"capitalize text-black mb-10 text-3xl font-bold\">\r\n         Sản phẩm\r\n       </h2>\r\n       <ProductList />\r\n     </section>\r\n"
+                }
+            ],
+            "date": 1654794105617,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport ProductList from \"./ProductList\";\r\n\r\nconst ProductLayout = () => {\r\n  return (\r\n    <section className=\"product-layout page-container pb-10\">\r\n      <h2 className=\"capitalize text-white mb-10 text-3xl font-bold\">\r\n        Sản phẩm\r\n      </h2>\r\n      {/* <ProductList></ProductList> */}\r\n    </section>\r\n  );\r\n};\r\n\r\nexport default ProductLayout;\r\n"
+        }
+    ]
+}

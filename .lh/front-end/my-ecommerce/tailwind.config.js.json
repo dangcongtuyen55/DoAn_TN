@@ -1,0 +1,38 @@
+{
+    "sourceFile": "front-end/my-ecommerce/tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1654358816075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654360872958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n module.exports = {\n   content: [\"./src/**/*.{js,jsx,ts,tsx}\"],\n   theme: {\n-    extend: {},\n+    extend: {\n+      fontFamily: {\n+        body: [\"DM Sans\", \"sans-serif\"],\n+      },\n+    },\n   },\n   plugins: [],\n };\n"
+                },
+                {
+                    "date": 1654364029603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n module.exports = {\n-  content: [\"./src/**/*.{js,jsx,ts,tsx}\"],\n+  content: [\"./src/**/*.{html,js}\"],\n   theme: {\n-    extend: {\n-      fontFamily: {\n-        body: [\"DM Sans\", \"sans-serif\"],\n-      },\n-    },\n+    extend: {},\n   },\n   plugins: [],\n };\n"
+                },
+                {
+                    "date": 1654365566049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n module.exports = {\n   content: [\"./src/**/*.{html,js}\"],\n   theme: {\n-    extend: {},\n+    extend: {\n+      fontFamily: {\n+        body: [\"DM Sans\", \"sans-serif\", \"sans-serif\"],\n+      },\n+    },\n   },\n   plugins: [],\n };\n"
+                },
+                {
+                    "date": 1654365571986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   content: [\"./src/**/*.{html,js}\"],\n   theme: {\n     extend: {\n       fontFamily: {\n-        body: [\"DM Sans\", \"sans-serif\", \"sans-serif\"],\n+        body: [\"DM Sans\", \"sans-serif\"],\n       },\n     },\n   },\n   plugins: [],\n"
+                },
+                {
+                    "date": 1654366318816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,11 @@\n     extend: {\n       fontFamily: {\n         body: [\"DM Sans\", \"sans-serif\"],\n       },\n+      colors: {\n+        primary: \"#f622a4\",\n+      },\n     },\n   },\n   plugins: [],\n };\n"
+                }
+            ],
+            "date": 1654358816075,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  content: [\"./src/**/*.{js,jsx,ts,tsx}\"],\n  theme: {\n    extend: {},\n  },\n  plugins: [],\n};\n"
+        }
+    ]
+}

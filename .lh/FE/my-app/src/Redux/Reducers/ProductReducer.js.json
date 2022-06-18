@@ -1,0 +1,82 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Reducers/ProductReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1655040692798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655042792719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,17 @@\n-import { PRODUCT_LIST_REQUEST } from \"./../Constants/ProductConstant\";\r\n+import {\r\n+  PRODUCT_LIST_FAIL,\r\n+  PRODUCT_LIST_REQUEST,\r\n+  PRODUCT_LIST_SUCCESS,\r\n+} from \"./../Constants/ProductConstant\";\r\n export const productListReducer = (state = { product: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n-    case PRODUCT_LIST_REQUEST:\r\n-      return { loading: true, products: [] };\r\n-    case PRODUCT_LIST_REQUEST:\r\n-      return { loading: true, products: [] };\r\n+    case PRODUCT_LIST_SUCCESS:\r\n+      return { loading: false, products: action.payload };\r\n+    case PRODUCT_LIST_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n \r\n     default:\r\n       return state;\r\n   }\r\n"
+                },
+                {
+                    "date": 1655046732010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"./../Constants/ProductConstant\";\r\n-export const productListReducer = (state = { product: [] }, action) => {\r\n+export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n"
+                },
+                {
+                    "date": 1655052781711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n } from \"./../Constants/ProductConstant\";\r\n export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n-      return { loading: true, products: [] };\r\n+      return { loading: true, products: {} };\r\n     case PRODUCT_LIST_SUCCESS:\r\n       return { loading: false, products: action.payload };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n"
+                },
+                {
+                    "date": 1655052827567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n } from \"./../Constants/ProductConstant\";\r\n export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n-      return { loading: true, products: {} };\r\n+      return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n       return { loading: false, products: action.payload };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n"
+                },
+                {
+                    "date": 1655053743394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"./../Constants/ProductConstant\";\r\n-export const productListReducer = (state = { products: [] }, action) => {\r\n+export const productListReducer = (state, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n"
+                },
+                {
+                    "date": 1655053772767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"./../Constants/ProductConstant\";\r\n-export const productListReducer = (state, action) => {\r\n+export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n"
+                },
+                {
+                    "date": 1655092557777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, products: action.payload };\r\n+      return { loading: false, products: action.payload.products };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655093179615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, products: action.payload.products };\r\n+      return { loading: false, product: action.payload.products };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655093226183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, product: action.payload.products };\r\n+      return { loading: false, products: action.payload.products };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655100834058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"./../Constants/ProductConstant\";\r\n+\r\n+//PRODUCT LIST\r\n export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n@@ -15,4 +17,19 @@\n     default:\r\n       return state;\r\n   }\r\n };\r\n+\r\n+//PRODUCT DETAIL\r\n+export const productDetailReducer = (state = { products: [] }, action) => {\r\n+  switch (action.type) {\r\n+    case PRODUCT_LIST_REQUEST:\r\n+      return { loading: true, products: [] };\r\n+    case PRODUCT_LIST_SUCCESS:\r\n+      return { loading: false, products: action.payload.products };\r\n+    case PRODUCT_LIST_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n+\r\n+    default:\r\n+      return state;\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1655100962663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n import {\r\n+  PRODUCT_DETAILS_FAIL,\r\n+  PRODUCT_DETAILS_REQUEST,\r\n+  PRODUCT_DETAILS_SUCCESS,\r\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"./../Constants/ProductConstant\";\r\n@@ -19,15 +22,15 @@\n   }\r\n };\r\n \r\n //PRODUCT DETAIL\r\n-export const productDetailReducer = (state = { products: [] }, action) => {\r\n+export const productDetailReducer = (state = { product: {} }, action) => {\r\n   switch (action.type) {\r\n-    case PRODUCT_LIST_REQUEST:\r\n+    case PRODUCT_DETAILS_REQUEST:\r\n       return { loading: true, products: [] };\r\n-    case PRODUCT_LIST_SUCCESS:\r\n+    case PRODUCT_DETAILS_SUCCESS:\r\n       return { loading: false, products: action.payload.products };\r\n-    case PRODUCT_LIST_FAIL:\r\n+    case PRODUCT_DETAILS_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n       return state;\r\n"
+                },
+                {
+                    "date": 1655101281088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n //PRODUCT LIST\r\n export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n-      return { loading: true, products: [] };\r\n+      return { ...state, loading: true };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, products: action.payload.products };\r\n+      return { loading: false, product: action.payload.products };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655101550021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n //PRODUCT LIST\r\n export const productListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n-      return { ...state, loading: true };\r\n+      return { loading: true, products: [] };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, product: action.payload.products };\r\n+      return { loading: false, products: action.payload.products };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655101557546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n \r\n //PRODUCT DETAIL\r\n export const productDetailReducer = (state = { product: {} }, action) => {\r\n   switch (action.type) {\r\n-    case PRODUCT_DETAILS_REQUEST:\r\n-      return { loading: true, products: [] };\r\n-    case PRODUCT_DETAILS_SUCCESS:\r\n-      return { loading: false, products: action.payload.products };\r\n-    case PRODUCT_DETAILS_FAIL:\r\n+    case PRODUCT_LIST_REQUEST:\r\n+      return { ...state, loading: true };\r\n+    case PRODUCT_LIST_SUCCESS:\r\n+      return { loading: false, product: action.payload.products };\r\n+    case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n       return state;\r\n"
+                },
+                {
+                    "date": 1655141593875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   switch (action.type) {\r\n     case PRODUCT_LIST_REQUEST:\r\n       return { ...state, loading: true };\r\n     case PRODUCT_LIST_SUCCESS:\r\n-      return { loading: false, product: action.payload.products };\r\n+      return { loading: false, product: action.payload };\r\n     case PRODUCT_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655145601562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n \r\n //PRODUCT DETAIL\r\n export const productDetailReducer = (state = { product: {} }, action) => {\r\n   switch (action.type) {\r\n-    case PRODUCT_LIST_REQUEST:\r\n+    case PRODUCT_DETAILS_REQUEST:\r\n       return { ...state, loading: true };\r\n-    case PRODUCT_LIST_SUCCESS:\r\n+    case PRODUCT_DETAILS_SUCCESS:\r\n       return { loading: false, product: action.payload };\r\n-    case PRODUCT_LIST_FAIL:\r\n+    case PRODUCT_DETAILS_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n       return state;\r\n"
+                }
+            ],
+            "date": 1655040692798,
+            "name": "Commit-0",
+            "content": "import { PRODUCT_LIST_REQUEST } from \"./../Constants/ProductConstant\";\r\nexport const productListReducer = (state = { product: [] }, action) => {\r\n  switch (action.type) {\r\n    case PRODUCT_LIST_REQUEST:\r\n      return { loading: true, products: [] };\r\n    case PRODUCT_LIST_REQUEST:\r\n      return { loading: true, products: [] };\r\n    case PRODUCT_LIST_REQUEST:\r\n      return { loading: true, products: [] };\r\n\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Action/BannerAction.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1655185593648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655185797555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,12 @@\n   BANNER_LIST_SUCCESS,\r\n } from \"./../Constants/BannerConstant\";\r\n import axios from \"axios\";\r\n \r\n-export const listProduct = () => async (dispatch) => {\r\n+export const listBanner = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: BANNER_LIST_REQUEST });\r\n-    const { data } = await axios.get(\"/api/v1/products\");\r\n+    const { data } = await axios.get(\"/api/v1/banner\");\r\n     dispatch({ type: BANNER_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: BANNER_LIST_FAIL,\r\n"
+                },
+                {
+                    "date": 1655186161626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n export const listBanner = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: BANNER_LIST_REQUEST });\r\n-    const { data } = await axios.get(\"/api/v1/banner\");\r\n+    const { data } = await axios.get(\"/api/v1/banners\");\r\n     dispatch({ type: BANNER_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: BANNER_LIST_FAIL,\r\n"
+                },
+                {
+                    "date": 1655186183495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n+import axios from \"axios\";\r\n import {\r\n   BANNER_LIST_FAIL,\r\n   BANNER_LIST_REQUEST,\r\n   BANNER_LIST_SUCCESS,\r\n } from \"./../Constants/BannerConstant\";\r\n-import axios from \"axios\";\r\n \r\n export const listBanner = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: BANNER_LIST_REQUEST });\r\n"
+                }
+            ],
+            "date": 1655185593648,
+            "name": "Commit-0",
+            "content": "import {\r\n  BANNER_LIST_FAIL,\r\n  BANNER_LIST_REQUEST,\r\n  BANNER_LIST_SUCCESS,\r\n} from \"./../Constants/BannerConstant\";\r\nimport axios from \"axios\";\r\n\r\nexport const listProduct = () => async (dispatch) => {\r\n  try {\r\n    dispatch({ type: BANNER_LIST_REQUEST });\r\n    const { data } = await axios.get(\"/api/v1/products\");\r\n    dispatch({ type: BANNER_LIST_SUCCESS, payload: data });\r\n  } catch (error) {\r\n    dispatch({\r\n      type: BANNER_LIST_FAIL,\r\n      payload: error.response.data.message,\r\n    });\r\n  }\r\n};\r\n"
+        }
+    ]
+}

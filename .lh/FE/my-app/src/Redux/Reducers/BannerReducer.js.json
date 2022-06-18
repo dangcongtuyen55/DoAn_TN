@@ -1,0 +1,26 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Reducers/BannerReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1655185521030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655185693098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n   BANNER_LIST_FAIL,\r\n   BANNER_LIST_REQUEST,\r\n   BANNER_LIST_SUCCESS,\r\n } from \"./../Constants/BannerConstant\";\r\n-export const productListReducer = (state = { products: [] }, action) => {\r\n+export const bannerListReducer = (state = { products: [] }, action) => {\r\n   switch (action.type) {\r\n     case BANNER_LIST_REQUEST:\r\n       return { loading: true, products: [] };\r\n     case BANNER_LIST_SUCCESS:\r\n"
+                },
+                {
+                    "date": 1655185881250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,14 +3,14 @@\n   BANNER_LIST_FAIL,\r\n   BANNER_LIST_REQUEST,\r\n   BANNER_LIST_SUCCESS,\r\n } from \"./../Constants/BannerConstant\";\r\n-export const bannerListReducer = (state = { products: [] }, action) => {\r\n+export const bannerListReducer = (state = { banners: [] }, action) => {\r\n   switch (action.type) {\r\n     case BANNER_LIST_REQUEST:\r\n-      return { loading: true, products: [] };\r\n+      return { loading: true, banners: [] };\r\n     case BANNER_LIST_SUCCESS:\r\n-      return { loading: false, products: action.payload.products };\r\n+      return { loading: false, banners: action.payload.banners };\r\n     case BANNER_LIST_FAIL:\r\n       return { loading: false, error: action.payload };\r\n \r\n     default:\r\n"
+                }
+            ],
+            "date": 1655185521030,
+            "name": "Commit-0",
+            "content": "//BANNER LIST\r\nimport {\r\n  BANNER_LIST_FAIL,\r\n  BANNER_LIST_REQUEST,\r\n  BANNER_LIST_SUCCESS,\r\n} from \"./../Constants/BannerConstant\";\r\nexport const productListReducer = (state = { products: [] }, action) => {\r\n  switch (action.type) {\r\n    case BANNER_LIST_REQUEST:\r\n      return { loading: true, products: [] };\r\n    case BANNER_LIST_SUCCESS:\r\n      return { loading: false, products: action.payload.products };\r\n    case BANNER_LIST_FAIL:\r\n      return { loading: false, error: action.payload };\r\n\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "FE/my-app/src/components/Banner/banner.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1655012356837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655012368190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n .swiper-button-prev{\r\n     left: 0;\r\n     color: #000000;\r\n-    --swiper-navigation-size:30px\r\n-    \r\n+    --swiper-navigation-size:0px\r\n+\r\n }\r\n .swiper-button-next{\r\n     right: 0;\r\n     color: #000000;\r\n-    --swiper-navigation-size:30px\r\n+    --swiper-navigation-size:0px\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1655012356837,
+            "name": "Commit-0",
+            "content": ".swiper-button-prev{\r\n    left: 0;\r\n    color: #000000;\r\n    --swiper-navigation-size:30px\r\n    \r\n}\r\n.swiper-button-next{\r\n    right: 0;\r\n    color: #000000;\r\n    --swiper-navigation-size:30px\r\n}"
+        }
+    ]
+}

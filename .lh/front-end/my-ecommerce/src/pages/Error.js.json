@@ -1,0 +1,30 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/pages/Error.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1654585079811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654585201796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const Error = () => {\r\n   return (\r\n     <div className=\"w-full h-full bg-slate-900\">\r\n       <img\r\n-        src=\"https://img.freepik.com/free-vector/error-page-found-banner-with-cable-socket-cord-plug-website-blue_249405-66.jpg?w=2000\"\r\n+        src=\"https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg\"\r\n         alt=\"\"\r\n         className=\"w-full h-full\"\r\n       />\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1654585229210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div className=\"w-full h-full bg-slate-900\">\r\n       <img\r\n         src=\"https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg\"\r\n         alt=\"\"\r\n-        className=\"w-full h-full\"\r\n+        className=\"w-full h-full bottom-6\"\r\n       />\r\n     </div>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1654585251418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     <div className=\"w-full h-full bg-slate-900\">\r\n       <img\r\n         src=\"https://cdn.mos.cms.futurecdn.net/PuXipAW3AXUzUJ4uYyxPKC-1200-80.jpg\"\r\n         alt=\"\"\r\n-        className=\"w-full h-full bottom-6\"\r\n+        className=\"w-full h-full mb-8-6\"\r\n       />\r\n     </div>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1654585079811,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nconst Error = () => {\r\n  return (\r\n    <div className=\"w-full h-full bg-slate-900\">\r\n      <img\r\n        src=\"https://img.freepik.com/free-vector/error-page-found-banner-with-cable-socket-cord-plug-website-blue_249405-66.jpg?w=2000\"\r\n        alt=\"\"\r\n        className=\"w-full h-full\"\r\n      />\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Error;\r\n"
+        }
+    ]
+}

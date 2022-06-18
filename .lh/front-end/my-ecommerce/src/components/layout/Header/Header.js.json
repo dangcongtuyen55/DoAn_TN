@@ -1,0 +1,22 @@
+{
+    "sourceFile": "front-end/my-ecommerce/src/components/layout/Header/Header.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1654279632437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654280644239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\r\n import \"./Header.css\";\r\n \r\n-export default function Header() {\r\n-  return <div className=\"header\">header</div>;\r\n-}\r\n+function Header() {}\r\n+\r\n+export default Header;\r\n"
+                }
+            ],
+            "date": 1654279632437,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport \"./Header.css\";\r\n\r\nexport default function Header() {\r\n  return <div className=\"header\">header</div>;\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "sourceFile": "front-end/my-ecommerce/package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1654527026226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654529041029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,13 @@\n   \"dependencies\": {\n     \"@testing-library/jest-dom\": \"^5.16.4\",\n     \"@testing-library/react\": \"^13.3.0\",\n     \"@testing-library/user-event\": \"^13.5.0\",\n+    \"axios\": \"^0.27.2\",\n     \"node-sass\": \"^4.14.1\",\n     \"react\": \"^18.1.0\",\n     \"react-dom\": \"^18.1.0\",\n+    \"react-router-dom\": \"^6.3.0\",\n     \"react-scripts\": \"5.0.1\",\n     \"swiper\": \"^8.2.2\",\n     \"swr\": \"^1.3.0\",\n     \"web-vitals\": \"^2.1.4\"\n"
+                },
+                {
+                    "date": 1654535169012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {\n   \"name\": \"my-ecommerce\",\n   \"version\": \"0.1.0\",\n+  \"proxy\": \"http://localhost:6969\",\n   \"private\": true,\n-  \"proxy\": \"http://localhost:6969\",\n   \"dependencies\": {\n     \"@testing-library/jest-dom\": \"^5.16.4\",\n     \"@testing-library/react\": \"^13.3.0\",\n     \"@testing-library/user-event\": \"^13.5.0\",\n"
+                },
+                {
+                    "date": 1654536408525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"my-ecommerce\",\n   \"version\": \"0.1.0\",\n-  \"proxy\": \"http://localhost:6969\",\n+  \"proxy\": \"localhost:6969/\",\n   \"private\": true,\n   \"dependencies\": {\n     \"@testing-library/jest-dom\": \"^5.16.4\",\n     \"@testing-library/react\": \"^13.3.0\",\n@@ -43,5 +43,5 @@\n   },\n   \"devDependencies\": {\n     \"tailwindcss\": \"^3.0.24\"\n   }\n-}\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654537405319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"my-ecommerce\",\n   \"version\": \"0.1.0\",\n-  \"proxy\": \"localhost:6969/\",\n+  \"proxy\": \"http://localhost:6969/\",\n   \"private\": true,\n   \"dependencies\": {\n     \"@testing-library/jest-dom\": \"^5.16.4\",\n     \"@testing-library/react\": \"^13.3.0\",\n"
+                },
+                {
+                    "date": 1654583924676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,15 +3,19 @@\n   \"version\": \"0.1.0\",\n   \"proxy\": \"http://localhost:6969/\",\n   \"private\": true,\n   \"dependencies\": {\n+    \"@emotion/react\": \"^11.9.0\",\n+    \"@emotion/styled\": \"^11.8.1\",\n+    \"@mui/material\": \"^5.8.2\",\n     \"@testing-library/jest-dom\": \"^5.16.4\",\n     \"@testing-library/react\": \"^13.3.0\",\n     \"@testing-library/user-event\": \"^13.5.0\",\n     \"axios\": \"^0.27.2\",\n     \"node-sass\": \"^4.14.1\",\n     \"react\": \"^18.1.0\",\n     \"react-dom\": \"^18.1.0\",\n+    \"react-router\": \"^6.3.0\",\n     \"react-router-dom\": \"^6.3.0\",\n     \"react-scripts\": \"5.0.1\",\n     \"swiper\": \"^8.2.2\",\n     \"swr\": \"^1.3.0\",\n"
+                },
+                {
+                    "date": 1654611729614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"my-ecommerce\",\n   \"version\": \"0.1.0\",\n-  \"proxy\": \"http://localhost:6969/\",\n+  \"proxy\": \"http://localhost:6969\",\n   \"private\": true,\n   \"dependencies\": {\n     \"@emotion/react\": \"^11.9.0\",\n     \"@emotion/styled\": \"^11.8.1\",\n"
+                },
+                {
+                    "date": 1654659981315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     \"react\": \"^18.1.0\",\n     \"react-dom\": \"^18.1.0\",\n     \"react-router\": \"^6.3.0\",\n     \"react-router-dom\": \"^6.3.0\",\n-    \"react-scripts\": \"5.0.1\",\n+    \"react-scripts\": \"4.0.3\",\n     \"swiper\": \"^8.2.2\",\n     \"swr\": \"^1.3.0\",\n     \"web-vitals\": \"^2.1.4\"\n   },\n"
+                },
+                {
+                    "date": 1654660526114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n {\n   \"name\": \"my-ecommerce\",\n   \"version\": \"0.1.0\",\n-  \"proxy\": \"http://localhost:6969\",\n   \"private\": true,\n   \"dependencies\": {\n     \"@emotion/react\": \"^11.9.0\",\n     \"@emotion/styled\": \"^11.8.1\",\n@@ -26,8 +25,9 @@\n     \"build\": \"react-scripts build\",\n     \"test\": \"react-scripts test\",\n     \"eject\": \"react-scripts eject\"\n   },\n+  \"proxy\": \"http://localhost:6969\",\n   \"eslintConfig\": {\n     \"extends\": [\n       \"react-app\",\n       \"react-app/jest\"\n"
+                }
+            ],
+            "date": 1654527026226,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"my-ecommerce\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"proxy\": \"http://localhost:6969\",\n  \"dependencies\": {\n    \"@testing-library/jest-dom\": \"^5.16.4\",\n    \"@testing-library/react\": \"^13.3.0\",\n    \"@testing-library/user-event\": \"^13.5.0\",\n    \"node-sass\": \"^4.14.1\",\n    \"react\": \"^18.1.0\",\n    \"react-dom\": \"^18.1.0\",\n    \"react-scripts\": \"5.0.1\",\n    \"swiper\": \"^8.2.2\",\n    \"swr\": \"^1.3.0\",\n    \"web-vitals\": \"^2.1.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  },\n  \"devDependencies\": {\n    \"tailwindcss\": \"^3.0.24\"\n  }\n}"
+        }
+    ]
+}

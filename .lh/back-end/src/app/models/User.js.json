@@ -1,0 +1,118 @@
+{
+    "sourceFile": "back-end/src/app/models/User.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 25,
+            "patches": [
+                {
+                    "date": 1651851966312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651852164378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,7 +43,5 @@\n     }\r\n   });\r\n });\r\n \r\n-const User = mongoose.model(\"User\", userSchema);\r\n-\r\n-module.exports = User;\r\n+module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1651943931968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n       require: [true, \"Bạn phải nhập email !!!\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n-      unique: true,\r\n       trim: true,\r\n       require: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n     },\r\n"
+                },
+                {
+                    "date": 1651944117634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n const userSchema = new mongoose.Schema(\r\n   {\r\n     name: {\r\n       type: String,\r\n-      unique: true,\r\n       trim: true,\r\n       require: [true, \"Bạn phải nhập tên !!!\"],\r\n     },\r\n     email: {\r\n"
+                },
+                {
+                    "date": 1651944287245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n const userSchema = new mongoose.Schema(\r\n   {\r\n     name: {\r\n       type: String,\r\n+      unique: true,\r\n       trim: true,\r\n       require: [true, \"Bạn phải nhập tên !!!\"],\r\n     },\r\n     email: {\r\n"
+                },
+                {
+                    "date": 1651944364882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,20 +6,20 @@\n     name: {\r\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n-      require: [true, \"Bạn phải nhập tên !!!\"],\r\n+      required: [true, \"Bạn phải nhập tên !!!\"],\r\n     },\r\n     email: {\r\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n-      require: [true, \"Bạn phải nhập email !!!\"],\r\n+      required: [true, \"Bạn phải nhập email !!!\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n       trim: true,\r\n-      require: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n+      required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n     },\r\n     roles: {\r\n       type: String,\r\n"
+                },
+                {
+                    "date": 1653147149995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const mongoose = require(\"mongoose\");\r\n const bcrypt = require(\"bcryptjs\");\r\n+const validator = require(\"validator\");\r\n \r\n const userSchema = new mongoose.Schema(\r\n   {\r\n     name: {\r\n"
+                },
+                {
+                    "date": 1653147330261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,14 +14,16 @@\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập email !!!\"],\r\n+      validate: [validator.email, \"vui lòng nhập đúng email\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n+      select: false,\r\n     },\r\n     roles: {\r\n       type: String,\r\n     },\r\n"
+                },
+                {
+                    "date": 1653147435693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,23 @@\n       required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n       select: false,\r\n     },\r\n+    avatar: [\r\n+      {\r\n+        public_id: {\r\n+          type: String,\r\n+          required: true,\r\n+        },\r\n+        url: {\r\n+          type: String,\r\n+          required: true,\r\n+        },\r\n+      },\r\n+    ],\r\n     roles: {\r\n       type: String,\r\n+      default: \"user\",\r\n     },\r\n     status: {\r\n       type: Number,\r\n     },\r\n"
+                },
+                {
+                    "date": 1653147849804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập email !!!\"],\r\n-      validate: [validator.email, \"vui lòng nhập đúng email\"],\r\n+      validate: [validator.isEmail, \"vui lòng nhập đúng email\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n       trim: true,\r\n"
+                },
+                {
+                    "date": 1653148794132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,10 @@\n     },\r\n     status: {\r\n       type: Number,\r\n     },\r\n+    resetPasswordToken: String,\r\n+    resertPasswordExperi: Date,\r\n   },\r\n   { timestamps: true }\r\n );\r\n \r\n"
+                },
+                {
+                    "date": 1653708738943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập email !!!\"],\r\n-      validate: [validator.isEmail, \"vui lòng nhập đúng email\"],\r\n+      validate: [validator.isEmail, \"vui lòng nhập đúng định dạng của email\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n       trim: true,\r\n"
+                },
+                {
+                    "date": 1653709241849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n const mongoose = require(\"mongoose\");\r\n const bcrypt = require(\"bcryptjs\");\r\n+const jwt = require(\"jsonwebtoken\");\r\n const validator = require(\"validator\");\r\n \r\n const userSchema = new mongoose.Schema(\r\n   {\r\n@@ -60,5 +61,9 @@\n     }\r\n   });\r\n });\r\n \r\n+userSchema.methods.getJWTToken = function () {\r\n+  return jwt.sing({ id: this });\r\n+};\r\n+\r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653719643173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,8 @@\n   });\r\n });\r\n \r\n userSchema.methods.getJWTToken = function () {\r\n-  return jwt.sing({ id: this });\r\n+  return jwt.sing({ id: this._id });\r\n };\r\n \r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653720144946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,10 @@\n   });\r\n });\r\n \r\n userSchema.methods.getJWTToken = function () {\r\n-  return jwt.sing({ id: this._id });\r\n+  return jwt.sing({ id: this._id }, process.env.APP_SECRET, {\r\n+    expiresIn: process.env.APP_SECRET,\r\n+  });\r\n };\r\n \r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653720357518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n   });\r\n });\r\n \r\n userSchema.methods.getJWTToken = function () {\r\n-  return jwt.sing({ id: this._id }, process.env.APP_SECRET, {\r\n+  return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n     expiresIn: process.env.APP_SECRET,\r\n   });\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1653720463995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n });\r\n \r\n userSchema.methods.getJWTToken = function () {\r\n   return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n-    expiresIn: process.env.APP_SECRET,\r\n+    expiresIn: process.env.APP_EXPIRE,\r\n   });\r\n };\r\n \r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653722364098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,11 +61,15 @@\n     }\r\n   });\r\n });\r\n \r\n+// JWT TOKEN\r\n userSchema.methods.getJWTToken = function () {\r\n   return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n     expiresIn: process.env.APP_EXPIRE,\r\n   });\r\n };\r\n \r\n+// Compare Password\r\n+userSchema.method.comparePassword = async function (enteredPassword) {};\r\n+\r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653722398425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,7 +69,9 @@\n   });\r\n };\r\n \r\n // Compare Password\r\n-userSchema.method.comparePassword = async function (enteredPassword) {};\r\n+userSchema.method.comparePassword = async function (enteredPassword) {\r\n+  return await bcrypt.compare(enteredPassword, this.password);\r\n+};\r\n \r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1653723255119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n   });\r\n };\r\n \r\n // Compare Password\r\n-userSchema.method.comparePassword = async function (enteredPassword) {\r\n+userSchema.methods.comparePassword = async function (enteredPassword) {\r\n   return await bcrypt.compare(enteredPassword, this.password);\r\n };\r\n \r\n module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1654615153047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,77 @@\n+const mongoose = require(\"mongoose\");\r\n+const bcrypt = require(\"bcryptjs\");\r\n+const jwt = require(\"jsonwebtoken\");\r\n+const validator = require(\"validator\");\r\n+\r\n+const userSchema = new mongoose.Schema(\r\n+  {\r\n+    name: {\r\n+      type: String,\r\n+      unique: true,\r\n+      trim: true,\r\n+      required: [true, \"Bạn phải nhập tên !!!\"],\r\n+    },\r\n+    email: {\r\n+      type: String,\r\n+      unique: true,\r\n+      trim: true,\r\n+      required: [true, \"Bạn phải nhập email !!!\"],\r\n+      validate: [validator.isEmail, \"vui lòng nhập đúng định dạng của email\"],\r\n+    },\r\n+    password: {\r\n+      type: String,\r\n+      trim: true,\r\n+      required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n+      minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n+      select: false,\r\n+    },\r\n+    avatar: [\r\n+      {\r\n+        public_id: {\r\n+          type: String,\r\n+          // required: true,\r\n+        },\r\n+        url: {\r\n+          type: String,\r\n+          // required: true,\r\n+        },\r\n+      },\r\n+    ],\r\n+    roles: {\r\n+      type: String,\r\n+      default: \"user\",\r\n+    },\r\n+    status: {\r\n+      type: Number,\r\n+    },\r\n+    resetPasswordToken: String,\r\n+    resertPasswordExperi: Date,\r\n+  },\r\n+  { timestamps: true }\r\n+);\r\n+\r\n+userSchema.pre(\"save\", function (next) {\r\n+  let user = this;\r\n+  bcrypt.hash(user.password, 10, function (error, hash) {\r\n+    if (error) {\r\n+      return next(error);\r\n+    } else {\r\n+      user.password = hash;\r\n+      next();\r\n+    }\r\n+  });\r\n+});\r\n+\r\n+// JWT TOKEN\r\n+userSchema.methods.getJWTToken = function () {\r\n+  return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n+    expiresIn: process.env.APP_EXPIRE,\r\n+  });\r\n+};\r\n+\r\n+// Compare Password\r\n+userSchema.methods.comparePassword = async function (enteredPassword) {\r\n+  return await bcrypt.compare(enteredPassword, this.password);\r\n+};\r\n+\r\n+module.exports = mongoose.model(\"User\", userSchema);\r\n"
+                },
+                {
+                    "date": 1654616821045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,11 @@\n   { timestamps: true }\r\n );\r\n \r\n userSchema.pre(\"save\", function (next) {\r\n-  let user = this;\r\n+  let user = this; // get userget the user initialized from mongose\r\n+\r\n+  //bcrypt pass\r\n   bcrypt.hash(user.password, 10, function (error, hash) {\r\n     if (error) {\r\n       return next(error);\r\n     } else {\r\n@@ -61,94 +63,19 @@\n     }\r\n   });\r\n });\r\n \r\n-// JWT TOKEN\r\n-userSchema.methods.getJWTToken = function () {\r\n-  return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n-    expiresIn: process.env.APP_EXPIRE,\r\n-  });\r\n-};\r\n+const User = mongoose.model(\"User\", userSchema);\r\n \r\n-// Compare Password\r\n-userSchema.methods.comparePassword = async function (enteredPassword) {\r\n-  return await bcrypt.compare(enteredPassword, this.password);\r\n-};\r\n+module.exports = User;\r\n \r\n-module.exports = mongoose.model(\"User\", userSchema);\r\n-const mongoose = require(\"mongoose\");\r\n-const bcrypt = require(\"bcryptjs\");\r\n-const jwt = require(\"jsonwebtoken\");\r\n-const validator = require(\"validator\");\r\n+// // JWT TOKEN\r\n+// userSchema.methods.getJWTToken = function () {\r\n+//   return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n+//     expiresIn: process.env.APP_EXPIRE,\r\n+//   });\r\n+// };\r\n \r\n-const userSchema = new mongoose.Schema(\r\n-  {\r\n-    name: {\r\n-      type: String,\r\n-      unique: true,\r\n-      trim: true,\r\n-      required: [true, \"Bạn phải nhập tên !!!\"],\r\n-    },\r\n-    email: {\r\n-      type: String,\r\n-      unique: true,\r\n-      trim: true,\r\n-      required: [true, \"Bạn phải nhập email !!!\"],\r\n-      validate: [validator.isEmail, \"vui lòng nhập đúng định dạng của email\"],\r\n-    },\r\n-    password: {\r\n-      type: String,\r\n-      trim: true,\r\n-      required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n-      minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n-      select: false,\r\n-    },\r\n-    avatar: [\r\n-      {\r\n-        public_id: {\r\n-          type: String,\r\n-          required: true,\r\n-        },\r\n-        url: {\r\n-          type: String,\r\n-          required: true,\r\n-        },\r\n-      },\r\n-    ],\r\n-    roles: {\r\n-      type: String,\r\n-      default: \"user\",\r\n-    },\r\n-    status: {\r\n-      type: Number,\r\n-    },\r\n-    resetPasswordToken: String,\r\n-    resertPasswordExperi: Date,\r\n-  },\r\n-  { timestamps: true }\r\n-);\r\n-\r\n-userSchema.pre(\"save\", function (next) {\r\n-  let user = this;\r\n-  bcrypt.hash(user.password, 10, function (error, hash) {\r\n-    if (error) {\r\n-      return next(error);\r\n-    } else {\r\n-      user.password = hash;\r\n-      next();\r\n-    }\r\n-  });\r\n-});\r\n-\r\n-// JWT TOKEN\r\n-userSchema.methods.getJWTToken = function () {\r\n-  return jwt.sign({ id: this._id }, process.env.APP_SECRET, {\r\n-    expiresIn: process.env.APP_EXPIRE,\r\n-  });\r\n-};\r\n-\r\n-// Compare Password\r\n-userSchema.methods.comparePassword = async function (enteredPassword) {\r\n-  return await bcrypt.compare(enteredPassword, this.password);\r\n-};\r\n-\r\n-module.exports = mongoose.model(\"User\", userSchema);\r\n+// // Compare Password\r\n+// userSchema.methods.comparePassword = async function (enteredPassword) {\r\n+//   return await bcrypt.compare(enteredPassword, this.password);\r\n+// };\r\n"
+                },
+                {
+                    "date": 1654619180285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n       type: String,\r\n       unique: true,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập email !!!\"],\r\n-      validate: [validator.isEmail, \"vui lòng nhập đúng định dạng của email\"],\r\n+      // validate: [validator.isEmail, \"vui lòng nhập đúng định dạng của email\"],\r\n     },\r\n     password: {\r\n       type: String,\r\n       trim: true,\r\n"
+                },
+                {
+                    "date": 1654619207537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,20 +24,20 @@\n       required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n       select: false,\r\n     },\r\n-    avatar: [\r\n-      {\r\n-        public_id: {\r\n-          type: String,\r\n-          // required: true,\r\n-        },\r\n-        url: {\r\n-          type: String,\r\n-          // required: true,\r\n-        },\r\n-      },\r\n-    ],\r\n+    // avatar: [\r\n+    //   {\r\n+    //     public_id: {\r\n+    //       type: String,\r\n+    //       // required: true,\r\n+    //     },\r\n+    //     url: {\r\n+    //       type: String,\r\n+    //       // required: true,\r\n+    //     },\r\n+    //   },\r\n+    // ],\r\n     roles: {\r\n       type: String,\r\n       default: \"user\",\r\n     },\r\n"
+                },
+                {
+                    "date": 1654619222969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,8 @@\n       type: String,\r\n       trim: true,\r\n       required: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n       minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n-      select: false,\r\n     },\r\n     // avatar: [\r\n     //   {\r\n     //     public_id: {\r\n"
+                },
+                {
+                    "date": 1654678473077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,11 @@\n     roles: {\r\n       type: String,\r\n       default: \"user\",\r\n     },\r\n+    isAdmin: {\r\n+      type: Boolean,\r\n+    },\r\n     status: {\r\n       type: Number,\r\n     },\r\n     resetPasswordToken: String,\r\n"
+                }
+            ],
+            "date": 1651851966312,
+            "name": "Commit-0",
+            "content": "const mongoose = require(\"mongoose\");\r\nconst bcrypt = require(\"bcryptjs\");\r\n\r\nconst userSchema = new mongoose.Schema(\r\n  {\r\n    name: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập tên !!!\"],\r\n    },\r\n    email: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập email !!!\"],\r\n    },\r\n    password: {\r\n      type: String,\r\n      unique: true,\r\n      trim: true,\r\n      require: [true, \"Bạn phải nhập mật khẩu!!!\"],\r\n      minLength: [6, \"mật khẩu ít nhất 6 ký tự !!!\"],\r\n    },\r\n    roles: {\r\n      type: String,\r\n    },\r\n    status: {\r\n      type: Number,\r\n    },\r\n  },\r\n  { timestamps: true }\r\n);\r\n\r\nuserSchema.pre(\"save\", function (next) {\r\n  let user = this;\r\n  bcrypt.hash(user.password, 10, function (error, hash) {\r\n    if (error) {\r\n      return next(error);\r\n    } else {\r\n      user.password = hash;\r\n      next();\r\n    }\r\n  });\r\n});\r\n\r\nconst User = mongoose.model(\"User\", userSchema);\r\n\r\nmodule.exports = User;\r\n"
+        }
+    ]
+}

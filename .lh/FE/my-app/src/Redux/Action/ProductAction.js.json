@@ -1,0 +1,66 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Action/ProductAction.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1655041809710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655041846555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,10 @@\n \r\n export const listProduct = () => async (dispatch) => {\r\n   try {\r\n   } catch (error) {\r\n-    dispatch({ type: PRODUCT_LIST_FAIL, payload });\r\n+    dispatch({\r\n+      type: PRODUCT_LIST_FAIL,\r\n+      payload: error.response && error.response.data.message,\r\n+    });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655042126541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,22 @@\n-import { PRODUCT_LIST_FAIL } from \"../Constants/ProductConstant\";\r\n+import {\r\n+  PRODUCT_LIST_FAIL,\r\n+  PRODUCT_LIST_REQUEST,\r\n+  PRODUCT_LIST_SUCCESS,\r\n+} from \"../Constants/ProductConstant\";\r\n+import axios from \"axios\";\r\n \r\n export const listProduct = () => async (dispatch) => {\r\n   try {\r\n+    dispatch({ type: PRODUCT_LIST_REQUEST });\r\n+    const { data } = await axios.get(\"/api/v1/product\");\r\n+    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_LIST_FAIL,\r\n-      payload: error.response && error.response.data.message,\r\n+      payload:\r\n+        error.response && error.response.data.message\r\n+          ? error.response.data.message\r\n+          : error.message,\r\n     });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655042183912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n+import axios from \"axios\";\r\n import {\r\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"../Constants/ProductConstant\";\r\n-import axios from \"axios\";\r\n \r\n export const listProduct = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_LIST_REQUEST });\r\n"
+                },
+                {
+                    "date": 1655050128949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n export const listProduct = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_LIST_REQUEST });\r\n-    const { data } = await axios.get(\"/api/v1/product\");\r\n+    const { data } = await axios.get(\"/api/v1/products\");\r\n     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_LIST_FAIL,\r\n"
+                },
+                {
+                    "date": 1655092428118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,8 @@\n     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_LIST_FAIL,\r\n-      payload:\r\n-        error.response && error.response.data.message\r\n-          ? error.response.data.message\r\n-          : error.message,\r\n+      payload: error.response && error.response.data.message,\r\n     });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655092438021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_LIST_FAIL,\r\n-      payload: error.response && error.response.data.message,\r\n+      payload: error.response.data.message,\r\n     });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655101659932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"../Constants/ProductConstant\";\r\n \r\n+//LIST PRODUCT\r\n export const listProduct = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_LIST_REQUEST });\r\n     const { data } = await axios.get(\"/api/v1/products\");\r\n@@ -16,4 +17,18 @@\n       payload: error.response.data.message,\r\n     });\r\n   }\r\n };\r\n+\r\n+//PRODUCT DETAIL\r\n+export const productDetail = () => async (dispatch) => {\r\n+  try {\r\n+    dispatch({ type: PRODUCT_LIST_REQUEST });\r\n+    const { data } = await axios.get(\"/api/v1/products\");\r\n+    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n+  } catch (error) {\r\n+    dispatch({\r\n+      type: PRODUCT_LIST_FAIL,\r\n+      payload: error.response.data.message,\r\n+    });\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1655101740312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import axios from \"axios\";\r\n import {\r\n+  PRODUCT_DETAILS_FAIL,\r\n+  PRODUCT_DETAILS_REQUEST,\r\n+  PRODUCT_DETAILS_SUCCESS,\r\n   PRODUCT_LIST_FAIL,\r\n   PRODUCT_LIST_REQUEST,\r\n   PRODUCT_LIST_SUCCESS,\r\n } from \"../Constants/ProductConstant\";\r\n@@ -19,16 +22,16 @@\n   }\r\n };\r\n \r\n //PRODUCT DETAIL\r\n-export const productDetail = () => async (dispatch) => {\r\n+export const productDetail = (id) => async (dispatch) => {\r\n   try {\r\n-    dispatch({ type: PRODUCT_LIST_REQUEST });\r\n+    dispatch({ type: PRODUCT_DETAILS_REQUEST });\r\n     const { data } = await axios.get(\"/api/v1/products\");\r\n-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });\r\n+    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n-      type: PRODUCT_LIST_FAIL,\r\n+      type: PRODUCT_DETAILS_FAIL,\r\n       payload: error.response.data.message,\r\n     });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655101786372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n //PRODUCT DETAIL\r\n export const productDetail = (id) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_DETAILS_REQUEST });\r\n-    const { data } = await axios.get(\"/api/v1/products\");\r\n+    const { data } = await axios.get(`/api/v1/products/${id}`);\r\n     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_DETAILS_FAIL,\r\n"
+                },
+                {
+                    "date": 1655138221662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   }\r\n };\r\n \r\n //PRODUCT DETAIL\r\n-export const productDetail = (id) => async (dispatch) => {\r\n+export const litsProductDetail = (id) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_DETAILS_REQUEST });\r\n     const { data } = await axios.get(`/api/v1/products/${id}`);\r\n     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });\r\n"
+                },
+                {
+                    "date": 1655140210064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n export const litsProductDetail = (id) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_DETAILS_REQUEST });\r\n     const { data } = await axios.get(`/api/v1/products/${id}`);\r\n-    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });\r\n+    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data.product });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_DETAILS_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655144179179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n //PRODUCT DETAIL\r\n export const litsProductDetail = (id) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: PRODUCT_DETAILS_REQUEST });\r\n-    const { data } = await axios.get(`/api/v1/products/${id}`);\r\n+    const { data } = await axios.get(`/api/v1/product/${id}`);\r\n     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data.product });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: PRODUCT_DETAILS_FAIL,\r\n"
+                }
+            ],
+            "date": 1655041809710,
+            "name": "Commit-0",
+            "content": "import { PRODUCT_LIST_FAIL } from \"../Constants/ProductConstant\";\r\n\r\nexport const listProduct = () => async (dispatch) => {\r\n  try {\r\n  } catch (error) {\r\n    dispatch({ type: PRODUCT_LIST_FAIL, payload });\r\n  }\r\n};\r\n"
+        }
+    ]
+}

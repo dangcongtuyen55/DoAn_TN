@@ -1,0 +1,22 @@
+{
+    "sourceFile": "back-end/src/routes/catagoryRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1651850031269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651852898823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const express = require(\"express\");\r\n-const verifyToken = require(\"../app/middlewares/verifyToken\");\r\n+const { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n \r\n const {\r\n   getAllCatagories,\r\n   createCatagory,\r\n"
+                }
+            ],
+            "date": 1651850031269,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst verifyToken = require(\"../app/middlewares/verifyToken\");\r\n\r\nconst {\r\n  getAllCatagories,\r\n  createCatagory,\r\n  updateCatagory,\r\n  deleteCatagory,\r\n} = require(\"../app/controllers/catagoryController\");\r\n\r\nconst Router = express.Router();\r\n\r\nRouter.route(\"/\").get(getAllCatagories).post(verifyToken, createCatagory);\r\nRouter.route(\"/:CatagoryId\")\r\n  .put(verifyToken, updateCatagory)\r\n  .delete(verifyToken, deleteCatagory);\r\n\r\nmodule.exports = Router;\r\n"
+        }
+    ]
+}

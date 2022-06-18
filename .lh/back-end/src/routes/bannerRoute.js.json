@@ -1,0 +1,30 @@
+{
+    "sourceFile": "back-end/src/routes/bannerRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1654791280648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654791425310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n   getAllBanners,\r\n   createBanner,\r\n   updateBanner,\r\n   deleteBanner,\r\n-} = require(\"../app/controllers/productController\");\r\n+} = require(\"../app/controllers/bannerController\");\r\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/\").get(getAllBanners);\r\n"
+                },
+                {
+                    "date": 1654791520553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/\").get(getAllBanners);\r\n Router.route(\"/new\").post(verifyToken, createBanner);\r\n-Router.route(\"/product/:id\")\r\n+Router.route(\"/banner/:id\")\r\n   .put(verifyToken, updateBanner)\r\n   .delete(verifyToken, deleteBanner);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1655186148318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n } = require(\"../app/controllers/bannerController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllBanners);\r\n+Router.route(\"/banners\").get(getAllBanners);\r\n Router.route(\"/new\").post(verifyToken, createBanner);\r\n Router.route(\"/banner/:id\")\r\n   .put(verifyToken, updateBanner)\r\n   .delete(verifyToken, deleteBanner);\r\n"
+                }
+            ],
+            "date": 1654791280648,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n\r\nconst {\r\n  getAllBanners,\r\n  createBanner,\r\n  updateBanner,\r\n  deleteBanner,\r\n} = require(\"../app/controllers/productController\");\r\n\r\nconst Router = express.Router();\r\n\r\nRouter.route(\"/\").get(getAllBanners);\r\nRouter.route(\"/new\").post(verifyToken, createBanner);\r\nRouter.route(\"/product/:id\")\r\n  .put(verifyToken, updateBanner)\r\n  .delete(verifyToken, deleteBanner);\r\n\r\nmodule.exports = Router;\r\n"
+        }
+    ]
+}

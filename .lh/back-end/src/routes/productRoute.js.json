@@ -1,0 +1,122 @@
+{
+    "sourceFile": "back-end/src/routes/productRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 26,
+            "patches": [
+                {
+                    "date": 1651851653346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651852262763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllProducts);\r\n-Router.route(\"/\").post(verifyToken, createProduct);\r\n+Router.route(\"/\").get(getAllProducts).post(verifyToken, createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct);\r\n \r\n"
+                },
+                {
+                    "date": 1651852800605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllProducts).post(verifyToken, createProduct);\r\n+Router.route(\"/\").get(getAllProducts).post({ verifyToken, createProduct });\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct);\r\n \r\n"
+                },
+                {
+                    "date": 1651852900666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n const express = require(\"express\");\r\n-const verifyToken = require(\"../app/middlewares/verifyToken\");\r\n+const { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n \r\n const {\r\n   getAllProducts,\r\n   createProduct,\r\n@@ -9,9 +9,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllProducts).post({ verifyToken, createProduct });\r\n+Router.route(\"/\").get(getAllProducts).post(verifyToken, createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct);\r\n \r\n"
+                },
+                {
+                    "date": 1653726211211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n const express = require(\"express\");\r\n const { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n+const {\r\n+  isAuthenticatedUser,\r\n+} = require(\"../app/middlewares/isAuthenticatedUser\");\r\n \r\n const {\r\n   getAllProducts,\r\n   createProduct,\r\n@@ -9,9 +12,11 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllProducts).post(verifyToken, createProduct);\r\n+Router.route(\"/\")\r\n+  .get(isAuthenticatedUser, getAllProducts)\r\n+  .post(verifyToken, createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct);\r\n \r\n"
+                },
+                {
+                    "date": 1653726227111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n const express = require(\"express\");\r\n const { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n-const {\r\n-  isAuthenticatedUser,\r\n-} = require(\"../app/middlewares/isAuthenticatedUser\");\r\n+const { isAuthenticatedUser } = require(\"../app/middlewares/auth\");\r\n \r\n const {\r\n   getAllProducts,\r\n   createProduct,\r\n"
+                },
+                {
+                    "date": 1653838505856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/\")\r\n   .get(isAuthenticatedUser, getAllProducts)\r\n+  .get(getProductDetail)\r\n   .post(verifyToken, createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct);\r\n"
+                },
+                {
+                    "date": 1653838516509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   getAllProducts,\r\n   createProduct,\r\n   updateProduct,\r\n   deleteProduct,\r\n+  getProductDetail,\r\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n"
+                },
+                {
+                    "date": 1653838707733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,11 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/\")\r\n   .get(isAuthenticatedUser, getAllProducts)\r\n-  .get(getProductDetail)\r\n   .post(verifyToken, createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n-  .delete(verifyToken, deleteProduct);\r\n+  .delete(verifyToken, deleteProduct)\r\n+  .get(getProductDetail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654138508804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,10 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\")\r\n-  .get(isAuthenticatedUser, getAllProducts)\r\n-  .post(verifyToken, createProduct);\r\n+Router.route(\"/products\").get(isAuthenticatedUser, getAllProducts);\r\n+Router.route(\"/Product/new\").post(createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(getProductDetail);\r\n"
+                },
+                {
+                    "date": 1654138516324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(isAuthenticatedUser, getAllProducts);\r\n-Router.route(\"/Product/new\").post(createProduct);\r\n+Router.route(\"/product/new\").post(createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(getProductDetail);\r\n"
+                },
+                {
+                    "date": 1654143177391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n Router.route(\"/products\").get(isAuthenticatedUser, getAllProducts);\r\n Router.route(\"/product/new\").post(createProduct);\r\n Router.route(\"/:productId\")\r\n-  .put(verifyToken, updateProduct)\r\n-  .delete(verifyToken, deleteProduct)\r\n+  .put(updateProduct)\r\n+  .delete(deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654143241927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/products\").get(isAuthenticatedUser, getAllProducts);\r\n+Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(createProduct);\r\n Router.route(\"/:productId\")\r\n   .put(updateProduct)\r\n   .delete(deleteProduct)\r\n"
+                },
+                {
+                    "date": 1654143393325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(createProduct);\r\n-Router.route(\"/:productId\")\r\n+Router.route(\"product/:productId\")\r\n   .put(updateProduct)\r\n   .delete(deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n"
+                },
+                {
+                    "date": 1654143422159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(createProduct);\r\n-Router.route(\"product/:productId\")\r\n+Router.route(\"product/:id\")\r\n   .put(updateProduct)\r\n   .delete(deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n"
+                },
+                {
+                    "date": 1654143430213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(createProduct);\r\n-Router.route(\"product/:id\")\r\n+Router.route(\"/product/:id\")\r\n   .put(updateProduct)\r\n   .delete(deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n"
+                },
+                {
+                    "date": 1654228903089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/products\").get(getAllProducts);\r\n-Router.route(\"/product/new\").post(createProduct);\r\n+Router.route(\"/products\").get(verifyToken, getAllProducts);\r\n+Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n   .put(updateProduct)\r\n   .delete(deleteProduct)\r\n   .get(getProductDetail);\r\n"
+                },
+                {
+                    "date": 1654229215454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n Router.route(\"/products\").get(verifyToken, getAllProducts);\r\n Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n-  .put(updateProduct)\r\n-  .delete(deleteProduct)\r\n+  .put(verifyToken, updateProduct)\r\n+  .delete(verifyToken, deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654529117319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/products\").get(verifyToken, getAllProducts);\r\n+Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n-  .get(getProductDetail);\r\n+  .get(verifyToken, getProductDetail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1654758835900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/products\").get(getAllProducts);\r\n+Router.route(\"/s\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n"
+                },
+                {
+                    "date": 1654758848075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/s\").get(getAllProducts);\r\n+Router.route(\"/\").get(getAllProducts);\r\n Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n"
+                },
+                {
+                    "date": 1654785553688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/\").get(getAllProducts);\r\n-Router.route(\"/product/new\").post(verifyToken, createProduct);\r\n+Router.route(\"/new\").post(verifyToken, createProduct);\r\n Router.route(\"/product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(verifyToken, getProductDetail);\r\n"
+                },
+                {
+                    "date": 1655013884064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/\").get(getAllProducts);\r\n Router.route(\"/new\").post(verifyToken, createProduct);\r\n-Router.route(\"/product/:id\")\r\n+Router.route(\"/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(verifyToken, getProductDetail);\r\n \r\n"
+                },
+                {
+                    "date": 1655094230875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n Router.route(\"/new\").post(verifyToken, createProduct);\r\n Router.route(\"/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n-  .get(verifyToken, getProductDetail);\r\n+  .get(getProductDetail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1655143977099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n } = require(\"../app/controllers/productController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/\").get(getAllProducts);\r\n+Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/new\").post(verifyToken, createProduct);\r\n Router.route(\"/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n"
+                },
+                {
+                    "date": 1655144029913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/new\").post(verifyToken, createProduct);\r\n-Router.route(\"/:id\")\r\n+Router.route(\"product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n"
+                },
+                {
+                    "date": 1655144088152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const Router = express.Router();\r\n \r\n Router.route(\"/products\").get(getAllProducts);\r\n Router.route(\"/new\").post(verifyToken, createProduct);\r\n-Router.route(\"product/:id\")\r\n+Router.route(\"/product/:id\")\r\n   .put(verifyToken, updateProduct)\r\n   .delete(verifyToken, deleteProduct)\r\n   .get(getProductDetail);\r\n \r\n"
+                }
+            ],
+            "date": 1651851653346,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst verifyToken = require(\"../app/middlewares/verifyToken\");\r\n\r\nconst {\r\n  getAllProducts,\r\n  createProduct,\r\n  updateProduct,\r\n  deleteProduct,\r\n} = require(\"../app/controllers/productController\");\r\n\r\nconst Router = express.Router();\r\n\r\nRouter.route(\"/\").get(getAllProducts);\r\nRouter.route(\"/\").post(verifyToken, createProduct);\r\nRouter.route(\"/:productId\")\r\n  .put(verifyToken, updateProduct)\r\n  .delete(verifyToken, deleteProduct);\r\n\r\nmodule.exports = Router;\r\n"
+        }
+    ]
+}
