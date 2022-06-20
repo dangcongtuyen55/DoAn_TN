@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 64,
+            "activePatchIndex": 70,
             "patches": [
                 {
                     "date": 1651851975438,
@@ -264,6 +264,30 @@
                 {
                     "date": 1654744917243,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,8 +61,9 @@\n       status: \"success\",\r\n       data: data,\r\n     });\r\n     console.log(data);\r\n+    console.log(data);\r\n   } catch (error) {\r\n     res.json(error);\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655550557200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,12 @@\n     if (bcrypt.compareSync(req.body.password, user.password)) {\r\n       const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);\r\n       res.status(200).json({\r\n         status: \"success\",\r\n-        data: {\r\n+        user: {\r\n           token,\r\n           userName: user.name,\r\n-          role: user.roles,\r\n+          role: user.role,\r\n         },\r\n       });\r\n     } else {\r\n       //Error: password is not correct\r\n@@ -38,13 +38,13 @@\n     const user = await User.create(req.body);\r\n     const token = jwt.sign({ userId: user._id }, process.env.APP_SECRET);\r\n     res.status(200).json({\r\n       status: \"success\",\r\n-      data: {\r\n+      user: {\r\n         token,\r\n         email: user.email,\r\n         userName: user.name,\r\n-        role: user.roles,\r\n+        role: user.role,\r\n       },\r\n     });\r\n   } catch (error) {\r\n     next(error);\r\n@@ -67,8 +67,54 @@\n     res.json(error);\r\n   }\r\n };\r\n \r\n+exports.getInfoUser = async (req, res, next) => {\r\n+  try {\r\n+    const user = await User.findById(req.user._id);\r\n+    res.status(200).json({\r\n+      status: \"success\",\r\n+      user: {\r\n+        _id: user._id,\r\n+        name: user.name,\r\n+        email: user.email,\r\n+        createdAt: user.createdAt,\r\n+      },\r\n+    });\r\n+  } catch (error) {\r\n+    res.json(error);\r\n+  }\r\n+};\r\n+\r\n+exports.updateInfoUser = async (req, res, next) => {\r\n+  try {\r\n+    const user = await User.findById(req.user._id);\r\n+    const token = jwt.sign({ userId: user._id }, process.env.APP_SECRET);\r\n+    if (user) {\r\n+      user.name = req.body.name || req.body.name;\r\n+      user.email = req.body.email || req.body.email;\r\n+      if (user.body.password) {\r\n+        user.password = req.body.password;\r\n+      }\r\n+      const updateUser = await user.save();\r\n+      res.status(200).json({\r\n+        _id: updateUser._id,\r\n+        name: updateUser.name,\r\n+        email: updateUser.email,\r\n+        createdAt: updateUser.createdAt,\r\n+        token,\r\n+      });\r\n+    }\r\n+    res.status(200).json({\r\n+      _id: user._id,\r\n+      name: user.name,\r\n+      email: user.email,\r\n+      createdAt: user.createdAt,\r\n+    });\r\n+  } catch (error) {\r\n+    res.json(error);\r\n+  }\r\n+};\r\n // exports.getAllUser = async (req, res, next) => {\r\n //   const user = await User.find({});\r\n //   res.status(200).json({\r\n //     status: \"success\",\r\n"
+                },
+                {
+                    "date": 1655613793922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,13 +54,13 @@\n   try {\r\n     const data = { user: null };\r\n     if (req.user) {\r\n       const user = await User.findOne({ _id: req.user.userId });\r\n-      data.user = { userName: user.name };\r\n+      user = { userName: user.name };\r\n     }\r\n     res.status(200).json({\r\n       status: \"success\",\r\n-      data: data,\r\n+      user,\r\n     });\r\n     console.log(data);\r\n     console.log(data);\r\n   } catch (error) {\r\n"
+                },
+                {
+                    "date": 1655615223042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n       res.status(200).json({\r\n         status: \"success\",\r\n         user: {\r\n           token,\r\n-          userName: user.name,\r\n+          name,\r\n           role: user.role,\r\n         },\r\n       });\r\n     } else {\r\n"
+                },
+                {
+                    "date": 1655615314490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n       res.status(200).json({\r\n         status: \"success\",\r\n         user: {\r\n           token,\r\n-          name,\r\n+          userName: user.name,\r\n           role: user.role,\r\n         },\r\n       });\r\n     } else {\r\n"
+                },
+                {
+                    "date": 1655615344978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,14 @@\n     if (bcrypt.compareSync(req.body.password, user.password)) {\r\n       const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);\r\n       res.status(200).json({\r\n         status: \"success\",\r\n-        user: {\r\n-          token,\r\n-          userName: user.name,\r\n-          role: user.role,\r\n-        },\r\n+        user,\r\n+        // user: {\r\n+        //   token,\r\n+        //   userName: user.name,\r\n+        //   role: user.role,\r\n+        // },\r\n       });\r\n     } else {\r\n       //Error: password is not correct\r\n       const err = new Error(\"Password is not correct !!\");\r\n"
+                },
+                {
+                    "date": 1655615567180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,14 +14,13 @@\n     if (bcrypt.compareSync(req.body.password, user.password)) {\r\n       const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);\r\n       res.status(200).json({\r\n         status: \"success\",\r\n-        user,\r\n-        // user: {\r\n-        //   token,\r\n-        //   userName: user.name,\r\n-        //   role: user.role,\r\n-        // },\r\n+        user: {\r\n+          token,\r\n+          userName: user.name,\r\n+          role: user.role,\r\n+        },\r\n       });\r\n     } else {\r\n       //Error: password is not correct\r\n       const err = new Error(\"Password is not correct !!\");\r\n"
                 }
             ],
             "date": 1651851975438,

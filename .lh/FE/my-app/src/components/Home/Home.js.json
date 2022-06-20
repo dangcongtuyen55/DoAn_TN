@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1654793098431,
@@ -48,6 +48,14 @@
                 {
                     "date": 1655186807027,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import React from \"react\";\r\n import BannerLayout from \"../Banner/BannerLayout\";\r\n+\r\n import ProductLayout from \"../Product/ProductLayout\";\r\n \r\n const Home = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1655650539145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from \"react\";\r\n import BannerLayout from \"../Banner/BannerLayout\";\r\n \r\n import ProductLayout from \"../Product/ProductLayout\";\r\n+import { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n \r\n const Home = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1655651207352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import React from \"react\";\r\n import BannerLayout from \"../Banner/BannerLayout\";\r\n \r\n import ProductLayout from \"../Product/ProductLayout\";\r\n-import { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n \r\n const Home = () => {\r\n   return (\r\n     <div>\r\n"
                 }
             ],
             "date": 1654793098431,

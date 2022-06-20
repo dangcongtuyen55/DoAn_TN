@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 23,
+            "activePatchIndex": 24,
             "patches": [
                 {
                     "date": 1651851954762,
@@ -100,6 +100,10 @@
                 {
                     "date": 1655310866951,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,18 @@\n       type: String,\r\n       unique: true,\r\n     },\r\n \r\n-    price: {\r\n+    original_price: {\r\n       type: Number,\r\n       required: [true, \" Giá sản phẩm không được bỏ trống !!!\"],\r\n     },\r\n+    current_price: {\r\n+      type: Number,\r\n+    },\r\n+    discount_rate: {\r\n+      type: Number,\r\n+    },\r\n     quantity: {\r\n       type: Number,\r\n     },\r\n \r\n@@ -71,11 +77,9 @@\n     },\r\n     type_product: {\r\n       type: String,\r\n     },\r\n-    product_sale: {\r\n-      type: Number,\r\n-    },\r\n+\r\n     createBy: {\r\n       type: mongoose.Schema.Types.ObjectId,\r\n       ref: \"User\",\r\n     },\r\n"
+                },
+                {
+                    "date": 1655652379631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n     ],\r\n     product_url: {\r\n       type: String,\r\n     },\r\n-    rate: {\r\n+    rating: {\r\n       type: Number,\r\n       default: 0,\r\n     },\r\n \r\n"
                 }
             ],
             "date": 1651851954762,

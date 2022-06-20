@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1651851969400,
@@ -32,6 +32,14 @@
                 {
                     "date": 1654681059915,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,17 @@\n const express = require(\"express\");\r\n const {\r\n   login,\r\n   register,\r\n+  getCurrentUser,\r\n   // logout,\r\n } = require(\"../app/controllers/authController\");\r\n+const { checkCurrentUser } = require(\"../app/middlewares/checkCurrentUser\");\r\n \r\n const Router = express.Router();\r\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n+Router.route(\"/\").get(checkCurrentUser, getCurrentUser);\r\n // Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1655551598768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n const {\r\n   login,\r\n   register,\r\n   getCurrentUser,\r\n+  getInfoUser,\r\n   // logout,\r\n } = require(\"../app/controllers/authController\");\r\n const { checkCurrentUser } = require(\"../app/middlewares/checkCurrentUser\");\r\n \r\n@@ -11,7 +12,8 @@\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n Router.route(\"/\").get(checkCurrentUser, getCurrentUser);\r\n+Router.route(\"/profile\").get(checkCurrentUser, getInfoUser);\r\n // Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1655551625451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n \r\n Router.route(\"/register\").post(register);\r\n Router.route(\"/login\").post(login);\r\n Router.route(\"/\").get(checkCurrentUser, getCurrentUser);\r\n-Router.route(\"/profile\").get(checkCurrentUser, getInfoUser);\r\n+Router.route(\"/me\").get(checkCurrentUser, getInfoUser);\r\n // Router.route(\"/logout\").get(logout);\r\n \r\n module.exports = Router;\r\n"
                 }
             ],
             "date": 1651851969400,

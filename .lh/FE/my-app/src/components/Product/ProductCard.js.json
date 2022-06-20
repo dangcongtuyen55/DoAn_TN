@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 67,
+            "activePatchIndex": 70,
             "patches": [
                 {
                     "date": 1654781012635,
@@ -276,6 +276,18 @@
                 {
                     "date": 1655313276126,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             {product.name}\r\n           </h3>\r\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n             <span>{product.current_price}</span>\r\n-            <span>{product.current_price}</span>\r\n+            <del>{product.original_price}</del>\r\n           </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n"
+                },
+                {
+                    "date": 1655658423286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,17 @@\n import React from \"react\";\r\n import { Link } from \"react-router-dom\";\r\n+import ReactStars from \"react-rating-stars-component\";\r\n \r\n const ProductCard = ({ product }) => {\r\n+  const options = {\r\n+    edit: false,\r\n+    color: \"rgba(20,20,20,0.1)\",\r\n+    activeColor: \"tomato\",\r\n+    size: window.innerWidth < 600 ? 20 : 25,\r\n+    value: product.rating,\r\n+    isHalf: true,\r\n+  };\r\n   console.log(product.current_price);\r\n   return (\r\n     <>\r\n       <div className=\"product-card w-[200px]  rounded-lg p-3 bg-gray-700 text-black\">\r\n@@ -26,8 +35,12 @@\n           <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n             <span>{product.current_price}</span>\r\n             <del>{product.original_price}</del>\r\n           </div>\r\n+          <div className=\"flex items-center justify-between text-sm opacity-50 mb-5 text-light\">\r\n+            <ReactStars {...options} />\r\n+            <del>{product.original_price}</del>\r\n+          </div>\r\n \r\n           <button className=\"py-3 px-6 rounded-lg capitalize bg-black text-white w-full\">\r\n             <Link to={`/product/${product._id}`}>Mua ngay</Link>\r\n           </button>\r\n"
+                },
+                {
+                    "date": 1655658576018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   const options = {\r\n     edit: false,\r\n-    color: \"rgba(20,20,20,0.1)\",\r\n+    color: \"rgba(245, 237, 5)\",\r\n     activeColor: \"tomato\",\r\n     size: window.innerWidth < 600 ? 20 : 25,\r\n     value: product.rating,\r\n     isHalf: true,\r\n"
+                },
+                {
+                    "date": 1655658617460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n const ProductCard = ({ product }) => {\r\n   const options = {\r\n     edit: false,\r\n-    color: \"rgba(245, 237, 5)\",\r\n+    color: \"rgba(168, 168, 168)\",\r\n     activeColor: \"tomato\",\r\n     size: window.innerWidth < 600 ? 20 : 25,\r\n     value: product.rating,\r\n     isHalf: true,\r\n"
                 }
             ],
             "date": 1654781012635,

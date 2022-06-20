@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 15,
+            "activePatchIndex": 33,
             "patches": [
                 {
                     "date": 1655039675223,
@@ -68,6 +68,78 @@
                 {
                     "date": 1655186709061,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,13 @@\n import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n import thunk from \"redux-thunk\";\r\n import { composeWithDevTools } from \"redux-devtools-extension\";\r\n import {\r\n-import { bannerListReducer } from './Reducers/BannerReducer';\r\n   productDetailReducer,\r\n   productListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n+import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n \r\n-\r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n   bannerList: bannerListReducer,\r\n"
+                },
+                {
+                    "date": 1655548712761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,40 @@\n+import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n+import thunk from \"redux-thunk\";\r\n+import { composeWithDevTools } from \"redux-devtools-extension\";\r\n+import {\r\n+  productDetailReducer,\r\n+  productListReducer,\r\n+} from \"./Reducers/ProductReducer\";\r\n+import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n+import {\r\n+  userDetailReducer,\r\n+  userLoginReducer,\r\n+  userRegisterReducer,\r\n+} from \"./Reducers/UserReducer\";\r\n+\r\n+const reducer = combineReducers({\r\n+  productList: productListReducer,\r\n+  productDetails: productDetailReducer,\r\n+  bannerList: bannerListReducer,\r\n+  userLogin: userLoginReducer,\r\n+  userRegister: userRegisterReducer,\r\n+  userDetail: userDetailReducer,\r\n+});\r\n+\r\n+const userFromLocalStorage = localStorage.getItem(\"user\")\r\n+  ? JSON.parse(localStorage.getItem(\"user\"))\r\n+  : null;\r\n+\r\n+const initialState = {\r\n+  userLogin: { user: userFromLocalStorage },\r\n+};\r\n+\r\n+const middleware = [thunk];\r\n+\r\n+const store = createStore(\r\n+  reducer,\r\n+  initialState,\r\n+  composeWithDevTools(applyMiddleware(...middleware))\r\n+);\r\n+\r\n+export default store;\r\n"
+                },
+                {
+                    "date": 1655558870653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n   productListReducer,\r\n } from \"./Reducers/ProductReducer\";\r\n import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n import {\r\n+  userCurrentReducer,\r\n   userDetailReducer,\r\n   userLoginReducer,\r\n   userRegisterReducer,\r\n } from \"./Reducers/UserReducer\";\r\n@@ -18,8 +19,9 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n+  userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n@@ -37,30 +39,4 @@\n   composeWithDevTools(applyMiddleware(...middleware))\r\n );\r\n \r\n export default store;\r\n-import { createStore, combineReducers, applyMiddleware } from \"redux\";\r\n-import thunk from \"redux-thunk\";\r\n-import { composeWithDevTools } from \"redux-devtools-extension\";\r\n-import {\r\n-  productDetailReducer,\r\n-  productListReducer,\r\n-} from \"./Reducers/ProductReducer\";\r\n-import { bannerListReducer } from \"./Reducers/BannerReducer\";\r\n-\r\n-const reducer = combineReducers({\r\n-  productList: productListReducer,\r\n-  productDetails: productDetailReducer,\r\n-  bannerList: bannerListReducer,\r\n-});\r\n-\r\n-const initialState = {};\r\n-\r\n-const middleware = [thunk];\r\n-\r\n-const store = createStore(\r\n-  reducer,\r\n-  initialState,\r\n-  composeWithDevTools(applyMiddleware(...middleware))\r\n-);\r\n-\r\n-export default store;\r\n"
+                },
+                {
+                    "date": 1655559377893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n-  userCurrent: userCurrentReducer,\r\n+  // userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n"
+                },
+                {
+                    "date": 1655559386947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,8 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n-  // userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n"
+                },
+                {
+                    "date": 1655560958524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n+  userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n"
+                },
+                {
+                    "date": 1655561032425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,15 @@\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n   : null;\r\n+const getUserNameFromLocalStorage = localStorage.getItem(\"user\")\r\n+  ? JSON.parse(localStorage.getItem(\"user\"))\r\n+  : null;\r\n \r\n const initialState = {\r\n   userLogin: { user: userFromLocalStorage },\r\n+  userCurrent: { user: getUserNameFromLocalStorage },\r\n };\r\n \r\n const middleware = [thunk];\r\n \r\n"
+                },
+                {
+                    "date": 1655561363839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,15 +25,11 @@\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n   : null;\r\n-const getUserNameFromLocalStorage = localStorage.getItem(\"user\")\r\n-  ? JSON.parse(localStorage.getItem(\"user\"))\r\n-  : null;\r\n \r\n const initialState = {\r\n   userLogin: { user: userFromLocalStorage },\r\n-  userCurrent: { user: getUserNameFromLocalStorage },\r\n };\r\n \r\n const middleware = [thunk];\r\n \r\n"
+                },
+                {
+                    "date": 1655561371875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,8 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n-  userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n"
+                },
+                {
+                    "date": 1655609417428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,10 @@\n   userDetailReducer,\r\n   userLoginReducer,\r\n   userRegisterReducer,\r\n } from \"./Reducers/UserReducer\";\r\n+import { persistStore, persistReducer } from \"redux-persist\";\r\n+import storage from \"redux-persist/lib/storage\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n"
+                },
+                {
+                    "date": 1655609618537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,14 @@\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n });\r\n \r\n+const persistConfig = {\r\n+  key: \"root\",\r\n+  storage,\r\n+};\r\n+const persistedReducer = persistReducer(persistConfig, reducer);\r\n+\r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n   : null;\r\n \r\n"
+                },
+                {
+                    "date": 1655609934639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,12 @@\n \r\n const middleware = [thunk];\r\n \r\n const store = createStore(\r\n-  reducer,\r\n+ {\r\n+  reducer: persistReducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n+ }\r\n );\r\n \r\n export default store;\r\n"
+                },
+                {
+                    "date": 1655610109840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,12 +40,10 @@\n \r\n const middleware = [thunk];\r\n \r\n const store = createStore(\r\n- {\r\n-  reducer: persistReducer,\r\n+  persistReducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n- }\r\n );\r\n \r\n export default store;\r\n"
+                },
+                {
+                    "date": 1655610441187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,6 +44,8 @@\n   persistReducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n );\r\n+const Persitor = persistStore(store);\r\n+export { Persitor };\r\n \r\n export default store;\r\n"
+                },
+                {
+                    "date": 1655610514885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \r\n const middleware = [thunk];\r\n \r\n const store = createStore(\r\n-  persistReducer,\r\n+  persistedReducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n );\r\n const Persitor = persistStore(store);\r\n"
+                },
+                {
+                    "date": 1655610651259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,8 @@\n   userDetailReducer,\r\n   userLoginReducer,\r\n   userRegisterReducer,\r\n } from \"./Reducers/UserReducer\";\r\n-import { persistStore, persistReducer } from \"redux-persist\";\r\n-import storage from \"redux-persist/lib/storage\";\r\n \r\n const reducer = combineReducers({\r\n   productList: productListReducer,\r\n   productDetails: productDetailReducer,\r\n@@ -23,14 +21,8 @@\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n });\r\n \r\n-const persistConfig = {\r\n-  key: \"root\",\r\n-  storage,\r\n-};\r\n-const persistedReducer = persistReducer(persistConfig, reducer);\r\n-\r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n   : null;\r\n \r\n@@ -40,12 +32,10 @@\n \r\n const middleware = [thunk];\r\n \r\n const store = createStore(\r\n-  persistedReducer,\r\n+  reducer,\r\n   initialState,\r\n   composeWithDevTools(applyMiddleware(...middleware))\r\n );\r\n-const Persitor = persistStore(store);\r\n-export { Persitor };\r\n \r\n export default store;\r\n"
+                },
+                {
+                    "date": 1655610696168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n });\r\n \r\n-const userFromLocalStorage = localStorage.getItem(\"user\")\r\n-  ? JSON.parse(localStorage.getItem(\"user\"))\r\n+const userFromLocalStorage = localStorage.getItem(\"token\")\r\n+  ? JSON.parse(localStorage.getItem(\"token\"))\r\n   : null;\r\n \r\n const initialState = {\r\n   userLogin: { user: userFromLocalStorage },\r\n"
+                },
+                {
+                    "date": 1655610792221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n });\r\n \r\n-const userFromLocalStorage = localStorage.getItem(\"token\")\r\n-  ? JSON.parse(localStorage.getItem(\"token\"))\r\n+const userFromLocalStorage = localStorage.getItem(\"user\")\r\n+  ? JSON.parse(localStorage.getItem(\"user\"))\r\n   : null;\r\n \r\n const initialState = {\r\n   userLogin: { user: userFromLocalStorage },\r\n"
+                },
+                {
+                    "date": 1655610820339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n   bannerList: bannerListReducer,\r\n   userLogin: userLoginReducer,\r\n   userRegister: userRegisterReducer,\r\n   userDetail: userDetailReducer,\r\n+  userCurrent: userCurrentReducer,\r\n });\r\n \r\n const userFromLocalStorage = localStorage.getItem(\"user\")\r\n   ? JSON.parse(localStorage.getItem(\"user\"))\r\n"
                 }
             ],
             "date": 1655039675223,

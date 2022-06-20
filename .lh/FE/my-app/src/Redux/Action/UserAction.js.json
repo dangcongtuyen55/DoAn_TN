@@ -1,0 +1,106 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Action/UserAction.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1655549097882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655549189772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,16 +79,12 @@\n     } = getState();\r\n \r\n     const config = {\r\n       headers: {\r\n-        \"Content-Type\": \"application/json\",\r\n+        Authorization: `Bearer ${userInfo.token}`,\r\n       },\r\n     };\r\n-    const { data } = await axios.post(\r\n-      `/api/v1/auth/register`,\r\n-      { name, email, password },\r\n-      config\r\n-    );\r\n+    const { data } = await axios.get(`/api/v1/auth/${id}`, config);\r\n     dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n     localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n"
+                },
+                {
+                    "date": 1655549396189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,10 +84,8 @@\n       },\r\n     };\r\n     const { data } = await axios.get(`/api/v1/auth/${id}`, config);\r\n     dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n-    localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_DETAIL_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655549781530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,14 +74,14 @@\n export const getUserDetail = (id) => async (dispatch, getState) => {\r\n   try {\r\n     dispatch({ type: USER_DETAIL_REQUEST });\r\n     const {\r\n-      userLogin: { userInfo },\r\n+      userLogin: { user },\r\n     } = getState();\r\n \r\n     const config = {\r\n       headers: {\r\n-        Authorization: `Bearer ${userInfo.token}`,\r\n+        Authorization: `Bearer ${user.token}`,\r\n       },\r\n     };\r\n     const { data } = await axios.get(`/api/v1/auth/${id}`, config);\r\n     dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n"
+                },
+                {
+                    "date": 1655550197938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,10 +85,14 @@\n     };\r\n     const { data } = await axios.get(`/api/v1/auth/${id}`, config);\r\n     dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n   } catch (error) {\r\n+    const message =\r\n+      error.response && error.response.data.message\r\n+        ? error.response.data.message\r\n+        : error.message;\r\n     dispatch({\r\n       type: USER_DETAIL_FAIL,\r\n-      payload: error.response.data.message,\r\n+      payload: message,\r\n     });\r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1655551719017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,19 +73,11 @@\n \r\n export const getUserDetail = (id) => async (dispatch, getState) => {\r\n   try {\r\n     dispatch({ type: USER_DETAIL_REQUEST });\r\n-    const {\r\n-      userLogin: { user },\r\n-    } = getState();\r\n \r\n-    const config = {\r\n-      headers: {\r\n-        Authorization: `Bearer ${user.token}`,\r\n-      },\r\n-    };\r\n-    const { data } = await axios.get(`/api/v1/auth/${id}`, config);\r\n-    dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n+    const { data } = await axios.get(`/api/v1/auth/me/`);\r\n+    dispatch({ type: USER_DETAIL_SUCCESS, payload: data.user });\r\n   } catch (error) {\r\n     const message =\r\n       error.response && error.response.data.message\r\n         ? error.response.data.message\r\n"
+                },
+                {
+                    "date": 1655552215973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n       `/api/v1/auth/login`,\r\n       { email, password },\r\n       config\r\n     );\r\n-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n+    dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n     localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_LOGIN_FAIL,\r\n"
+                },
+                {
+                    "date": 1655558879125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n import axios from \"axios\";\r\n import {\r\n+  USER_CURRENT_FAIL,\r\n+  USER_CURRENT_REQUEST,\r\n+  USER_CURRENT_SUCCESS,\r\n   USER_DETAIL_FAIL,\r\n   USER_DETAIL_REQUEST,\r\n   USER_DETAIL_SUCCESS,\r\n   USER_LOGIN_FAIL,\r\n@@ -87,4 +90,17 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n+export const getUserCurrent = (id) => async (dispatch, getState) => {\r\n+  try {\r\n+    dispatch({ type: USER_CURRENT_REQUEST });\r\n+\r\n+    const { data } = await axios.get(`/api/v1/auth`);\r\n+    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user });\r\n+  } catch (error) {\r\n+    dispatch({\r\n+      type: USER_CURRENT_FAIL,\r\n+      payload: error.response.data.message,\r\n+    });\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1655558995900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,14 +90,20 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n-export const getUserCurrent = (id) => async (dispatch, getState) => {\r\n+export const getUserCurrent = (name) => async (dispatch, getState) => {\r\n   try {\r\n     dispatch({ type: USER_CURRENT_REQUEST });\r\n \r\n-    const { data } = await axios.get(`/api/v1/auth`);\r\n+    const config = {\r\n+      headers: {\r\n+        \"Content-Type\": \"application/json\",\r\n+      },\r\n+    };\r\n+    const { data } = await axios.get(`/api/v1/auth/`, { name }, config);\r\n     dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user });\r\n+    localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_CURRENT_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655560505829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,23 +90,4 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n-export const getUserCurrent = (name) => async (dispatch, getState) => {\r\n-  try {\r\n-    dispatch({ type: USER_CURRENT_REQUEST });\r\n-\r\n-    const config = {\r\n-      headers: {\r\n-        \"Content-Type\": \"application/json\",\r\n-      },\r\n-    };\r\n-    const { data } = await axios.get(`/api/v1/auth/`, { name }, config);\r\n-    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user });\r\n-    localStorage.setItem(\"user\", JSON.stringify(data));\r\n-  } catch (error) {\r\n-    dispatch({\r\n-      type: USER_CURRENT_FAIL,\r\n-      payload: error.response.data.message,\r\n-    });\r\n-  }\r\n-};\r\n"
+                },
+                {
+                    "date": 1655560569889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   USER_REGISTER_REQUEST,\r\n   USER_REGISTER_SUCCESS,\r\n } from \"../Constants/UserConstant\";\r\n \r\n-export const login = (email, password) => async (dispatch) => {\r\n+export const login = (email, password, name) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: USER_LOGIN_REQUEST });\r\n \r\n     const config = {\r\n@@ -25,9 +25,9 @@\n       },\r\n     };\r\n     const { data } = await axios.post(\r\n       `/api/v1/auth/login`,\r\n-      { email, password },\r\n+      { email, password, name },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n     localStorage.setItem(\"user\", JSON.stringify(data));\r\n"
+                },
+                {
+                    "date": 1655560806286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n   USER_REGISTER_REQUEST,\r\n   USER_REGISTER_SUCCESS,\r\n } from \"../Constants/UserConstant\";\r\n \r\n-export const login = (email, password, name) => async (dispatch) => {\r\n+export const login = (email, password) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: USER_LOGIN_REQUEST });\r\n \r\n     const config = {\r\n@@ -25,9 +25,9 @@\n       },\r\n     };\r\n     const { data } = await axios.post(\r\n       `/api/v1/auth/login`,\r\n-      { email, password, name },\r\n+      { email, password },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n     localStorage.setItem(\"user\", JSON.stringify(data));\r\n@@ -90,4 +90,23 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n+export const getUserCurrent = () => async (dispatch, getState) => {\r\n+  try {\r\n+    dispatch({ type: USER_CURRENT_REQUEST });\r\n+\r\n+    const config = {\r\n+      headers: {\r\n+        \"Content-Type\": \"application/json\",\r\n+      },\r\n+    };\r\n+    const { data } = await axios.post(`/api/v1/auth/login`, config);\r\n+    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user });\r\n+    localStorage.setItem(\"user\", JSON.stringify(data));\r\n+  } catch (error) {\r\n+    dispatch({\r\n+      type: USER_CURRENT_FAIL,\r\n+      payload: error.response.data.message,\r\n+    });\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1655560882047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -93,17 +93,16 @@\n };\r\n export const getUserCurrent = () => async (dispatch, getState) => {\r\n   try {\r\n     dispatch({ type: USER_CURRENT_REQUEST });\r\n-\r\n+    const token = localStorage.getItem(\"token\");\r\n     const config = {\r\n       headers: {\r\n-        \"Content-Type\": \"application/json\",\r\n+        Authorization: `Bearer ${token}`,\r\n       },\r\n     };\r\n     const { data } = await axios.post(`/api/v1/auth/login`, config);\r\n-    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user });\r\n-    localStorage.setItem(\"user\", JSON.stringify(data));\r\n+    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user.userName });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_CURRENT_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655560898252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n-export const getUserCurrent = () => async (dispatch, getState) => {\r\n+export const getUserCurrent = () => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: USER_CURRENT_REQUEST });\r\n     const token = localStorage.getItem(\"token\");\r\n     const config = {\r\n"
+                },
+                {
+                    "date": 1655561212544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n       headers: {\r\n         Authorization: `Bearer ${token}`,\r\n       },\r\n     };\r\n-    const { data } = await axios.post(`/api/v1/auth/login`, config);\r\n+    const { data } = await axios.get(`/api/v1/auth/`, config);\r\n     dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user.userName });\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_CURRENT_FAIL,\r\n"
+                },
+                {
+                    "date": 1655561375784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,22 +90,4 @@\n       payload: message,\r\n     });\r\n   }\r\n };\r\n-export const getUserCurrent = () => async (dispatch) => {\r\n-  try {\r\n-    dispatch({ type: USER_CURRENT_REQUEST });\r\n-    const token = localStorage.getItem(\"token\");\r\n-    const config = {\r\n-      headers: {\r\n-        Authorization: `Bearer ${token}`,\r\n-      },\r\n-    };\r\n-    const { data } = await axios.get(`/api/v1/auth/`, config);\r\n-    dispatch({ type: USER_CURRENT_SUCCESS, payload: data.user.userName });\r\n-  } catch (error) {\r\n-    dispatch({\r\n-      type: USER_CURRENT_FAIL,\r\n-      payload: error.response.data.message,\r\n-    });\r\n-  }\r\n-};\r\n"
+                },
+                {
+                    "date": 1655610749816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       { email, password },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n-    localStorage.setItem(\"user\", JSON.stringify(data));\r\n+    localStorage.setItem(\"token\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_LOGIN_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655610774576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       { email, password },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n-    localStorage.setItem(\"token\", JSON.stringify(data));\r\n+    localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_LOGIN_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655613273585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       { email, password },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n-    localStorage.setItem(\"user\", JSON.stringify(data));\r\n+    localStorage.getItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_LOGIN_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655613384392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n       { email, password },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n-    localStorage.getItem(\"user\", JSON.stringify(data));\r\n+    localStorage.setItem(\"user\", JSON.stringify(data));\r\n   } catch (error) {\r\n     dispatch({\r\n       type: USER_LOGIN_FAIL,\r\n       payload: error.response.data.message,\r\n"
+                },
+                {
+                    "date": 1655613506265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,29 @@\n     });\r\n   }\r\n };\r\n \r\n+export const userCurrent = (email, password) => async (dispatch) => {\r\n+  try {\r\n+    const token = localStorage.getItem(\"token\");\r\n+    const options = {\r\n+      method: \"GET\",\r\n+      url: \"/api/v1/auth/\",\r\n+      headers: {\r\n+        Authorization: `Bearer ${token}`,\r\n+      },\r\n+    };\r\n+    const response = await axios(options);\r\n+    if (response.data.user) {\r\n+      const { userName } = response.data.user;\r\n+      dispatch({ type: \"CURRENT_USER\", payload: { userName } });\r\n+    }\r\n+    console.log(response.data.userName);\r\n+  } catch (error) {\r\n+    // console.log(error);\r\n+  }\r\n+};\r\n+\r\n // LOGOUT\r\n \r\n export const logout = () => (dispatch) => {\r\n   localStorage.removeItem(\"user\");\r\n"
+                },
+                {
+                    "date": 1655613579345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import axios from \"axios\";\r\n import {\r\n+  USER_CURRENT,\r\n   USER_CURRENT_FAIL,\r\n   USER_CURRENT_REQUEST,\r\n   USER_CURRENT_SUCCESS,\r\n   USER_DETAIL_FAIL,\r\n@@ -38,9 +39,9 @@\n     });\r\n   }\r\n };\r\n \r\n-export const userCurrent = (email, password) => async (dispatch) => {\r\n+export const userCurrent = () => async (dispatch) => {\r\n   try {\r\n     const token = localStorage.getItem(\"token\");\r\n     const options = {\r\n       method: \"GET\",\r\n@@ -51,9 +52,9 @@\n     };\r\n     const response = await axios(options);\r\n     if (response.data.user) {\r\n       const { userName } = response.data.user;\r\n-      dispatch({ type: \"CURRENT_USER\", payload: { userName } });\r\n+      dispatch({ type: USER_CURRENT, payload: { userName } });\r\n     }\r\n     console.log(response.data.userName);\r\n   } catch (error) {\r\n     // console.log(error);\r\n"
+                },
+                {
+                    "date": 1655613664903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n };\r\n \r\n export const userCurrent = () => async (dispatch) => {\r\n   try {\r\n-    const token = localStorage.getItem(\"token\");\r\n+    const token = localStorage.getItem(\"user\");\r\n     const options = {\r\n       method: \"GET\",\r\n       url: \"/api/v1/auth/\",\r\n       headers: {\r\n"
+                }
+            ],
+            "date": 1655549097882,
+            "name": "Commit-0",
+            "content": "import axios from \"axios\";\r\nimport {\r\n  USER_DETAIL_FAIL,\r\n  USER_DETAIL_REQUEST,\r\n  USER_DETAIL_SUCCESS,\r\n  USER_LOGIN_FAIL,\r\n  USER_LOGIN_REQUEST,\r\n  USER_LOGIN_SUCCESS,\r\n  USER_LOGOUT,\r\n  USER_REGISTER_FAIL,\r\n  USER_REGISTER_REQUEST,\r\n  USER_REGISTER_SUCCESS,\r\n} from \"../Constants/UserConstant\";\r\n\r\nexport const login = (email, password) => async (dispatch) => {\r\n  try {\r\n    dispatch({ type: USER_LOGIN_REQUEST });\r\n\r\n    const config = {\r\n      headers: {\r\n        \"Content-Type\": \"application/json\",\r\n      },\r\n    };\r\n    const { data } = await axios.post(\r\n      `/api/v1/auth/login`,\r\n      { email, password },\r\n      config\r\n    );\r\n    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n    localStorage.setItem(\"user\", JSON.stringify(data));\r\n  } catch (error) {\r\n    dispatch({\r\n      type: USER_LOGIN_FAIL,\r\n      payload: error.response.data.message,\r\n    });\r\n  }\r\n};\r\n\r\n// LOGOUT\r\n\r\nexport const logout = () => (dispatch) => {\r\n  localStorage.removeItem(\"user\");\r\n  dispatch({ type: USER_LOGOUT });\r\n  document.location.href = \"/\";\r\n};\r\n\r\n//REGISTER\r\n\r\nexport const register = (name, email, password) => async (dispatch) => {\r\n  try {\r\n    dispatch({ type: USER_REGISTER_REQUEST });\r\n\r\n    const config = {\r\n      headers: {\r\n        \"Content-Type\": \"application/json\",\r\n      },\r\n    };\r\n    const { data } = await axios.post(\r\n      `/api/v1/auth/register`,\r\n      { name, email, password },\r\n      config\r\n    );\r\n    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });\r\n    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n    localStorage.setItem(\"user\", JSON.stringify(data));\r\n  } catch (error) {\r\n    dispatch({\r\n      type: USER_REGISTER_FAIL,\r\n      payload: error.response.data.message,\r\n    });\r\n  }\r\n};\r\n\r\nexport const getUserDetail = (id) => async (dispatch, getState) => {\r\n  try {\r\n    dispatch({ type: USER_DETAIL_REQUEST });\r\n    const {\r\n      userLogin: { userInfo },\r\n    } = getState();\r\n\r\n    const config = {\r\n      headers: {\r\n        \"Content-Type\": \"application/json\",\r\n      },\r\n    };\r\n    const { data } = await axios.post(\r\n      `/api/v1/auth/register`,\r\n      { name, email, password },\r\n      config\r\n    );\r\n    dispatch({ type: USER_DETAIL_SUCCESS, payload: data });\r\n    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });\r\n    localStorage.setItem(\"user\", JSON.stringify(data));\r\n  } catch (error) {\r\n    dispatch({\r\n      type: USER_DETAIL_FAIL,\r\n      payload: error.response.data.message,\r\n    });\r\n  }\r\n};\r\n"
+        }
+    ]
+}

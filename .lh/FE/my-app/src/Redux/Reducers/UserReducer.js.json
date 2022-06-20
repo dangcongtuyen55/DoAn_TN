@@ -1,0 +1,34 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Reducers/UserReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1655548635547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655548659989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n       return state;\r\n   }\r\n };\r\n \r\n-export const userDetailReducer = (state = {}, action) => {\r\n+export const userDetailReducer = (state = { user: {} }, action) => {\r\n   switch (action.type) {\r\n     case USER_DETAIL_REQUEST:\r\n       return { loading: true };\r\n     case USER_DETAIL_SUCCESS:\r\n"
+                },
+                {
+                    "date": 1655558551736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,4 +54,17 @@\n     default:\r\n       return state;\r\n   }\r\n };\r\n+export const userCurrentReducer = (state, action) => {\r\n+  switch (action.type) {\r\n+    case USER_DETAIL_REQUEST:\r\n+      return { loading: true };\r\n+    case USER_DETAIL_SUCCESS:\r\n+      return { loading: false, user: action.payload };\r\n+    case USER_DETAIL_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n+\r\n+    default:\r\n+      return state;\r\n+  }\r\n+};\r\n"
+                },
+                {
+                    "date": 1655561381862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,17 +54,4 @@\n     default:\r\n       return state;\r\n   }\r\n };\r\n-export const userCurrentReducer = (state, action) => {\r\n-  switch (action.type) {\r\n-    case USER_DETAIL_REQUEST:\r\n-      return { loading: true };\r\n-    case USER_DETAIL_SUCCESS:\r\n-      return { loading: false, user: action.payload };\r\n-    case USER_DETAIL_FAIL:\r\n-      return { loading: false, error: action.payload };\r\n-\r\n-    default:\r\n-      return state;\r\n-  }\r\n-};\r\n"
+                },
+                {
+                    "date": 1655612188303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,57 @@\n+//BANNER LIST\r\n+import {\r\n+  USER_DETAIL_FAIL,\r\n+  USER_DETAIL_REQUEST,\r\n+  USER_DETAIL_RESET,\r\n+  USER_DETAIL_SUCCESS,\r\n+  USER_LOGIN_FAIL,\r\n+  USER_LOGIN_REQUEST,\r\n+  USER_LOGIN_SUCCESS,\r\n+  USER_LOGOUT,\r\n+  USER_REGISTER_FAIL,\r\n+  USER_REGISTER_REQUEST,\r\n+  USER_REGISTER_SUCCESS,\r\n+} from \"../Constants/UserConstant\";\r\n+\r\n+export const userLoginReducer = (state = {}, action) => {\r\n+  switch (action.type) {\r\n+    case USER_LOGIN_REQUEST:\r\n+      return { loading: true };\r\n+    case USER_LOGIN_SUCCESS:\r\n+      return { loading: false, user: action.payload };\r\n+    case USER_LOGIN_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n+    case USER_LOGOUT:\r\n+      return {};\r\n+    default:\r\n+      return state;\r\n+  }\r\n+};\r\n+\r\n+export const userRegisterReducer = (state = {}, action) => {\r\n+  switch (action.type) {\r\n+    case USER_REGISTER_REQUEST:\r\n+      return { loading: true };\r\n+    case USER_REGISTER_SUCCESS:\r\n+      return { loading: false, user: action.payload };\r\n+    case USER_REGISTER_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n+    default:\r\n+      return state;\r\n+  }\r\n+};\r\n+\r\n+export const userDetailReducer = (state = { user: {} }, action) => {\r\n+  switch (action.type) {\r\n+    case USER_DETAIL_REQUEST:\r\n+      return { loading: true };\r\n+    case USER_DETAIL_SUCCESS:\r\n+      return { loading: false, user: action.payload };\r\n+    case USER_DETAIL_FAIL:\r\n+      return { loading: false, error: action.payload };\r\n+    case USER_DETAIL_RESET:\r\n+      return { user: {} };\r\n+    default:\r\n+      return state;\r\n+  }\r\n+};\r\n"
+                }
+            ],
+            "date": 1655548635547,
+            "name": "Commit-0",
+            "content": "//BANNER LIST\r\nimport {\r\n  USER_DETAIL_FAIL,\r\n  USER_DETAIL_REQUEST,\r\n  USER_DETAIL_RESET,\r\n  USER_DETAIL_SUCCESS,\r\n  USER_LOGIN_FAIL,\r\n  USER_LOGIN_REQUEST,\r\n  USER_LOGIN_SUCCESS,\r\n  USER_LOGOUT,\r\n  USER_REGISTER_FAIL,\r\n  USER_REGISTER_REQUEST,\r\n  USER_REGISTER_SUCCESS,\r\n} from \"../Constants/UserConstant\";\r\n\r\nexport const userLoginReducer = (state = {}, action) => {\r\n  switch (action.type) {\r\n    case USER_LOGIN_REQUEST:\r\n      return { loading: true };\r\n    case USER_LOGIN_SUCCESS:\r\n      return { loading: false, user: action.payload.user };\r\n    case USER_LOGIN_FAIL:\r\n      return { loading: false, error: action.payload };\r\n    case USER_LOGOUT:\r\n      return {};\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n\r\nexport const userRegisterReducer = (state = {}, action) => {\r\n  switch (action.type) {\r\n    case USER_REGISTER_REQUEST:\r\n      return { loading: true };\r\n    case USER_REGISTER_SUCCESS:\r\n      return { loading: false, user: action.payload };\r\n    case USER_REGISTER_FAIL:\r\n      return { loading: false, error: action.payload };\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n\r\nexport const userDetailReducer = (state = {}, action) => {\r\n  switch (action.type) {\r\n    case USER_DETAIL_REQUEST:\r\n      return { loading: true };\r\n    case USER_DETAIL_SUCCESS:\r\n      return { loading: false, user: action.payload };\r\n    case USER_DETAIL_FAIL:\r\n      return { loading: false, error: action.payload };\r\n    case USER_DETAIL_RESET:\r\n      return { user: {} };\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n"
+        }
+    ]
+}

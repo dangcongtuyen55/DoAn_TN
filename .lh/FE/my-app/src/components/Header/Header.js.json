@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1654676745699,
@@ -60,6 +60,66 @@
                 {
                     "date": 1655308704853,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   //   //reset user = null\r\n   //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n   // };\r\n   return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-black font-bold py-10 bg-dark \">\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-light font-bold py-10 bg-dark \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n"
+                },
+                {
+                    "date": 1655552677594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,40 +1,40 @@\n import React, { useContext } from \"react\";\r\n import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { logout } from \"../../Redux/Action/UserAction\";\r\n \r\n const Header = () => {\r\n-  // const { state, dispatch } = useContext(AppContext);\r\n-  // const { user } = state;\r\n-  // const signOut = () => {\r\n-  //   localStorage.removeItem(\"token\");\r\n-  //   //reset user = null\r\n-  //   dispatch({ type: \"CURRENT_USER\", payload: null });\r\n-  // };\r\n+  const dispatch = useDispatch();\r\n+  const userLogin = useSelector((state) => state.userLogin);\r\n+  const { user } = userLogin;\r\n+  const signOut = () => {\r\n+    dispatch(logout());\r\n+  };\r\n   return (\r\n     <header className=\"header flex items-center justify-center gap-x-5 text-light font-bold py-10 bg-dark \">\r\n       <Link to={\"/\"}>\r\n         <span className=\"text-primary\">Home</span>\r\n       </Link>\r\n       <Link to={\"/catagories\"}>Catagory</Link>\r\n       <Link to={\"/list-product\"}>Product</Link>\r\n+      <Link to={\"/profile\"}>Thông tin của bạn</Link>\r\n \r\n-      {/* <>\r\n+      <>\r\n         {user ? (\r\n           <>\r\n             <span>Xin chào, {user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n-\r\n-            <Link to={\"/test\"}>test</Link>\r\n           </>\r\n         ) : (\r\n           <>\r\n-            <Link to={\"/sign-in\"}>SignIn</Link>\r\n-            <Link to={\"/sign-up\"}>SignUp</Link>\r\n+            <Link to={\"/login\"}>Đăng nhập</Link>\r\n+            <Link to={\"/register\"}>Đăng ký</Link>\r\n           </>\r\n         )}\r\n-      </> */}\r\n+      </>\r\n     </header>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1655552751152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n const Header = () => {\r\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n+  console.log(user.userName);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n   return (\r\n"
+                },
+                {
+                    "date": 1655552883379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n const Header = () => {\r\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n+  console.log(userLogin);\r\n   console.log(user.userName);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n"
+                },
+                {
+                    "date": 1655552913021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n   console.log(userLogin);\r\n-  console.log(user.userName);\r\n+  console.log(user);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n   return (\r\n"
+                },
+                {
+                    "date": 1655552968401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n   console.log(userLogin);\r\n-  console.log(user);\r\n+  console.log(user.userName);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n   return (\r\n"
+                },
+                {
+                    "date": 1655560404885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user.userName}</span>\r\n+            <span>Xin chào, {user && user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n"
+                },
+                {
+                    "date": 1655560452412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user && user.userName}</span>\r\n+            <span>Xin chào, {user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n"
+                },
+                {
+                    "date": 1655560583773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user.userName}</span>\r\n+            <span>Xin chào, {user.name}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n"
+                },
+                {
+                    "date": 1655560599676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n   console.log(userLogin);\r\n-  console.log(user.userName);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n   return (\r\n"
+                },
+                {
+                    "date": 1655560631821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user.name}</span>\r\n+            <span>Xin chào, {user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n"
+                },
+                {
+                    "date": 1655561708868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n const Header = () => {\r\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n   const { user } = userLogin;\r\n-  console.log(userLogin);\r\n   const signOut = () => {\r\n     dispatch(logout());\r\n   };\r\n   return (\r\n@@ -23,9 +22,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user.userName}</span>\r\n+            <span>Xin chào, {userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n"
+                },
+                {
+                    "date": 1655615477417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,41 @@\n+import React, { useContext } from \"react\";\r\n+import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n+import AppContext from \"../AppContext/AppContext\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { logout } from \"../../Redux/Action/UserAction\";\r\n+\r\n+const Header = () => {\r\n+  const dispatch = useDispatch();\r\n+  const userLogin = useSelector((state) => state.userLogin);\r\n+  const { user } = userLogin;\r\n+  const signOut = () => {\r\n+    dispatch(logout());\r\n+  };\r\n+  return (\r\n+    <header className=\"header flex items-center justify-center gap-x-5 text-light font-bold py-10 bg-dark \">\r\n+      <Link to={\"/\"}>\r\n+        <span className=\"text-primary\">Home</span>\r\n+      </Link>\r\n+      <Link to={\"/catagories\"}>Catagory</Link>\r\n+      <Link to={\"/list-product\"}>Product</Link>\r\n+      <Link to={\"/profile\"}>Thông tin của bạn</Link>\r\n+\r\n+      <>\r\n+        {user ? (\r\n+          <>\r\n+            <span>Xin chào, {user.name}</span>\r\n+\r\n+            <span onClick={() => signOut()}>signout</span>\r\n+          </>\r\n+        ) : (\r\n+          <>\r\n+            <Link to={\"/login\"}>Đăng nhập</Link>\r\n+            <Link to={\"/register\"}>Đăng ký</Link>\r\n+          </>\r\n+        )}\r\n+      </>\r\n+    </header>\r\n+  );\r\n+};\r\n+\r\n+export default Header;\r\n"
+                },
+                {
+                    "date": 1655615557513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \r\n       <>\r\n         {user ? (\r\n           <>\r\n-            <span>Xin chào, {user.name}</span>\r\n+            <span>Xin chào, {user.userName}</span>\r\n \r\n             <span onClick={() => signOut()}>signout</span>\r\n           </>\r\n         ) : (\r\n@@ -38,45 +38,4 @@\n   );\r\n };\r\n \r\n export default Header;\r\n-import React, { useContext } from \"react\";\r\n-import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n-import AppContext from \"../AppContext/AppContext\";\r\n-import { useDispatch, useSelector } from \"react-redux\";\r\n-import { logout } from \"../../Redux/Action/UserAction\";\r\n-\r\n-const Header = () => {\r\n-  const dispatch = useDispatch();\r\n-  const userLogin = useSelector((state) => state.userLogin);\r\n-  const { user } = userLogin;\r\n-  const signOut = () => {\r\n-    dispatch(logout());\r\n-  };\r\n-  return (\r\n-    <header className=\"header flex items-center justify-center gap-x-5 text-light font-bold py-10 bg-dark \">\r\n-      <Link to={\"/\"}>\r\n-        <span className=\"text-primary\">Home</span>\r\n-      </Link>\r\n-      <Link to={\"/catagories\"}>Catagory</Link>\r\n-      <Link to={\"/list-product\"}>Product</Link>\r\n-      <Link to={\"/profile\"}>Thông tin của bạn</Link>\r\n-\r\n-      <>\r\n-        {user ? (\r\n-          <>\r\n-            <span>Xin chào, {userName}</span>\r\n-\r\n-            <span onClick={() => signOut()}>signout</span>\r\n-          </>\r\n-        ) : (\r\n-          <>\r\n-            <Link to={\"/login\"}>Đăng nhập</Link>\r\n-            <Link to={\"/register\"}>Đăng ký</Link>\r\n-          </>\r\n-        )}\r\n-      </>\r\n-    </header>\r\n-  );\r\n-};\r\n-\r\n-export default Header;\r\n"
+                },
+                {
+                    "date": 1655650501005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n import { useDispatch, useSelector } from \"react-redux\";\r\n import { logout } from \"../../Redux/Action/UserAction\";\r\n+import { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n \r\n const Header = () => {\r\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n"
+                },
+                {
+                    "date": 1655650553790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { BrowserRouter as Router, Link, Route } from \"react-router-dom\";\r\n import AppContext from \"../AppContext/AppContext\";\r\n import { useDispatch, useSelector } from \"react-redux\";\r\n import { logout } from \"../../Redux/Action/UserAction\";\r\n-import { FontAwesomeIcon } from \"@fortawesome/react-fontawesome\";\r\n \r\n const Header = () => {\r\n   const dispatch = useDispatch();\r\n   const userLogin = useSelector((state) => state.userLogin);\r\n"
                 }
             ],
             "date": 1654676745699,
