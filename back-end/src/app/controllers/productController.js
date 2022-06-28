@@ -10,7 +10,7 @@ exports.getAllProducts = async (req, res, next) => {
     const products = await Product.find()
       .populate("createBy", "name")
       .select(
-        "name slug original_price current_price discount_rate description rating offer reviews createBy product_url createdAt"
+        "name slug price  description rating offer stock reviews createBy product_url createdAt"
       );
     res.status(200).json({
       status: "success",

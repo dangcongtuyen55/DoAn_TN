@@ -1,0 +1,78 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Action/CartAction.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1655698916137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655698996770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,7 @@\n       price: data.price,\r\n       qty,\r\n     },\r\n   });\r\n+\r\n+  localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n };\r\n"
+                },
+                {
+                    "date": 1655699052584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n+import axios from \"axios\";\r\n \r\n export const addToCart = (id, qty) => async (dispatch, getState) => {\r\n   const { data } = await axios.get(`/api/product/${id}`);\r\n \r\n"
+                },
+                {
+                    "date": 1655700122307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n-import { CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n import axios from \"axios\";\r\n \r\n export const addToCart = (id, qty) => async (dispatch, getState) => {\r\n   const { data } = await axios.get(`/api/product/${id}`);\r\n \r\n   dispatch({\r\n-    type: CART_REMOVE_ITEM,\r\n+    type: CART_ADD_ITEM,\r\n     payload: {\r\n       product: data._id,\r\n       name: data.name,\r\n       image: data.image,\r\n"
+                },
+                {
+                    "date": 1655707160022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n+import axios from \"axios\";\r\n+\r\n+export const addToCart = (id, quantity) => async (dispatch, getState) => {\r\n+  const { data } = await axios.get(`/api/product/${id}`);\r\n+\r\n+  dispatch({\r\n+    type: CART_ADD_ITEM,\r\n+    payload: {\r\n+      product: data._id,\r\n+      name: data.name,\r\n+      image: data.image,\r\n+      price: data.price,\r\n+      quantity,\r\n+    },\r\n+  });\r\n+\r\n+  localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n+};\r\n"
+                },
+                {
+                    "date": 1655707526236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n import axios from \"axios\";\r\n \r\n export const addToCart = (id, quantity) => async (dispatch, getState) => {\r\n-  const { data } = await axios.get(`/api/product/${id}`);\r\n+  const { data } = await axios.get(`/api/v1/product/${id}`);\r\n \r\n   dispatch({\r\n     type: CART_ADD_ITEM,\r\n     payload: {\r\n@@ -16,23 +16,4 @@\n   });\r\n \r\n   localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n };\r\n-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n-import axios from \"axios\";\r\n-\r\n-export const addToCart = (id, qty) => async (dispatch, getState) => {\r\n-  const { data } = await axios.get(`/api/product/${id}`);\r\n-\r\n-  dispatch({\r\n-    type: CART_ADD_ITEM,\r\n-    payload: {\r\n-      product: data._id,\r\n-      name: data.name,\r\n-      image: data.image,\r\n-      price: data.price,\r\n-      qty,\r\n-    },\r\n-  });\r\n-\r\n-  localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n-};\r\n"
+                },
+                {
+                    "date": 1655711439283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+import axios from \"axios\";\r\n import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n-import axios from \"axios\";\r\n \r\n export const addToCart = (id, quantity) => async (dispatch, getState) => {\r\n   const { data } = await axios.get(`/api/v1/product/${id}`);\r\n \r\n"
+                },
+                {
+                    "date": 1655711524197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,12 @@\n \r\n   dispatch({\r\n     type: CART_ADD_ITEM,\r\n     payload: {\r\n-      product: data._id,\r\n-      name: data.name,\r\n-      image: data.image,\r\n-      price: data.price,\r\n+      product: data.product._id,\r\n+      name: data.product.name,\r\n+      image: data.product.image,\r\n+      price: data.product.price,\r\n       quantity,\r\n     },\r\n   });\r\n \r\n"
+                },
+                {
+                    "date": 1655712755175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     type: CART_ADD_ITEM,\r\n     payload: {\r\n       product: data.product._id,\r\n       name: data.product.name,\r\n-      image: data.product.image,\r\n+      image: data.product.product_image,\r\n       price: data.product.price,\r\n       quantity,\r\n     },\r\n   });\r\n"
+                },
+                {
+                    "date": 1655713152993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     type: CART_ADD_ITEM,\r\n     payload: {\r\n       product: data.product._id,\r\n       name: data.product.name,\r\n-      image: data.product.product_image,\r\n+      image: data.product.product_url,\r\n       price: data.product.price,\r\n       quantity,\r\n     },\r\n   });\r\n"
+                },
+                {
+                    "date": 1655713185425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     payload: {\r\n       product: data.product._id,\r\n       name: data.product.name,\r\n       image: data.product.product_url,\r\n-      price: data.product.price,\r\n+      price: data.product.original_price,\r\n       quantity,\r\n     },\r\n   });\r\n \r\n"
+                },
+                {
+                    "date": 1655713231858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,11 @@\n     payload: {\r\n       product: data.product._id,\r\n       name: data.product.name,\r\n       image: data.product.product_url,\r\n-      price: data.product.original_price,\r\n+      original_price: data.product.original_price,\r\n+      current_price: data.product.current_price,\r\n+      discount_rate: data.product.discount_rate,\r\n       quantity,\r\n     },\r\n   });\r\n \r\n"
+                },
+                {
+                    "date": 1655733210607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     type: CART_ADD_ITEM,\r\n     payload: {\r\n       product: data.product._id,\r\n       name: data.product.name,\r\n-      image: data.product.product_url,\r\n+      product_url: data.product.product_url,\r\n       original_price: data.product.original_price,\r\n       current_price: data.product.current_price,\r\n       discount_rate: data.product.discount_rate,\r\n       quantity,\r\n"
+                },
+                {
+                    "date": 1655736148199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n       product_url: data.product.product_url,\r\n       original_price: data.product.original_price,\r\n       current_price: data.product.current_price,\r\n       discount_rate: data.product.discount_rate,\r\n+      stock: data.product.stock,\r\n       quantity,\r\n     },\r\n   });\r\n \r\n"
+                },
+                {
+                    "date": 1655868629212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,10 @@\n import axios from \"axios\";\r\n-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n+import {\r\n+  CART_ADD_ITEM,\r\n+  CART_REMOVE_ITEM,\r\n+  SAVE_SHIPPING_INFO,\r\n+} from \"../Constants/CartConstant\";\r\n \r\n export const addToCart = (id, quantity) => async (dispatch, getState) => {\r\n   const { data } = await axios.get(`/api/v1/product/${id}`);\r\n \r\n@@ -19,4 +23,20 @@\n   });\r\n \r\n   localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n };\r\n+\r\n+export const removeItemsFromCart = (id) => async (dispatch, getState) => {\r\n+  dispatch({\r\n+    type: CART_REMOVE_ITEM,\r\n+    payload: id,\r\n+  });\r\n+  localStorage.setItem(\"cartItems\", JSON.stringify(getState().cart.cartItems));\r\n+};\r\n+\r\n+export const saveShippingInfo = (data) => async (dispatch) => {\r\n+  dispatch({\r\n+    type: SAVE_SHIPPING_INFO,\r\n+    payload: data,\r\n+  });\r\n+  localStorage.setItem(\"cartItems\", JSON.stringify(data));\r\n+};\r\n"
+                },
+                {
+                    "date": 1655950991112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,6 +37,6 @@\n   dispatch({\r\n     type: SAVE_SHIPPING_INFO,\r\n     payload: data,\r\n   });\r\n-  localStorage.setItem(\"cartItems\", JSON.stringify(data));\r\n+  localStorage.setItem(\"shippingInfo\", JSON.stringify(data));\r\n };\r\n"
+                }
+            ],
+            "date": 1655698916137,
+            "name": "Commit-0",
+            "content": "import { CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n\r\nexport const addToCart = (id, qty) => async (dispatch, getState) => {\r\n  const { data } = await axios.get(`/api/product/${id}`);\r\n\r\n  dispatch({\r\n    type: CART_REMOVE_ITEM,\r\n    payload: {\r\n      product: data._id,\r\n      name: data.name,\r\n      image: data.image,\r\n      price: data.price,\r\n      qty,\r\n    },\r\n  });\r\n};\r\n"
+        }
+    ]
+}

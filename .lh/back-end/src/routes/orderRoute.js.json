@@ -1,0 +1,26 @@
+{
+    "sourceFile": "back-end/src/routes/orderRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1655992399795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655992461573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n const { sendEmail } = require(\"../app/controllers/OrderController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/banners\").post(sendEmail);\r\n+Router.route(\"/order\").post(sendEmail);\r\n \r\n module.exports = Router;\r\n"
+                },
+                {
+                    "date": 1655992558306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n const express = require(\"express\");\r\n const { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n \r\n-const { sendEmail } = require(\"../app/controllers/OrderController\");\r\n+const { sendMail } = require(\"../app/controllers/OrderController\");\r\n \r\n const Router = express.Router();\r\n \r\n-Router.route(\"/order\").post(sendEmail);\r\n+Router.route(\"/order\").post(sendMail);\r\n \r\n module.exports = Router;\r\n"
+                }
+            ],
+            "date": 1655992399795,
+            "name": "Commit-0",
+            "content": "const express = require(\"express\");\r\nconst { verifyToken } = require(\"../app/middlewares/verifyToken\");\r\n\r\nconst { sendEmail } = require(\"../app/controllers/OrderController\");\r\n\r\nconst Router = express.Router();\r\n\r\nRouter.route(\"/banners\").post(sendEmail);\r\n\r\nmodule.exports = Router;\r\n"
+        }
+    ]
+}

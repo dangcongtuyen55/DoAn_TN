@@ -1,0 +1,18 @@
+{
+    "sourceFile": "FE/my-app/src/components/Cart/cart.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1655718315978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1655718315978,
+            "name": "Commit-0",
+            "content": "@media(max-width:991px){\r\n    #heading{\r\n        padding-left: 50px;\r\n    }\r\n    #prc{\r\n        margin-left: 70px;\r\n        padding-left: 110px;\r\n    }\r\n    #quantity{\r\n        padding-left: 48px;\r\n    }\r\n    #produc{\r\n        padding-left: 40px;\r\n    }\r\n    #total{\r\n        padding-left: 54px;\r\n    }\r\n}\r\n@media(max-width:767px){\r\n    .mobile{\r\n        font-size: 10px;\r\n    }\r\n    h5{\r\n        font-size: 14px;\r\n    }\r\n    h6{\r\n        font-size: 9px;\r\n    }\r\n    #mobile-font{\r\n        font-size: 11px;\r\n    }\r\n    #prc{\r\n        font-weight: 700;\r\n        margin-left: -45px;\r\n        padding-left: 105px;\r\n    }\r\n    #quantity{\r\n        font-weight: 700;\r\n        padding-left: 6px;\r\n    }\r\n    #produc{\r\n        font-weight: 700;\r\n        padding-left: 0px;\r\n    }\r\n    #total{\r\n        font-weight: 700;\r\n        padding-left: 9px;\r\n    }\r\n    #image{\r\n        width: 60px;\r\n        height: 60px;\r\n    }\r\n    .col{\r\n        width: 100%;\r\n    }\r\n    #zero-pad{\r\n        padding: 2%;\r\n        margin-left: 10px;\r\n    }\r\n    #footer-font{\r\n        font-size: 12px;\r\n    }\r\n    #heading{\r\n        padding-top: 15px;\r\n    }\r\n}"
+        }
+    ]
+}

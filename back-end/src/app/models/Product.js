@@ -13,17 +13,17 @@ const productSchema = new mongoose.Schema(
       unique: true,
     },
 
-    original_price: {
+    price: {
       type: Number,
       required: [true, " Giá sản phẩm không được bỏ trống !!!"],
     },
-    current_price: {
-      type: Number,
-    },
-    discount_rate: {
-      type: Number,
-    },
-    quantity: {
+    // current_price: {
+    //   type: Number,
+    // },
+    // discount_rate: {
+    //   type: Number,
+    // },
+    stock: {
       type: Number,
     },
 
@@ -49,6 +49,10 @@ const productSchema = new mongoose.Schema(
     ],
     product_url: {
       type: String,
+    },
+    numOfReviews: {
+      type: Number,
+      default: 0,
     },
     rating: {
       type: Number,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 35,
+            "activePatchIndex": 37,
             "patches": [
                 {
                     "date": 1651850113715,
@@ -148,6 +148,14 @@
                 {
                     "date": 1655186117989,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n // app.use(cookieParser());\r\n \r\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/\", productRoute);\r\n-app.use(\"/api/v1/banner\", bannerRoute);\r\n+app.use(\"/api/v1/\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n"
+                },
+                {
+                    "date": 1655992525683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n const authRoute = require(\"./src/routes/authRoute\");\r\n const productRoute = require(\"./src/routes/productRoute\");\r\n const catagoryRoute = require(\"./src/routes/catagoryRoute\");\r\n const bannerRoute = require(\"./src/routes/bannerRoute\");\r\n+const orderRoute = require(\"./src/routes/orderRoute\");\r\n const { errorHandler } = require(\"./src/app/middlewares/errorHandler\");\r\n \r\n const app = express();\r\n app.use(morgan(\"combined\"));\r\n@@ -24,8 +25,9 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/\", productRoute);\r\n app.use(\"/api/v1/\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n+app.use(\"/api/v1/order\", orderRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n"
+                },
+                {
+                    "date": 1655992824374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n app.use(\"/api/v1/auth\", authRoute);\r\n app.use(\"/api/v1/\", productRoute);\r\n app.use(\"/api/v1/\", bannerRoute);\r\n app.use(\"/api/v1/catagory\", catagoryRoute);\r\n-app.use(\"/api/v1/order\", orderRoute);\r\n+app.use(\"/api/v1/\", orderRoute);\r\n \r\n app.all(\"*\", (req, res, next) => {\r\n   const err = new Error(\"The route can not be found !!!\");\r\n   err.statusCode = 404;\r\n"
                 }
             ],
             "date": 1651850113715,

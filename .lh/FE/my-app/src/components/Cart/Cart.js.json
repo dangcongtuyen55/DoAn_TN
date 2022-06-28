@@ -1,0 +1,66 @@
+{
+    "sourceFile": "FE/my-app/src/components/Cart/Cart.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1655696406054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655700039587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,19 @@\n-import React from \"react\";\r\n+import React, { useEffect } from \"react\";\r\n+import { useParams } from \"react-router-dom\";\r\n+import { ReactLocation } from \"react-location\";\r\n+import { useDispatch } from \"react-redux\";\r\n+import { addToCart } from \"./../../Redux/Action/CartAction\";\r\n \r\n export default function Cart() {\r\n+  const location = { ReactLocation };\r\n+  const { productId } = useParams();\r\n+  const qty = location.search ? Number(location.search.split(\"=\")[1]) : 1;\r\n+  const dispatch = useDispatch();\r\n+\r\n+  useEffect(() => {\r\n+    if (productId) {\r\n+      dispatch(addToCart(productId, qty));\r\n+    }\r\n+  }, [dispatch, productId, qty]);\r\n   return <div>Cart</div>;\r\n }\r\n"
+                },
+                {
+                    "date": 1655715014573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,16 +4,6 @@\n import { useDispatch } from \"react-redux\";\r\n import { addToCart } from \"./../../Redux/Action/CartAction\";\r\n \r\n export default function Cart() {\r\n-  const location = { ReactLocation };\r\n-  const { productId } = useParams();\r\n-  const qty = location.search ? Number(location.search.split(\"=\")[1]) : 1;\r\n-  const dispatch = useDispatch();\r\n-\r\n-  useEffect(() => {\r\n-    if (productId) {\r\n-      dispatch(addToCart(productId, qty));\r\n-    }\r\n-  }, [dispatch, productId, qty]);\r\n   return <div>Cart</div>;\r\n }\r\n"
+                },
+                {
+                    "date": 1655717043305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,34 @@\n import { useDispatch } from \"react-redux\";\r\n import { addToCart } from \"./../../Redux/Action/CartAction\";\r\n \r\n export default function Cart() {\r\n-  return <div>Cart</div>;\r\n+  return (\r\n+\r\n+    table class=\"table-auto\">\r\n+  <thead>\r\n+    <tr>\r\n+      <th>Song</th>\r\n+      <th>Artist</th>\r\n+      <th>Year</th>\r\n+    </tr>\r\n+  </thead>\r\n+  <tbody>\r\n+    <tr>\r\n+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>\r\n+      <td>Malcolm Lockyer</td>\r\n+      <td>1961</td>\r\n+    </tr>\r\n+    <tr>\r\n+      <td>Witchy Woman</td>\r\n+      <td>The Eagles</td>\r\n+      <td>1972</td>\r\n+    </tr>\r\n+    <tr>\r\n+      <td>Shining Star</td>\r\n+      <td>Earth, Wind, and Fire</td>\r\n+      <td>1975</td>\r\n+    </tr>\r\n+  </tbody>\r\n+</table>\r\n+  )\r\n }\r\n"
+                },
+                {
+                    "date": 1655717063460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n \r\n export default function Cart() {\r\n   return (\r\n \r\n-    table class=\"table-auto\">\r\n+    <>\r\n+        table class=\"table-auto\">\r\n   <thead>\r\n     <tr>\r\n       <th>Song</th>\r\n       <th>Artist</th>\r\n@@ -32,6 +33,7 @@\n       <td>1975</td>\r\n     </tr>\r\n   </tbody>\r\n </table>\r\n+    </>\r\n   )\r\n }\r\n"
+                },
+                {
+                    "date": 1655717242079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,35 +5,34 @@\n import { addToCart } from \"./../../Redux/Action/CartAction\";\r\n \r\n export default function Cart() {\r\n   return (\r\n-\r\n-    <>\r\n-        table class=\"table-auto\">\r\n-  <thead>\r\n-    <tr>\r\n-      <th>Song</th>\r\n-      <th>Artist</th>\r\n-      <th>Year</th>\r\n-    </tr>\r\n-  </thead>\r\n-  <tbody>\r\n-    <tr>\r\n-      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>\r\n-      <td>Malcolm Lockyer</td>\r\n-      <td>1961</td>\r\n-    </tr>\r\n-    <tr>\r\n-      <td>Witchy Woman</td>\r\n-      <td>The Eagles</td>\r\n-      <td>1972</td>\r\n-    </tr>\r\n-    <tr>\r\n-      <td>Shining Star</td>\r\n-      <td>Earth, Wind, and Fire</td>\r\n-      <td>1975</td>\r\n-    </tr>\r\n-  </tbody>\r\n-</table>\r\n-    </>\r\n-  )\r\n+    <div>\r\n+      <table class=\"table-auto\">\r\n+        <thead>\r\n+          <tr>\r\n+            <th>Song</th>\r\n+            <th>Artist</th>\r\n+            <th>Year</th>\r\n+          </tr>\r\n+        </thead>\r\n+        <tbody>\r\n+          <tr>\r\n+            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>\r\n+            <td>Malcolm Lockyer</td>\r\n+            <td>1961</td>\r\n+          </tr>\r\n+          <tr>\r\n+            <td>Witchy Woman</td>\r\n+            <td>The Eagles</td>\r\n+            <td>1972</td>\r\n+          </tr>\r\n+          <tr>\r\n+            <td>Shining Star</td>\r\n+            <td>Earth, Wind, and Fire</td>\r\n+            <td>1975</td>\r\n+          </tr>\r\n+        </tbody>\r\n+      </table>\r\n+    </div>\r\n+  );\r\n }\r\n"
+                },
+                {
+                    "date": 1655717548638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \r\n export default function Cart() {\r\n   return (\r\n     <div>\r\n-      <table class=\"table-auto\">\r\n+      <table class=\"table-fixed\">\r\n         <thead>\r\n           <tr>\r\n             <th>Song</th>\r\n             <th>Artist</th>\r\n"
+                },
+                {
+                    "date": 1655717830383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     <div>\r\n       <table class=\"table-fixed\">\r\n         <thead>\r\n           <tr>\r\n-            <th>Song</th>\r\n+            <th>STT</th>\r\n             <th>Artist</th>\r\n             <th>Year</th>\r\n           </tr>\r\n         </thead>\r\n"
+                },
+                {
+                    "date": 1655717873551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,12 @@\n       <table class=\"table-fixed\">\r\n         <thead>\r\n           <tr>\r\n             <th>STT</th>\r\n-            <th>Artist</th>\r\n-            <th>Year</th>\r\n+            <th></th>\r\n+            <th>Tên sản phẩm</th>\r\n+            <th>số lương</th>\r\n+            <th>Đơn giá</th>\r\n           </tr>\r\n         </thead>\r\n         <tbody>\r\n           <tr>\r\n"
+                },
+                {
+                    "date": 1655717904883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,19 +21,11 @@\n           <tr>\r\n             <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>\r\n             <td>Malcolm Lockyer</td>\r\n             <td>1961</td>\r\n+            <td>Malcolm Lockyer</td>\r\n+            <td>1961</td>\r\n           </tr>\r\n-          <tr>\r\n-            <td>Witchy Woman</td>\r\n-            <td>The Eagles</td>\r\n-            <td>1972</td>\r\n-          </tr>\r\n-          <tr>\r\n-            <td>Shining Star</td>\r\n-            <td>Earth, Wind, and Fire</td>\r\n-            <td>1975</td>\r\n-          </tr>\r\n         </tbody>\r\n       </table>\r\n     </div>\r\n   );\r\n"
+                },
+                {
+                    "date": 1655717915998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n           </tr>\r\n         </thead>\r\n         <tbody>\r\n           <tr>\r\n-            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>\r\n+            <td>The Sliding </td>\r\n             <td>Malcolm Lockyer</td>\r\n             <td>1961</td>\r\n             <td>Malcolm Lockyer</td>\r\n             <td>1961</td>\r\n"
+                },
+                {
+                    "date": 1655718113350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n                 <div class=\"px-lg-5 ml-lg-3\" id=\"total\">TOTAL</div>\r\n             </div>\r\n             <div class=\"d-flex flex-row justify-content-between align-items-center pt-lg-4 pt-2 pb-3 border-bottom mobile\">\r\n                 <div class=\"d-flex flex-row align-items-center\">\r\n-                    <div><img src=\"https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60\" width=\"150\" height=\"150\" alt=\"\" id=\"image\"></div>\r\n+                    <div><im src=\"https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60\" width=\"150\" height=\"150\" alt=\"\" id=\"image\"></div>\r\n                     <div class=\"d-flex flex-column pl-md-3 pl-1\">\r\n                         <div><h6>COTTON T-SHIRT</h6></div>\r\n                         <div >Art.No:<span class=\"pl-2\">091091001</span></div>\r\n                         <div>Color:<span class=\"pl-3\">White</span></div>\r\n"
+                },
+                {
+                    "date": 1655718189282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { addToCart } from \"./../../Redux/Action/CartAction\";\r\n \r\n export default function Cart() {\r\n   return (\r\n-  \r\n+    <div>\r\n       <div class=\"container bg-white rounded-top mt-5\" id=\"zero-pad\">\r\n     <div class=\"row d-flex justify-content-center\">\r\n         <div class=\"col-lg-10 col-12 pt-3\">\r\n             <div class=\"d-flex\">\r\n"
+                }
+            ],
+            "date": 1655696406054,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nexport default function Cart() {\r\n  return <div>Cart</div>;\r\n}\r\n"
+        }
+    ]
+}

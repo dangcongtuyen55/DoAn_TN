@@ -1,0 +1,18 @@
+{
+    "sourceFile": "FE/my-app/src/components/Admin/Dashboard.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1655869421616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1655869421616,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nexport const Dashboard = () => {\r\n  return <div>Dashboard</div>;\r\n};\r\n"
+        }
+    ]
+}

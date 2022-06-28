@@ -1,0 +1,26 @@
+{
+    "sourceFile": "FE/my-app/src/components/Cart/StatusShipping.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1655890455324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655891153930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,22 +2,27 @@\n import { Typography, Stepper, StepLabel, Step } from \"@material-ui/core\";\r\n import LocalShippingIcon from \"@material-ui/icons/LocalShipping\";\r\n import LibraryAddCheckIcon from \"@material-ui/icons/LibraryAddCheck\";\r\n import AccountBalanceIcon from \"@material-ui/icons/AccountBalance\";\r\n+import {\r\n+  BankOutlined,\r\n+  CarOutlined,\r\n+  CheckSquareOutlined,\r\n+} from \"@ant-design/icons\";\r\n \r\n export const StatusShipping = ({ activeStep }) => {\r\n   const steps = [\r\n     {\r\n       label: <Typography>Shipping Details</Typography>,\r\n-      icon: <LocalShippingIcon />,\r\n+      icon: <CarOutlined />,\r\n     },\r\n     {\r\n       label: <Typography>Confirm Order</Typography>,\r\n-      icon: <LibraryAddCheckIcon />,\r\n+      icon: <CheckSquareOutlined />,\r\n     },\r\n     {\r\n       label: <Typography>Payment</Typography>,\r\n-      icon: <AccountBalanceIcon />,\r\n+      icon: <BankOutlined />,\r\n     },\r\n   ];\r\n \r\n   const stepStyles = {\r\n"
+                },
+                {
+                    "date": 1655891181509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,6 @@\n import React from \"react\";\r\n import { Typography, Stepper, StepLabel, Step } from \"@material-ui/core\";\r\n-import LocalShippingIcon from \"@material-ui/icons/LocalShipping\";\r\n-import LibraryAddCheckIcon from \"@material-ui/icons/LibraryAddCheck\";\r\n-import AccountBalanceIcon from \"@material-ui/icons/AccountBalance\";\r\n import {\r\n   BankOutlined,\r\n   CarOutlined,\r\n   CheckSquareOutlined,\r\n"
+                }
+            ],
+            "date": 1655890455324,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { Typography, Stepper, StepLabel, Step } from \"@material-ui/core\";\r\nimport LocalShippingIcon from \"@material-ui/icons/LocalShipping\";\r\nimport LibraryAddCheckIcon from \"@material-ui/icons/LibraryAddCheck\";\r\nimport AccountBalanceIcon from \"@material-ui/icons/AccountBalance\";\r\n\r\nexport const StatusShipping = ({ activeStep }) => {\r\n  const steps = [\r\n    {\r\n      label: <Typography>Shipping Details</Typography>,\r\n      icon: <LocalShippingIcon />,\r\n    },\r\n    {\r\n      label: <Typography>Confirm Order</Typography>,\r\n      icon: <LibraryAddCheckIcon />,\r\n    },\r\n    {\r\n      label: <Typography>Payment</Typography>,\r\n      icon: <AccountBalanceIcon />,\r\n    },\r\n  ];\r\n\r\n  const stepStyles = {\r\n    boxSizing: \"border-box\",\r\n  };\r\n  return (\r\n    <>\r\n      <Stepper alternativeLabel activeStep={activeStep} style={stepStyles}>\r\n        {steps.map((item, index) => (\r\n          <Step\r\n            key={index}\r\n            active={activeStep === index ? true : false}\r\n            completed={activeStep >= index ? true : false}\r\n          >\r\n            <StepLabel\r\n              style={{\r\n                color: activeStep >= index ? \"#3BB77E\" : \"rgba(0, 0, 0, 0.649)\",\r\n              }}\r\n              icon={item.icon}\r\n            >\r\n              {item.label}\r\n            </StepLabel>\r\n          </Step>\r\n        ))}\r\n      </Stepper>\r\n    </>\r\n  );\r\n};\r\n"
+        }
+    ]
+}

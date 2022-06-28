@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 26,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1654681241817,
@@ -112,6 +112,10 @@
                 {
                     "date": 1655044737226,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n import SignUpPage from \"./pages/SignUpPage\";\n import Error from \"./pages/Error\";\n import ProductDetail from \"./components/Product/ProductDetail\";\n \n-function App =()=> {\n+const App =()=> {\n   // const initialState = { user: null, products: [], banners: [], product: [] };\n   // const [state, dispatch] = useReducer(AppReducer, initialState);\n   // const checkCurrentUser = useCallback(async () => {\n   //   try {\n"
+                },
+                {
+                    "date": 1656128656047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \n const App = () => {\n   const userLogin = useSelector((state) => state.userLogin);\n   const { error, loading, user } = userLogin;\n-  console.log(user.role);\n+  // console.log(user.role);\n \n   return (\n     // <AppContext.Provider value={{ state, dispatch }}>\n \n"
                 }
             ],
             "date": 1654681241817,

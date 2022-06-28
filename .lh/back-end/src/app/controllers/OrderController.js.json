@@ -1,0 +1,22 @@
+{
+    "sourceFile": "back-end/src/app/controllers/OrderController.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1655992582838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655992680230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n const mailer = require(\"../../mailer\");\r\n exports.sendMail = async (req, res, next) => {\r\n   try {\r\n     const subject = \" test node mailer\";\r\n+    await mailer.sendMail(subject);\r\n     res.status(200).json({\r\n       status: \"success\",\r\n     });\r\n   } catch (error) {\r\n"
+                }
+            ],
+            "date": 1655992582838,
+            "name": "Commit-0",
+            "content": "const mailer = require(\"../../mailer\");\r\nexports.sendMail = async (req, res, next) => {\r\n  try {\r\n    const subject = \" test node mailer\";\r\n    res.status(200).json({\r\n      status: \"success\",\r\n    });\r\n  } catch (error) {\r\n    next(error);\r\n    // res.json(error);\r\n  }\r\n};\r\n"
+        }
+    ]
+}

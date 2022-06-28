@@ -1,0 +1,30 @@
+{
+    "sourceFile": "FE/my-app/src/Redux/Reducers/CartReducer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1655697413100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655697554992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,15 @@\n           cartItems: state.cartItems.map((x) =>\r\n             x.product === existItem.product ? item : x\r\n           ),\r\n         };\r\n+      } else {\r\n+        return {\r\n+          ...state,\r\n+          cartItems: state.cartItems.filter(\r\n+            (x) => x.product !== action.payload\r\n+          ),\r\n+        };\r\n       }\r\n \r\n     default:\r\n       return state;\r\n"
+                },
+                {
+                    "date": 1655700239066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,9 @@\n         };\r\n       } else {\r\n         return {\r\n           ...state,\r\n-          cartItems: state.cartItems.filter(\r\n-            (x) => x.product !== action.payload\r\n-          ),\r\n+          cartItems: [...state.cartItems, item],\r\n         };\r\n       }\r\n \r\n     default:\r\n"
+                },
+                {
+                    "date": 1655709961821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n       if (existItem) {\r\n         return {\r\n           ...state,\r\n           cartItems: state.cartItems.map((i) =>\r\n-            i.product === existItem.product ? item : x\r\n+            i.product === existItem.product ? item : i\r\n           ),\r\n         };\r\n       } else {\r\n         return {\r\n"
+                }
+            ],
+            "date": 1655697413100,
+            "name": "Commit-0",
+            "content": "import { CART_ADD_ITEM, CART_REMOVE_ITEM } from \"../Constants/CartConstant\";\r\n\r\nexport const cartReducer = (state = { cartItems: [] }, action) => {\r\n  switch (action.type) {\r\n    case CART_ADD_ITEM:\r\n      const item = action.payload;\r\n      const existItem = state.cartItems.find((x) => x.product === item.product);\r\n\r\n      if (existItem) {\r\n        return {\r\n          ...state,\r\n          cartItems: state.cartItems.map((x) =>\r\n            x.product === existItem.product ? item : x\r\n          ),\r\n        };\r\n      }\r\n\r\n    default:\r\n      return state;\r\n  }\r\n};\r\n"
+        }
+    ]
+}

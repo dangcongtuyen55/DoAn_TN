@@ -1,0 +1,18 @@
+{
+    "sourceFile": "FE/my-app/src/components/Payment/Payment.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1655881484277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1655881484277,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nexport const Payment = () => {\r\n  return <div>Payment</div>;\r\n};\r\n"
+        }
+    ]
+}

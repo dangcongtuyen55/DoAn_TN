@@ -11,6 +11,7 @@ const authRoute = require("./src/routes/authRoute");
 const productRoute = require("./src/routes/productRoute");
 const catagoryRoute = require("./src/routes/catagoryRoute");
 const bannerRoute = require("./src/routes/bannerRoute");
+const orderRoute = require("./src/routes/orderRoute");
 const { errorHandler } = require("./src/app/middlewares/errorHandler");
 
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/", productRoute);
 app.use("/api/v1/", bannerRoute);
 app.use("/api/v1/catagory", catagoryRoute);
+app.use("/api/v1/", orderRoute);
 
 app.all("*", (req, res, next) => {
   const err = new Error("The route can not be found !!!");

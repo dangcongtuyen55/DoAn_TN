@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 22,
+            "activePatchIndex": 27,
             "patches": [
                 {
                     "date": 1655549097882,
@@ -96,6 +96,26 @@
                 {
                     "date": 1655613664903,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n };\r\n \r\n export const userCurrent = () => async (dispatch) => {\r\n   try {\r\n-    const token = localStorage.getItem(\"token\");\r\n+    const token = localStorage.getItem(\"user\");\r\n     const options = {\r\n       method: \"GET\",\r\n       url: \"/api/v1/auth/\",\r\n       headers: {\r\n"
+                },
+                {
+                    "date": 1656056187070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,8 +64,9 @@\n // LOGOUT\r\n \r\n export const logout = () => (dispatch) => {\r\n   localStorage.removeItem(\"user\");\r\n+  localStorage.removeItem(\"cartItems\");\r\n   dispatch({ type: USER_LOGOUT });\r\n   document.location.href = \"/\";\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1656056291239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n // LOGOUT\r\n \r\n export const logout = () => (dispatch) => {\r\n   localStorage.removeItem(\"user\");\r\n-  localStorage.removeItem(\"cartItems\");\r\n+  // localStorage.removeItem(\"cartItems\");\r\n   dispatch({ type: USER_LOGOUT });\r\n   document.location.href = \"/\";\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1656056356038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n // LOGOUT\r\n \r\n export const logout = () => (dispatch) => {\r\n   localStorage.removeItem(\"user\");\r\n-  // localStorage.removeItem(\"cartItems\");\r\n+  localStorage.removeItem(\"cart\");\r\n   dispatch({ type: USER_LOGOUT });\r\n   document.location.href = \"/\";\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1656057063051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,9 +64,9 @@\n // LOGOUT\r\n \r\n export const logout = () => (dispatch) => {\r\n   localStorage.removeItem(\"user\");\r\n-  localStorage.removeItem(\"cart\");\r\n+  localStorage.removeItem(\"cartItems\");\r\n   dispatch({ type: USER_LOGOUT });\r\n   document.location.href = \"/\";\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1656057499788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   USER_REGISTER_REQUEST,\r\n   USER_REGISTER_SUCCESS,\r\n } from \"../Constants/UserConstant\";\r\n \r\n-export const login = (email, password) => async (dispatch) => {\r\n+export const login = (email, password, role) => async (dispatch) => {\r\n   try {\r\n     dispatch({ type: USER_LOGIN_REQUEST });\r\n \r\n     const config = {\r\n@@ -26,9 +26,9 @@\n       },\r\n     };\r\n     const { data } = await axios.post(\r\n       `/api/v1/auth/login`,\r\n-      { email, password },\r\n+      { email, password, role },\r\n       config\r\n     );\r\n     dispatch({ type: USER_LOGIN_SUCCESS, payload: data.user });\r\n     localStorage.setItem(\"user\", JSON.stringify(data));\r\n"
                 }
             ],
             "date": 1655549097882,

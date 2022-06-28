@@ -1,0 +1,58 @@
+{
+    "sourceFile": "FE/my-app/src/components/Route/ProtectedRoute.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1655869086175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655869154510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,25 @@\n import React from \"react\";\r\n+import { useSelector } from \"react-redux\";\r\n+import { Redirect, Route } from \"react-router-dom\";\r\n \r\n-export const ProtectedRoute = () => {\r\n-  return <div>ProtectedRoute</div>;\r\n+export const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {\r\n+  const { loading, isAuthenticated, user } = useSelector((state) => state.user);\r\n+  return (\r\n+    <>\r\n+      {loading === false && (\r\n+        <Route\r\n+          {...rest}\r\n+          render={(props) => {\r\n+            if (isAuthenticated === false) {\r\n+              return <Redirect to=\"/login\" />;\r\n+            }\r\n+            if (isAdmin === true && user.role !== \"admin\") {\r\n+              return <Redirect to=\"/login\" />;\r\n+            }\r\n+            return <Component {...props} />;\r\n+          }}\r\n+        />\r\n+      )}\r\n+    </>\r\n+  );\r\n };\r\n"
+                },
+                {
+                    "date": 1655869285122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from \"react\";\r\n import { useSelector } from \"react-redux\";\r\n-import { Redirect, Route } from \"react-router-dom\";\r\n+import { Navigate, Route } from \"react-router-dom\";\r\n \r\n export const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {\r\n   const { loading, isAuthenticated, user } = useSelector((state) => state.user);\r\n   return (\r\n@@ -10,12 +10,12 @@\n         <Route\r\n           {...rest}\r\n           render={(props) => {\r\n             if (isAuthenticated === false) {\r\n-              return <Redirect to=\"/login\" />;\r\n+              return <Navigate to=\"/login\" />;\r\n             }\r\n             if (isAdmin === true && user.role !== \"admin\") {\r\n-              return <Redirect to=\"/login\" />;\r\n+              return <Navigate to=\"/login\" />;\r\n             }\r\n             return <Component {...props} />;\r\n           }}\r\n         />\r\n"
+                },
+                {
+                    "date": 1655869665068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\r\n import { useSelector } from \"react-redux\";\r\n import { Navigate, Route } from \"react-router-dom\";\r\n \r\n-export const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {\r\n+export const ProtectedRoute = ({ isAdmin, component: Element, ...rest }) => {\r\n   const { loading, isAuthenticated, user } = useSelector((state) => state.user);\r\n   return (\r\n     <>\r\n       {loading === false && (\r\n"
+                },
+                {
+                    "date": 1655869673053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             }\r\n             if (isAdmin === true && user.role !== \"admin\") {\r\n               return <Navigate to=\"/login\" />;\r\n             }\r\n-            return <Component {...props} />;\r\n+            return <Element {...props} />;\r\n           }}\r\n         />\r\n       )}\r\n     </>\r\n"
+                },
+                {
+                    "date": 1656058653296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from \"react\";\r\n import { useSelector } from \"react-redux\";\r\n import { Navigate, Route } from \"react-router-dom\";\r\n \r\n-export const ProtectedRoute = ({ isAdmin, component: Element, ...rest }) => {\r\n+export const ProtectedRoute = ({ isAdmin, element: Element, ...rest }) => {\r\n   const { loading, isAuthenticated, user } = useSelector((state) => state.user);\r\n   return (\r\n     <>\r\n       {loading === false && (\r\n"
+                },
+                {
+                    "date": 1656061101688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n import { useSelector } from \"react-redux\";\r\n import { Navigate, Route } from \"react-router-dom\";\r\n \r\n export const ProtectedRoute = ({ isAdmin, element: Element, ...rest }) => {\r\n-  const { loading, isAuthenticated, user } = useSelector((state) => state.user);\r\n+  const { loading, isAuthenticated, user } = useSelector(\r\n+    (state) => state.userLogin\r\n+  );\r\n   return (\r\n     <>\r\n       {loading === false && (\r\n         <Route\r\n"
+                },
+                {
+                    "date": 1656061658199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n           render={(props) => {\r\n             if (isAuthenticated === false) {\r\n               return <Navigate to=\"/login\" />;\r\n             }\r\n-            if (isAdmin === true && user.role !== \"admin\") {\r\n-              return <Navigate to=\"/login\" />;\r\n+            if (isAdmin === true && user.role === \"admin\") {\r\n+              return <Navigate to=\"/dasboard\" />;\r\n             }\r\n             return <Element {...props} />;\r\n           }}\r\n         />\r\n"
+                },
+                {
+                    "date": 1656061718857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             if (isAuthenticated === false) {\r\n               return <Navigate to=\"/login\" />;\r\n             }\r\n             if (isAdmin === true && user.role === \"admin\") {\r\n-              return <Navigate to=\"/dasboard\" />;\r\n+              return <Navigate to=\"/login\" />;\r\n             }\r\n             return <Element {...props} />;\r\n           }}\r\n         />\r\n"
+                },
+                {
+                    "date": 1656128162060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,21 +7,12 @@\n     (state) => state.userLogin\r\n   );\r\n   return (\r\n     <>\r\n-      {loading === false && (\r\n-        <Route\r\n-          {...rest}\r\n-          render={(props) => {\r\n-            if (isAuthenticated === false) {\r\n-              return <Navigate to=\"/login\" />;\r\n-            }\r\n-            if (isAdmin === true && user.role === \"admin\") {\r\n-              return <Navigate to=\"/login\" />;\r\n-            }\r\n-            return <Element {...props} />;\r\n-          }}\r\n-        />\r\n+      {user.role === \"admin\" ? (\r\n+        <Navigate to=\"/dashboard\" />\r\n+      ) : (\r\n+        <Navigate to=\"/\" />\r\n       )}\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1656128440230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <>\r\n       {user.role === \"admin\" ? (\r\n         <Navigate to=\"/dashboard\" />\r\n       ) : (\r\n-        <Navigate to=\"/\" />\r\n+        <Navigate to=\"/login\" />\r\n       )}\r\n     </>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1655869086175,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\n\r\nexport const ProtectedRoute = () => {\r\n  return <div>ProtectedRoute</div>;\r\n};\r\n"
+        }
+    ]
+}

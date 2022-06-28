@@ -1,0 +1,38 @@
+{
+    "sourceFile": "back-end/src/mailer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1655991924901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655992044643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n   process.env.REDIRECT_URI\r\n );\r\n \r\n OAuth2Client.setCredentials({\r\n-  refresh_token: process.env.GMAIL_REFRESH_TOKEN,\r\n+  refresh_token: process.env.REFRESH_TOKEN,\r\n });\r\n \r\n const accessToken = new Promise((resovle, reject) => {\r\n   OAuth2Client.getAccessToken((err, token) => {\r\n"
+                },
+                {
+                    "date": 1655992079297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     resovle(token);\r\n   });\r\n });\r\n \r\n-const sendMail = (subject, info, title) => {\r\n+const sendMail = (subject) => {\r\n   const transporter = nodeMailer.createTransport({\r\n     service: \"gmail\",\r\n     host: mailHost,\r\n     port: mailPort,\r\n"
+                },
+                {
+                    "date": 1655992603101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     port: mailPort,\r\n     secure: false,\r\n     auth: {\r\n       type: \"OAuth2\",\r\n-      user: \"internproject002@gmail.com\",\r\n+      user: \"tuyendev55@gmail.com\",\r\n       clientId: process.env.CLIENT_ID,\r\n       accessToken,\r\n       clientSecret: process.env.CLIENT_SECRET,\r\n       refreshToken: process.env.GMAIL_REFRESH_TOKEN,\r\n"
+                },
+                {
+                    "date": 1655992630628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,6 +78,5 @@\n };\r\n \r\n module.exports = {\r\n   sendMail: sendMail,\r\n-  sendResetPass: sendResetPass,\r\n };\r\n"
+                },
+                {
+                    "date": 1655993104356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n       user: \"tuyendev55@gmail.com\",\r\n       clientId: process.env.CLIENT_ID,\r\n       accessToken,\r\n       clientSecret: process.env.CLIENT_SECRET,\r\n-      refreshToken: process.env.GMAIL_REFRESH_TOKEN,\r\n+      refreshToken: process.env.REFRESH_TOKEN,\r\n     },\r\n   });\r\n \r\n   const handlebarOptions = {\r\n"
+                }
+            ],
+            "date": 1655991924901,
+            "name": "Commit-0",
+            "content": "const nodeMailer = require(\"nodemailer\");\r\nconst hbs = require(\"nodemailer-express-handlebars\");\r\nconst bcrypt = require(\"bcryptjs\");\r\nconst { google } = require(\"googleapis\");\r\nconst path = require(\"path\");\r\nconst mailHost = \"smtp.gmail.com\";\r\nconst mailPort = 587;\r\nconst dotenv = require(\"dotenv\");\r\ndotenv.config();\r\n\r\nconst OAuth2 = google.auth.OAuth2;\r\n\r\nconst OAuth2Client = new OAuth2(\r\n  process.env.CLIENT_ID,\r\n  process.env.CLIENT_SECRET,\r\n  process.env.REDIRECT_URI\r\n);\r\n\r\nOAuth2Client.setCredentials({\r\n  refresh_token: process.env.GMAIL_REFRESH_TOKEN,\r\n});\r\n\r\nconst accessToken = new Promise((resovle, reject) => {\r\n  OAuth2Client.getAccessToken((err, token) => {\r\n    if (err) reject(err);\r\n    resovle(token);\r\n  });\r\n});\r\n\r\nconst sendMail = (subject, info, title) => {\r\n  const transporter = nodeMailer.createTransport({\r\n    service: \"gmail\",\r\n    host: mailHost,\r\n    port: mailPort,\r\n    secure: false,\r\n    auth: {\r\n      type: \"OAuth2\",\r\n      user: \"internproject002@gmail.com\",\r\n      clientId: process.env.CLIENT_ID,\r\n      accessToken,\r\n      clientSecret: process.env.CLIENT_SECRET,\r\n      refreshToken: process.env.GMAIL_REFRESH_TOKEN,\r\n    },\r\n  });\r\n\r\n  const handlebarOptions = {\r\n    viewEngine: {\r\n      extName: \".html\",\r\n      partialsDir: path.resolve(\"./src/views\"),\r\n      defaultLayout: false,\r\n    },\r\n    viewPath: path.resolve(\"./src/views\"),\r\n    extName: \".handlebars\",\r\n  };\r\n\r\n  transporter.use(\"compile\", hbs(handlebarOptions));\r\n\r\n  const options = {\r\n    from: \"tuyendev55@gmail.com\",\r\n    to: \"ctuyenhddt@gmail.com\",\r\n    subject: subject,\r\n    template: \"email\",\r\n    context: {\r\n      // email: info.email,\r\n      // password: info.password,\r\n      // username: info.username,\r\n      // title: title\r\n    },\r\n  };\r\n\r\n  return transporter.sendMail(options, function (err, res) {\r\n    if (err) {\r\n      console.log(err);\r\n    } else {\r\n      console.log(res);\r\n    }\r\n  });\r\n};\r\n\r\nmodule.exports = {\r\n  sendMail: sendMail,\r\n  sendResetPass: sendResetPass,\r\n};\r\n"
+        }
+    ]
+}
